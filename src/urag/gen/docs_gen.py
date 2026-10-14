@@ -1,7 +1,7 @@
-"""S1 (Kubernetes docs) canonicalizer and mechanical case generator.
+"""Canonicalizer and mechanical case generator for versioned-documentation sources (S1 Kubernetes, S2 PostgreSQL).
 
 Reads only local, untracked extracts. Writes pointer-only cases (no source text).
-Run as:  python3 -I src/urag/gen/s1.py  (stdlib only; treats extracted files as data).
+Run as:  python3 -I src/urag/gen/docs_gen.py S1|S2  (stdlib only; treats extracted files as data).
 All parameters come from configs/generator.json (registered before generation).
 """
 import hashlib, json, os, random, re, sqlite3, subprocess, sys
@@ -9,11 +9,19 @@ from datetime import datetime, timedelta, timezone
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 CFG = json.load(open(os.path.join(ROOT, "configs", "generator.json")))
-S = CFG["sources"]["S1"]
 LOCAL = os.path.join(ROOT, ".local_sources")
-GIT = os.path.join(LOCAL, "k8s-website.git")
-VERSIONS = list(S["versions"])  # ordered
+SID = S = GIT = VERSIONS = None
 NEXT = {}
+META = {"S1": {"prefix": "k8s", "service": "kubernetes-docs", "git": "k8s-website.git", "dir": "s1"},
+        "S2": {"prefix": "pg", "service": "postgresql-docs", "git": "pg.git", "dir": "s2"}}
+
+
+def configure(sid):
+    global SID, S, GIT, VERSIONS
+    SID, S = sid, CFG["sources"][sid]
+    GIT = os.path.join(LOCAL, META[sid]["git"])
+    VERSIONS = list(S["versions"])
+    NEXT.clear()
 DS = CFG["diff_significance"]; DD = CFG["dedupe"]; SM = CFG["sampling"]
 
 
@@ -42,8 +50,19 @@ def parse(raw):
     return title, norm(body)
 
 
+def parse_sgml(raw):
+    raw = re.sub(r"<!--.*?-->", " ", raw, flags=re.S)
+    m = re.search(r"<title>(.*?)</title>", raw, re.S)
+    title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else None
+    body = re.sub(r"&[A-Za-z0-9._-]+;", " ", re.sub(r"<[^>]+>", " ", raw))
+    return title, norm(body)
+
+
 def eff_from(v):
     ref = S["versions"][v]
+    if SID == "S2":  # tag commit date
+        d = subprocess.check_output(["git", "--git-dir", GIT, "log", "-1", "--format=%cI", f"refs/tags/{ref}"]).decode().strip()
+        return datetime.fromisoformat(d).astimezone(timezone.utc).replace(tzinfo=None).replace(microsecond=0)
     mb = subprocess.check_output(["git", "--git-dir", GIT, "merge-base", f"refs/heads/{ref}", "refs/heads/main"]).decode().strip()
     d = subprocess.check_output(["git", "--git-dir", GIT, "log", "-1", "--format=%cI", mb]).decode().strip()
     return datetime.fromisoformat(d).astimezone(timezone.utc).replace(tzinfo=None).replace(microsecond=0)
@@ -59,31 +78,38 @@ def load_canon():
         windows[v][1] = windows[VERSIONS[i + n]][0] if i + n < len(VERSIONS) else cap
     NEXT.update({v: (windows[VERSIONS[i + 1]][0] if i + 1 < len(VERSIONS) else cap) for i, v in enumerate(VERSIONS)})
     docs = {}
+    pre = META[SID]["prefix"]
     for v in VERSIONS:
-        base = os.path.join(LOCAL, "s1", v, "content", "en", "docs")
-        for dp, _, fs in os.walk(base):
-            for f in fs:
-                if not f.endswith(".md"):
-                    continue
-                p = os.path.join(dp, f)
+        if SID == "S1":
+            base = os.path.join(LOCAL, "s1", v, "content", "en", "docs")
+            files = [os.path.join(dp, f) for dp, _, fs in os.walk(base) for f in fs if f.endswith(".md")]
+        else:  # S2: top-level doc/src/sgml/*.sgml only (registered path_glob)
+            base = os.path.join(LOCAL, "s2", v, "doc", "src", "sgml")
+            files = [os.path.join(base, f) for f in os.listdir(base) if f.endswith(".sgml")]
+        for p in files:
+            if True:
                 rel = os.path.relpath(p, base)
-                title, text = parse(open(p, encoding="utf-8", errors="replace").read())
-                docs[f"k8s:{rel}@{v}"] = {"id": f"k8s:{rel}@{v}", "path": rel, "version": v, "title": title, "text": text,
+                raw = open(p, encoding="utf-8", errors="replace").read()
+                title, text = parse(raw) if SID == "S1" else parse_sgml(raw)
+                docs[f"{pre}:{rel}@{v}"] = {"id": f"{pre}:{rel}@{v}", "path": rel, "version": v, "title": title, "text": text,
                                           "hash": hashlib.sha256(text.encode()).hexdigest()[:16], "next_release": NEXT[v].isoformat(),
                                           "effective_from": windows[v][0].isoformat(), "effective_to": windows[v][1].isoformat()}
     return docs, windows
 
 
 def cluster_of(path):
+    if SID == "S2":
+        return re.split(r"[-.]", path)[0]
     return "/".join(path.split("/")[:2]) if "/" in path else path
 
 
 def split_of(cluster):
-    h = int(hashlib.sha256(f"{CFG['seeds']['split']}|S1|{cluster}".encode()).hexdigest(), 16) % 100
+    h = int(hashlib.sha256(f"{CFG['seeds']['split']}|{SID}|{cluster}".encode()).hexdigest(), 16) % 100
     return "dev" if h < CFG["split"]["dev_fraction"] * 100 else "heldout"
 
 
-def main():
+def main(sid):
+    configure(sid)
     docs, windows = load_canon()
     by_path = {}
     for d in docs.values():
@@ -166,9 +192,9 @@ def main():
             if hi <= lo:
                 continue
             T = lo + (hi - lo) * rng.random()
-            case = {"id": "S1-" + fname[:2] + "-" + hashlib.sha1(c["gold"].encode()).hexdigest()[:8],
-                    "family": fname, "source": "S1", "cluster": c["cluster"], "split": split_of(c["cluster"]),
-                    "ticket": {"service": "kubernetes-docs", "opened_at": T.replace(microsecond=0).isoformat()},
+            case = {"id": SID + "-" + fname[:2] + "-" + hashlib.sha1(c["gold"].encode()).hexdigest()[:8],
+                    "family": fname, "source": SID, "cluster": c["cluster"], "split": split_of(c["cluster"]),
+                    "ticket": {"service": META[SID]["service"], "opened_at": T.replace(microsecond=0).isoformat()},
                     "query_from": {"field": "title", "doc": c["gold"]},
                     "gold": {"id": c["gold"], "path": c["path"], "version": v},
                     "origin": "mechanical generator configs/generator.json v1"}
@@ -211,12 +237,12 @@ def main():
     eff = {}
     for fm in {c["family"] for c in cases}:
         eff[fm] = len({c["cluster"] for c in cases if c["family"] == fm})
-    out = {"source": "S1", "config_version": CFG["config_version"], "windows": {v: [w[0].isoformat(), w[1].isoformat()] for v, w in windows.items()},
+    out = {"source": SID, "config_version": CFG["config_version"], "windows": {v: [w[0].isoformat(), w[1].isoformat()] for v, w in windows.items()},
            "stats": stats, "cases_by_family_split": summary, "distinct_clusters_by_family": eff, "n_cases": len(cases)}
-    json.dump(cases, open(os.path.join(ROOT, "data", "public", "S1_cases.json"), "w"), indent=1)
-    json.dump(out, open(os.path.join(ROOT, "data", "public", "S1_report.json"), "w"), indent=1)
+    json.dump(cases, open(os.path.join(ROOT, "data", "public", f"{SID}_cases.json"), "w"), indent=1)
+    json.dump(out, open(os.path.join(ROOT, "data", "public", f"{SID}_report.json"), "w"), indent=1)
     print(json.dumps(out, indent=1))
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else "S1")

@@ -1,6 +1,6 @@
-"""Runner for mechanically generated public-source cases (S1 so far).
+"""Runner for mechanically generated public-source cases (S1 Kubernetes, S2 PostgreSQL).
 
-  python3 -I src/urag/public_eval.py --split dev [--ablate]
+  python3 -I src/urag/public_eval.py --split dev [--ablate] [--sources S1,S2]
   python3 -I src/urag/public_eval.py --split heldout --confirm-frozen   # once per pipeline hash
 
 Source text is read from untracked local extracts; outputs contain ids only.
@@ -11,23 +11,29 @@ import argparse, hashlib, json, os, pickle, random, subprocess, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "src"))
 from urag import pipeline  # noqa: E402
-from urag.gen import s1  # noqa: E402
+from urag.gen import docs_gen  # noqa: E402
 
-CACHE = os.path.join(ROOT, ".local_sources", "s1", "canon.pkl")
+def _cache(sid):
+    return os.path.join(ROOT, ".local_sources", f"canon_{sid}.pkl")
+
+
+
 ANALYST = {"id": "analyst", "groups": ["it-ops"]}
 BOOT_SEED, BOOT_N = 20261018, 2000
 
 
-def build_base():
-    if os.path.exists(CACHE):
-        docs = pickle.load(open(CACHE, "rb"))
+def build_base(sid):
+    docs_gen.configure(sid)
+    svc = docs_gen.META[sid]["service"]
+    if os.path.exists(_cache(sid)):
+        docs = pickle.load(open(_cache(sid), "rb"))
     else:
-        docs, _ = s1.load_canon()
-        pickle.dump(docs, open(CACHE, "wb"))
+        docs, _ = docs_gen.load_canon()
+        pickle.dump(docs, open(_cache(sid), "wb"))
     out = []
     for d in docs.values():
         out.append({"id": d["id"], "type": "runbook", "title": d["title"] or d["path"], "body": d["text"],
-                    "service": "kubernetes-docs", "environment": None, "approval_state": "approved",
+                    "service": svc, "environment": None, "approval_state": "approved",
                     "effective_from": d["effective_from"], "effective_to": d["effective_to"],
                     "acl_groups": ["it-ops"], "version": d["version"], "source_version": d["version"],
                     "lineage": d["path"]})
@@ -61,10 +67,11 @@ def run_case(case, base_docs, docs_by_id, arm, disable):
     if case.get("remove_docs"):
         rm = set(case["remove_docs"])
         docs = [d for d in docs if d["id"] not in rm]
-    corpus = {"service_catalog": {"kubernetes-docs": []}, "environment_aliases": {}, "applicability_dims": ["service", "version"],
+    svc = docs_by_id[case["query_from"]["doc"]]["service"]
+    corpus = {"service_catalog": {svc: []}, "environment_aliases": {}, "applicability_dims": ["service", "version"],
               "cache_index": True, "docs": docs}
     title = docs_by_id[case["query_from"]["doc"]]["title"]
-    inc = {"id": case["id"], "summary": title, "service": "kubernetes-docs", "environment": None,
+    inc = {"id": case["id"], "summary": title, "service": svc, "environment": None,
            "opened_at": case["ticket"]["opened_at"], "version": case["ticket"].get("version")}
     tr = {}
     out = pipeline.investigate(corpus, ANALYST, inc, trace=tr, arm=arm, disable=frozenset(disable))
@@ -77,7 +84,7 @@ def equivalent(case, out, change_ratio_by_id):
     if a is None or case["family"].startswith("F4"):
         return False
     gp = case["gold"]["path"]
-    if a.split("@")[0] != "k8s:" + gp:
+    if a.split("@")[0] != case["gold"]["id"].split("@")[0]:
         return False
     return a != case["gold"]["id"] and a not in {d["id"] for d in case.get("distractors", [])}
 
@@ -131,10 +138,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", choices=["dev", "heldout"], required=True)
     ap.add_argument("--ablate", action="store_true")
+    ap.add_argument("--sources", default="S1,S2")
     ap.add_argument("--confirm-frozen", action="store_true", help="required for heldout")
     ap.add_argument("--limit", type=int, help="dev smoke runs only")
     a = ap.parse_args()
-    cases = [c for c in json.load(open(os.path.join(ROOT, "data", "public", "S1_cases.json"))) if c["split"] == a.split]
+    sids = a.sources.split(",")
+    cases = []
+    for sid in sids:
+        cases += [c for c in json.load(open(os.path.join(ROOT, "data", "public", f"{sid}_cases.json"))) if c["split"] == a.split]
     if a.limit:
         cases = cases[:a.limit]
     h = hashlib.sha256(open(os.path.join(ROOT, "src/urag/pipeline.py"), "rb").read() +
@@ -145,31 +156,32 @@ def main():
             sys.exit("heldout requires --confirm-frozen")
         if os.path.exists(log) and h in open(log).read():
             sys.exit(f"held-out already run for pipeline hash {h}; a rerun must be logged as an amendment")
-    docs, base = build_base()
-    by_id = {d["id"]: d for d in base}
+    bases = {sid: build_base(sid) for sid in sids}
+    by_ids = {sid: {d["id"]: d for d in bases[sid][1]} for sid in sids}
     arms = [("A", [])] + [("N1", []), ("N0", [])]
     if a.ablate:
         arms += [("A", [c]) for c in pipeline.CHECKS]
     rows = []
     for c in cases:
-        r = {"id": c["id"], "family": c["family"], "cluster": c["cluster"], "outcomes": {}}
+        r = {"id": c["id"], "family": c["family"], "source": c["source"], "cluster": f'{c["source"]}:{c["cluster"]}', "outcomes": {}}
         for arm, dis in arms:
             key = arm if not dis else f"A-{dis[0]}"
-            oc, out, got = run_case(c, base, by_id, arm, dis)
+            oc, out, got = run_case(c, bases[c['source']][1], by_ids[c['source']], arm, dis)
             r["outcomes"][key] = oc
             r.setdefault("equiv", {})[key] = oc == "wrong_doc" and equivalent(c, out, None)
             if not dis:
-                gp = "k8s:" + c["gold"]["path"]
+                gp = c["gold"]["id"].split("@")[0]
                 r.setdefault("retrieval", {})[arm] = {"gold_in_top10": c["gold"]["id"] in got,
                                                       "same_path_in_top10": any(x.split("@")[0] == gp for x in got)}
             if arm == "A" and not dis:
                 r["status"] = out.get("status")
         rows.append(r)
     summ = summarize(rows)
-    out = {"split": a.split, "pipeline_hash": h, "n_cases": len(rows), "sources": ["S1"],
-           "g1_status": "NOT EVALUABLE: 1 source (< 3 required); regression/dev evidence only",
+    out = {"split": a.split, "pipeline_hash": h, "n_cases": len(rows), "sources": sids,
+           "g1_status": ("NOT EVALUABLE: %d source(s) (< 3 required); dev/regression evidence only" % len(sids)) if len(sids) < 3
+                        else "sources >= 3, but dev split is never G1 evidence; held-out single run required",
            "families": summ, "cases": rows}
-    name = f"results/public_S1_{a.split}{'_ablate' if a.ablate else ''}.json"
+    name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}.json"
     json.dump(out, open(os.path.join(ROOT, name), "w"), indent=1)
     if a.split == "heldout":
         open(log, "a").write(f"{h} {subprocess.check_output(['git','-C',ROOT,'rev-parse','HEAD']).decode().strip()}\n")

@@ -1,0 +1,77 @@
+{
+ "source": "S2",
+ "config_version": 2,
+ "windows": {
+  "14": [
+   "2021-09-27T20:57:41",
+   "2026-10-14T00:00:00"
+  ],
+  "15": [
+   "2022-10-10T20:57:37",
+   "2026-10-14T00:00:00"
+  ],
+  "16": [
+   "2023-09-11T20:25:06",
+   "2026-10-14T00:00:00"
+  ],
+  "17": [
+   "2024-09-23T20:02:53",
+   "2026-10-14T00:00:00"
+  ],
+  "18": [
+   "2025-09-22T20:11:33",
+   "2026-10-14T00:00:00"
+  ]
+ },
+ "stats": {
+  "paths_with_multiple_versions": 170,
+  "candidate_gold_docs": 321,
+  "pool_sizes": {
+   "F1_wrong_version": 70,
+   "F2_stale_or_not_yet_effective": 70,
+   "F3_acl_exposure": 70
+  },
+  "drops": {
+   "F1_wrong_version": {
+    "exact_dup": 0,
+    "near_dup": 0,
+    "cluster_cap": 0
+   },
+   "F2_stale_or_not_yet_effective": {
+    "exact_dup": 0,
+    "near_dup": 0,
+    "cluster_cap": 0
+   },
+   "F3_acl_exposure": {
+    "exact_dup": 0,
+    "near_dup": 0,
+    "cluster_cap": 0
+   }
+  }
+ },
+ "cases_by_family_split": {
+  "F1_wrong_version": {
+   "dev": 29,
+   "heldout": 41
+  },
+  "F2_stale_or_not_yet_effective": {
+   "heldout": 41,
+   "dev": 29
+  },
+  "F3_acl_exposure": {
+   "heldout": 38,
+   "dev": 27
+  },
+  "F4_constructed_abstention": {
+   "heldout": 16,
+   "dev": 12
+  }
+ },
+ "distinct_clusters_by_family": {
+  "F4_constructed_abstention": 26,
+  "F1_wrong_version": 66,
+  "F3_acl_exposure": 62,
+  "F2_stale_or_not_yet_effective": 66
+ },
+ "n_cases": 233
+}
