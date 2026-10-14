@@ -187,6 +187,23 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
         elif label == "applicability_unknown":
             out["applicability_flags"].append({"id": d["id"], "note": reason})
             out["manifest"].append(d["id"])
+    if ("lifecycle" not in disable and incident.get("version") is None
+            and "version" in corpus.get("applicability_dims", ())):
+        # lineage rule (Amendment 5): version unspecified -> newest in-window revision of a lineage is current
+        newest = {}
+        for d in current:
+            ln = d.get("lineage")
+            if ln is not None and (ln not in newest or d["effective_from"] > newest[ln]["effective_from"]):
+                newest[ln] = d
+        kept_cur = []
+        for d in current:
+            ln = d.get("lineage")
+            if ln is not None and newest[ln] is not d:
+                out["historical"].append({"id": d["id"], "note": "superseded by a newer revision of the same document (version unspecified)"})
+                out["manifest"].append(d["id"])
+            else:
+                kept_cur.append(d)
+        current = kept_cur
     if len(current) == 1:
         out["applicable_runbook"] = {"id": current[0]["id"], "title": current[0]["title"]}
         out["manifest"].append(current[0]["id"])

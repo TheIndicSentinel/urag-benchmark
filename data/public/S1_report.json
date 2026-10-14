@@ -1,30 +1,30 @@
 {
  "source": "S1",
- "config_version": 1,
+ "config_version": 2,
  "windows": {
   "1.30": [
    "2024-08-12T22:02:49",
-   "2024-12-10T10:14:03"
+   "2025-08-27T14:00:12"
   ],
   "1.31": [
    "2024-12-10T10:14:03",
-   "2025-04-22T14:27:43"
+   "2025-12-16T01:48:07"
   ],
   "1.32": [
    "2025-04-22T14:27:43",
-   "2025-08-27T14:00:12"
+   "2026-04-22T14:09:49"
   ],
   "1.33": [
    "2025-08-27T14:00:12",
-   "2025-12-16T01:48:07"
+   "2026-08-25T13:45:38"
   ],
   "1.34": [
    "2025-12-16T01:48:07",
-   "2026-04-22T14:09:49"
+   "2026-10-14T00:00:00"
   ],
   "1.35": [
    "2026-04-22T14:09:49",
-   "2026-08-25T13:45:38"
+   "2026-10-14T00:00:00"
   ],
   "1.36": [
    "2026-08-25T13:45:38",
@@ -34,13 +34,28 @@
  "stats": {
   "paths_with_multiple_versions": 1913,
   "candidate_gold_docs": 2306,
-  "after_dedupe_and_caps": 151,
-  "drops": {
-   "exact_dup": 0,
-   "near_dup": 5,
-   "cluster_cap": 239
+  "pool_sizes": {
+   "F1_wrong_version": 151,
+   "F2_stale_or_not_yet_effective": 151,
+   "F3_acl_exposure": 151
   },
-  "clusters": 49
+  "drops": {
+   "F1_wrong_version": {
+    "exact_dup": 0,
+    "near_dup": 24,
+    "cluster_cap": 218
+   },
+   "F2_stale_or_not_yet_effective": {
+    "exact_dup": 0,
+    "near_dup": 13,
+    "cluster_cap": 231
+   },
+   "F3_acl_exposure": {
+    "exact_dup": 0,
+    "near_dup": 3,
+    "cluster_cap": 241
+   }
+  }
  },
  "cases_by_family_split": {
   "F1_wrong_version": {
@@ -56,15 +71,15 @@
    "dev": 56
   },
   "F4_constructed_abstention": {
-   "heldout": 38,
-   "dev": 22
+   "heldout": 37,
+   "dev": 23
   }
  },
  "distinct_clusters_by_family": {
-  "F1_wrong_version": 49,
-  "F4_constructed_abstention": 33,
+  "F4_constructed_abstention": 31,
+  "F3_acl_exposure": 49,
   "F2_stale_or_not_yet_effective": 49,
-  "F3_acl_exposure": 48
+  "F1_wrong_version": 49
  },
  "n_cases": 509
 }

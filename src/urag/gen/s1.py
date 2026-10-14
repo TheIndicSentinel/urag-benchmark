@@ -13,6 +13,7 @@ S = CFG["sources"]["S1"]
 LOCAL = os.path.join(ROOT, ".local_sources")
 GIT = os.path.join(LOCAL, "k8s-website.git")
 VERSIONS = list(S["versions"])  # ordered
+NEXT = {}
 DS = CFG["diff_significance"]; DD = CFG["dedupe"]; SM = CFG["sampling"]
 
 
@@ -49,12 +50,14 @@ def eff_from(v):
 
 
 def load_canon():
+    cap = datetime(2026, 10, 14)  # retrieval date caps open windows
     windows = {}
-    for i, v in enumerate(VERSIONS):
+    for v in VERSIONS:
         windows[v] = [eff_from(v), None]
-    for i in range(len(VERSIONS) - 1):
-        windows[VERSIONS[i]][1] = windows[VERSIONS[i + 1]][0]
-    windows[VERSIONS[-1]][1] = datetime(2026, 10, 14)  # retrieval date caps the open window
+    n = S["support_versions"]
+    for i, v in enumerate(VERSIONS):
+        windows[v][1] = windows[VERSIONS[i + n]][0] if i + n < len(VERSIONS) else cap
+    NEXT.update({v: (windows[VERSIONS[i + 1]][0] if i + 1 < len(VERSIONS) else cap) for i, v in enumerate(VERSIONS)})
     docs = {}
     for v in VERSIONS:
         base = os.path.join(LOCAL, "s1", v, "content", "en", "docs")
@@ -66,7 +69,7 @@ def load_canon():
                 rel = os.path.relpath(p, base)
                 title, text = parse(open(p, encoding="utf-8", errors="replace").read())
                 docs[f"k8s:{rel}@{v}"] = {"id": f"k8s:{rel}@{v}", "path": rel, "version": v, "title": title, "text": text,
-                                          "hash": hashlib.sha256(text.encode()).hexdigest()[:16],
+                                          "hash": hashlib.sha256(text.encode()).hexdigest()[:16], "next_release": NEXT[v].isoformat(),
                                           "effective_from": windows[v][0].isoformat(), "effective_to": windows[v][1].isoformat()}
     return docs, windows
 
@@ -111,36 +114,39 @@ def main():
             if ds:
                 cands.append({"path": path, "version": v, "gold": g["id"], "distractors": ds})
     stats = {"paths_with_multiple_versions": sum(len(v) > 1 for v in by_path.values()), "candidate_gold_docs": len(cands)}
-    # one candidate per path (seeded), then dedupe + caps
-    per_path = {}
-    for c in cands:
-        per_path.setdefault(c["path"], []).append(c)
-    chosen = []
-    for path in sorted(per_path):
-        chosen.append(rng.choice(per_path[path]))
-    rng.shuffle(chosen)
-    seen_hash, kept, kept_sh_by_cluster, per_cluster = set(), [], {}, {}
-    drops = {"exact_dup": 0, "near_dup": 0, "cluster_cap": 0}
-    for c in chosen:
-        g = docs[c["gold"]]; cl = cluster_of(c["path"])
-        if g["hash"] in seen_hash:
-            drops["exact_dup"] += 1; continue
-        if any(jacc(sh[g["id"]], s) >= DD["threshold"] for s in kept_sh_by_cluster.get(cl, [])):
-            drops["near_dup"] += 1; continue
-        if per_cluster.get(cl, 0) >= DD["per_template_cap_per_cluster"]:
-            drops["cluster_cap"] += 1; continue
-        seen_hash.add(g["hash"]); kept_sh_by_cluster.setdefault(cl, []).append(sh[g["id"]]); per_cluster[cl] = per_cluster.get(cl, 0) + 1
-        c["cluster"] = cl; kept.append(c)
-    stats.update({"after_dedupe_and_caps": len(kept), "drops": drops, "clusters": len(per_cluster)})
-    # family assignment: disjoint paths, F1 then F2 then F3, each capped
+    last = VERSIONS[-1]
+
+    def build_pool(fname, accept):
+        r = random.Random(f"{CFG['seeds']['sampling']}|pool|{fname}")
+        per = {}
+        for c in cands:
+            if accept(c):
+                per.setdefault(c["path"], []).append(c)
+        chosen = [r.choice(per[p_]) for p_ in sorted(per)]
+        r.shuffle(chosen)
+        seen, kept_, shs, pc = set(), [], {}, {}
+        dr = {"exact_dup": 0, "near_dup": 0, "cluster_cap": 0}
+        for c in chosen:
+            g = docs[c["gold"]]; cl = cluster_of(c["path"])
+            if g["hash"] in seen:
+                dr["exact_dup"] += 1; continue
+            if any(jacc(sh[g["id"]], x) >= DD["threshold"] for x in shs.get(cl, [])):
+                dr["near_dup"] += 1; continue
+            if pc.get(cl, 0) >= DD["per_template_cap_per_cluster"]:
+                dr["cluster_cap"] += 1; continue
+            seen.add(g["hash"]); shs.setdefault(cl, []).append(sh[g["id"]]); pc[cl] = pc.get(cl, 0) + 1
+            kept_.append(dict(c, cluster=cl))
+        return kept_, dr
+
     cap = SM["max_cases_per_family_per_source"]
     margin = timedelta(days=SM["windows_days_margin"])
-    # each family is a distinct failure class: seeded independent sample from the deduped pool (Amendment 2)
-    fam = {}
-    for fname in ("F1_wrong_version", "F2_stale_or_not_yet_effective", "F3_acl_exposure"):
-        pool = list(kept)
-        random.Random(f"{CFG['seeds']['sampling']}|{fname}").shuffle(pool)
-        fam[fname] = pool[:cap]
+    pools, drops = {}, {}
+    pools["F1_wrong_version"], drops["F1_wrong_version"] = build_pool("F1_wrong_version", lambda c: c["version"] != last)
+    pools["F2_stale_or_not_yet_effective"], drops["F2_stale_or_not_yet_effective"] = build_pool("F2_stale_or_not_yet_effective", lambda c: True)
+    pools["F3_acl_exposure"], drops["F3_acl_exposure"] = build_pool("F3_acl_exposure", lambda c: True)
+    stats["pool_sizes"] = {k: len(v) for k, v in pools.items()}
+    stats["drops"] = drops
+    fam = {k: v[:cap] for k, v in pools.items()}
     cases = []
     conn = None
     if fam["F3_acl_exposure"]:  # neutral BM25 over whole corpus for the ACL overlay
@@ -150,8 +156,13 @@ def main():
     for fname, items in fam.items():
         for c in items:
             g = docs[c["gold"]]; v = c["version"]
-            lo = datetime.fromisoformat(g["effective_from"]) + margin
-            hi = datetime.fromisoformat(g["effective_to"]) - margin
+            if fname == "F1_wrong_version":  # after u+1 is released, before u's end of support
+                nxt = datetime.fromisoformat(g["next_release"])
+                lo = nxt + margin
+                hi = datetime.fromisoformat(g["effective_to"]) - margin
+            else:  # v is the latest released version at T
+                lo = datetime.fromisoformat(g["effective_from"]) + margin
+                hi = datetime.fromisoformat(g["next_release"]) - margin
             if hi <= lo:
                 continue
             T = lo + (hi - lo) * rng.random()
@@ -161,12 +172,12 @@ def main():
                     "query_from": {"field": "title", "doc": c["gold"]},
                     "gold": {"id": c["gold"], "path": c["path"], "version": v},
                     "origin": "mechanical generator configs/generator.json v1"}
-            if fname == "F1_wrong_version" or fname == "F3_acl_exposure":
+            if fname in ("F1_wrong_version", "F3_acl_exposure"):
                 case["ticket"]["version"] = v
             rel = []
             for d in c["distractors"]:
                 if fname == "F1_wrong_version":
-                    r = "wrong_version"
+                    r = "not_yet_effective" if datetime.fromisoformat(docs[d["id"]]["effective_from"]) > T else "wrong_version"
                 else:
                     r = "superseded" if VERSIONS.index(d["version"]) < VERSIONS.index(v) else "not_yet_effective"
                 rel.append({**d, "relation": r})

@@ -29,7 +29,8 @@ def build_base():
         out.append({"id": d["id"], "type": "runbook", "title": d["title"] or d["path"], "body": d["text"],
                     "service": "kubernetes-docs", "environment": None, "approval_state": "approved",
                     "effective_from": d["effective_from"], "effective_to": d["effective_to"],
-                    "acl_groups": ["it-ops"], "version": d["version"], "source_version": d["version"]})
+                    "acl_groups": ["it-ops"], "version": d["version"], "source_version": d["version"],
+                    "lineage": d["path"]})
     return docs, out
 
 
