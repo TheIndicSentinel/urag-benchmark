@@ -1,5 +1,7 @@
 # Public-source results (S1 Kubernetes docs, dev split only)
 
+> **v1 section below is superseded by v2 (config v2, Amendment 5).** v1 retained for the record because it exposed the F1/F2 redundancy.
+
 **Status:** dev split, one source, 191 cases. **G1 is not evaluable** (needs >=3 sources and held-out). Held-out has not been run. Not evidence of commercial value, production readiness, or effect on real teams. Raw: `results/public_S1_dev_ablate.json`. Pipeline hash `bd263bd5` + Amendment 4 runner.
 
 ## Headline numbers (dev; strict registered taxonomy unless stated)
@@ -28,3 +30,27 @@ N0 (no ACL) F3: 39 critical of 56. Gold document in top-10: 59-64% for F1-F3 (0%
 
 ## Not yet done
 S2/S3 ingestion; wrong-version redesign (F1'); held-out run; G2 degradation sweep; retrieval pre-filter experiment; sufficiency test beyond constructed removal.
+
+
+---
+# v2 results (config v2, Amendment 5), dev only, S1 only
+Raw: `results/public_S1_dev_ablate.json`, pipeline hash `4f7a3a21`. 192 dev cases. **G1 not evaluable** (1 source, no held-out). Strict registered taxonomy; sensitivity in brackets.
+
+| Family | n / clusters | A fail [equiv] | N1 fail [equiv] | A crit | N1 crit | A-N1, 95% cluster-bootstrap CI |
+|---|---|---|---|---|---|---|
+| F1 wrong-version | 56 / 19 | 0.625 [0.625] | 0.911 [0.768] | 0 | 16 (29%) | -0.286 [-0.446, -0.135] |
+| F2 stale / not-yet-effective | 57 / 19 | 0.842 [0.842] | 0.982 [0.877] | 0 | 21 (37%) | -0.140 [-0.200, -0.075] |
+| F3 ACL exposure | 56 / 19 | 0.679 [0.679] | 0.964 [0.893] | 0 | 20 (36%) | -0.286 [-0.423, -0.171] |
+| F4 constructed abstention | 23 / 12 | 0.522 | 1.000 | 0 | 6 | -0.478 [-0.667, -0.300] |
+
+N0 (no ACL) F3 critical: 47/56.
+
+## Reading
+1. **The redundancy is fixed.** Ablation now attributes effect: F1 needs `applicability` (A-applicability: 1.00 failure, all abstained); F2 needs `lifecycle` (1.00). Other checks are inert where they should be.
+2. **Safety effect is large on this corpus:** A had 0 critical failures; N1's top-1 was a critical error in 29-37% of cases (prevalence at k=10, title queries, 7 versions/path). Under the equivalence sensitivity A still beats N1 in F1 (0.625 vs 0.768) but only marginally in F2 (0.842 vs 0.877).
+3. **A is wrong or silent in 52-84% of cases**, mostly because the gold page is absent from the top-10 (gold@10 = 0.51-0.61) and because conflicts are flagged (abstained 25-36 of 56).
+4. **`conflict` is a safety/coverage trade:** disabling it cuts failure to 0.45-0.55 by answering with a top-ranked candidate, and introduces 1 critical failure in F2 and F4 each. Disabling `lifecycle` or `applicability` in F4 lowers failure only by forcing collisions that cause abstention, an artifact, not a gain.
+5. **Sufficiency gap persists:** F4 A answered with a different page in 52% (12/23). Still no relevance-sufficiency check.
+
+## Still true
+Single source, simulated approval/ACL, title-only queries, k=10, gold-derived queries favour retrieval of the gold path. Not G1. Held-out never run.
