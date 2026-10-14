@@ -144,7 +144,7 @@ def _naive(hits, incident, visible_ids):
     return out
 
 
-def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", disable=frozenset()):
+def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", disable=frozenset(), variant=frozenset()):
     """arm: "A" governed, "N1" ACL-filtered retrieval only, "N0" retrieval only (no ACL).
     disable: subset of CHECKS to switch off in arm A (ablation)."""
     if arm not in ARMS:
@@ -155,6 +155,12 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
     catalog = corpus["service_catalog"]
     visible = corpus["docs"] if arm == "N0" else authorize(corpus["docs"], user)
     cand = [d for d in visible if d["type"] in ("runbook", "incident")]
+    if "meta_prefilter" in variant:  # Amendment 6: metadata filter before ranking (window + known version only)
+        at_ = _dt(incident["opened_at"]); iv_ = incident.get("version")
+        cand = [d for d in cand
+                if (not d.get("effective_from") or _dt(d["effective_from"]) <= at_)
+                and (not d.get("effective_to") or at_ < _dt(d["effective_to"]))
+                and (iv_ is None or d.get("version") is None or str(d["version"]) == str(iv_))]
     svc = resolve_service(incident.get("service"), catalog)
     if prefilter and svc:  # optional metadata pre-filter; unscoped docs kept
         cand = [d for d in cand if d.get("service") in (svc, None)]
@@ -207,6 +213,12 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
     if len(current) == 1:
         out["applicable_runbook"] = {"id": current[0]["id"], "title": current[0]["title"]}
         out["manifest"].append(current[0]["id"])
+    elif (len(current) > 1 and "ranked_alternatives" in variant
+          and all(d.get("lineage") is not None for d in current)
+          and len({d["lineage"] for d in current}) == len(current)):
+        out["applicable_runbook"] = {"id": current[0]["id"], "title": current[0]["title"]}
+        out["alternatives"] = [{"id": d["id"]} for d in current[1:]]
+        out["manifest"] += [d["id"] for d in current]
     elif len(current) > 1 and "conflict" in disable:  # ablation: take the top-ranked eligible runbook
         out["applicable_runbook"] = {"id": current[0]["id"], "title": current[0]["title"]}
         out["manifest"].append(current[0]["id"])

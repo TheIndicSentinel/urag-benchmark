@@ -59,7 +59,14 @@ def classify(case, out):
     return "critical" if a in dist else "wrong_doc"
 
 
+VARIANTS = {"A2": ("A", {"ranked_alternatives"}), "N1P": ("N1", {"meta_prefilter"}),
+            "AP": ("A", {"meta_prefilter"}), "A2P": ("A", {"ranked_alternatives", "meta_prefilter"})}
+
+
 def run_case(case, base_docs, docs_by_id, arm, disable):
+    variant = frozenset()
+    if arm in VARIANTS:
+        arm, v = VARIANTS[arm]; variant = frozenset(v)
     docs = base_docs
     if case.get("restricted_overlay"):
         o = case["restricted_overlay"]["doc"]
@@ -74,7 +81,7 @@ def run_case(case, base_docs, docs_by_id, arm, disable):
     inc = {"id": case["id"], "summary": title, "service": svc, "environment": None,
            "opened_at": case["ticket"]["opened_at"], "version": case["ticket"].get("version")}
     tr = {}
-    out = pipeline.investigate(corpus, ANALYST, inc, trace=tr, arm=arm, disable=frozenset(disable))
+    out = pipeline.investigate(corpus, ANALYST, inc, trace=tr, arm=arm, disable=frozenset(disable), variant=variant)
     return classify(case, out), out, tr.get("retrieved", [])
 
 
@@ -126,9 +133,11 @@ def summarize(rows):
             if rt and arm in entry:
                 entry[arm]["gold_in_top10"] = round(sum(x["gold_in_top10"] for x in rt) / len(rt), 3)
                 entry[arm]["same_path_in_top10"] = round(sum(x["same_path_in_top10"] for x in rt) / len(rt), 3)
-        if "A" in entry and "N1" in entry:
-            pairs = [(r["cluster"], r["outcomes"]["A"] != "correct", r["outcomes"]["N1"] != "correct") for r in fr]
-            entry["A_minus_N1"] = boot_ci([(c, int(a), int(n)) for c, a, n in pairs])
+        for x_, y_ in (("A", "N1"), ("A2", "N1"), ("AP", "N1P"), ("A2P", "N1P")):
+            if x_ in entry and y_ in entry:
+                pairs = [(r["cluster"], int(r["outcomes"][x_] != "correct"), int(r["outcomes"][y_] != "correct")) for r in fr]
+                entry[f"{x_}_minus_{y_}"] = boot_ci(pairs)
+        if "N1" in entry:
             entry["prevalence_N1_failure"] = entry["N1"]["failure_rate"]
         res[f] = entry
     return res
@@ -139,6 +148,7 @@ def main():
     ap.add_argument("--split", choices=["dev", "heldout"], required=True)
     ap.add_argument("--ablate", action="store_true")
     ap.add_argument("--sources", default="S1,S2")
+    ap.add_argument("--variants", action="store_true", help="also run A2, N1P, AP, A2P (Amendment 6)")
     ap.add_argument("--confirm-frozen", action="store_true", help="required for heldout")
     ap.add_argument("--limit", type=int, help="dev smoke runs only")
     a = ap.parse_args()
@@ -159,6 +169,8 @@ def main():
     bases = {sid: build_base(sid) for sid in sids}
     by_ids = {sid: {d["id"]: d for d in bases[sid][1]} for sid in sids}
     arms = [("A", [])] + [("N1", []), ("N0", [])]
+    if a.variants:
+        arms += [(v, []) for v in VARIANTS]
     if a.ablate:
         arms += [("A", [c]) for c in pipeline.CHECKS]
     rows = []
@@ -175,13 +187,15 @@ def main():
                                                       "same_path_in_top10": any(x.split("@")[0] == gp for x in got)}
             if arm == "A" and not dis:
                 r["status"] = out.get("status")
+            if arm in VARIANTS:
+                r.setdefault("status_by_arm", {})[arm] = out.get("status")
         rows.append(r)
     summ = summarize(rows)
     out = {"split": a.split, "pipeline_hash": h, "n_cases": len(rows), "sources": sids,
            "g1_status": ("NOT EVALUABLE: %d source(s) (< 3 required); dev/regression evidence only" % len(sids)) if len(sids) < 3
                         else "sources >= 3, but dev split is never G1 evidence; held-out single run required",
            "families": summ, "cases": rows}
-    name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}.json"
+    name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}{'_variants' if a.variants else ''}.json"
     json.dump(out, open(os.path.join(ROOT, name), "w"), indent=1)
     if a.split == "heldout":
         open(log, "a").write(f"{h} {subprocess.check_output(['git','-C',ROOT,'rev-parse','HEAD']).decode().strip()}\n")

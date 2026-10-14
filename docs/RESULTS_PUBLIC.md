@@ -54,3 +54,29 @@ N0 (no ACL) F3 critical: 47/56.
 
 ## Still true
 Single source, simulated approval/ACL, title-only queries, k=10, gold-derived queries favour retrieval of the gold path. Not G1. Held-out never run.
+
+---
+# v3: S1+S2 dev, variants and metadata-filter control (Amendment 6)
+Raw: `results/public_S1-S2_dev_variants.json` (289 dev cases; 47/47/45/24 clusters per family). **G1 not evaluable** (2 sources; dev). Strict taxonomy; `crit` = critical failures.
+
+| Family (n) | N1 fail/crit | N1P fail/crit | A fail/crit | A2 fail/crit | A2P fail/crit | A2P-N1P (95% CI) |
+|---|---|---|---|---|---|---|
+| F1 wrong-version (85) | 0.906 / 25 | 0.424 / 0 | 0.729 / 0 | 0.424 / 0 | 0.424 / 0 | 0.000 [0.000, 0.000] |
+| F2 stale/not-yet-effective (86) | 0.895 / 27 | 0.826 / 10 | 0.895 / 0 | 0.477 / 1 | 0.477 / 0 | -0.349 [-0.447, -0.250] |
+| F3 ACL exposure (83) | 0.904 / 25 | 0.518 / 0 | 0.771 / 0 | 0.506 / 0 | 0.518 / 0 | 0.000 [0.000, 0.000] |
+| F4 constructed abstention (35) | 1.000 / 11 | 1.000 / 2 | 0.457 / 0 | 0.971 / 2 | 1.000 / 2 | 0.000 [0.000, 0.000] |
+
+## Findings
+1. **On clean metadata, a metadata filter matches governance on F1 and F3.** `N1P` (ACL + version/window filter before ranking, top-ranked output, no governance decisions) has 0 critical failures and exactly the same per-case outcomes as `A2P` (paired difference 0, CI [0, 0]). The falsification reading registered in Amendment 6.3 applies to these families: **the governance layer's incremental value over a metadata filter is not demonstrated for wrong-version or ACL exposure on this data.**
+2. **Governance adds measurable value only where policy has to be applied:** F2 (version unspecified). The lineage rule removes N1P's 10 critical failures (older supported revision presented as current) and lowers failure from 0.826 to 0.477. Caveat: F2's gold is policy-defined (Amendment 3.2), so this shows the rule implements the stated policy, not that users want it.
+3. **Tautology warning (important).** Expected behaviour is scripted from the same version/window metadata the filter uses, so `N1P` succeeds largely by construction. These families cannot separate filtering from governance on clean metadata; the registered G2 degradation sweep (missing/corrupt metadata) is where silent filtering and flagged abstention should differ. No conclusion about real metadata quality is supported yet.
+4. **`conflict` as built is a coverage killer in document corpora** (A: abstained 52-65 of 85-86 in F1/F2) and the A2 variant restores coverage but **loses abstention under missing evidence**: in F4 A2/A2P/N1P answer in 97-100% (A: 46%). The old conflict rule was acting as an accidental sufficiency proxy. No variant has a real sufficiency check.
+5. **`AP` abstains on everything** (F1-F3 failure 1.00, F4 0.00): the degenerate always-abstain profile; reported to keep coverage-vs-risk honest.
+6. **Variant selection (Amendment 6.4):** by the registered rule (0 critical, then lowest failure) the carried variant is **A itself**; A2P is a better coverage profile but has 2 critical failures in synthetic F4 and is **exploratory only**, not selected.
+
+## Per-source note
+S1: A 0.62/0.84/0.68 (F1-F3) vs N1 0.91/0.98/0.96. S2: A 0.93/1.00/0.96 vs N1 0.90/0.72/0.78: **A is worse than N1 on S2 failure rate** (conflict abstention) while having 0 critical failures vs N1's 20 critical across S2 F1-F3.
+
+## What this changes
+- Value claim narrows to: *eligibility governance converts silent critical errors into flags/abstentions*, and a **simple metadata prefilter delivers most of that on clean metadata.** The distinct contribution is lineage/lifecycle policy and behaviour under degraded metadata, both still to be shown.
+- Not yet run: S3, held-out, G2 sweep.
