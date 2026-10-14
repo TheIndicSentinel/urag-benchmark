@@ -7,7 +7,7 @@
     "S1": {"name": "kubernetes-website", "family": "doc-versioning", "repo": "https://github.com/kubernetes/website.git",
            "path_glob": "content/en/docs/**/*.md",
            "versions": {"1.30": "release-1.30", "1.31": "release-1.31", "1.32": "release-1.32", "1.33": "release-1.33", "1.34": "release-1.34", "1.35": "release-1.35", "1.36": "release-1.36"},
-           "pinned_shas": {"release-1.30": "c28dcd8393562ddc6adf89b920ad3c396166a31b", "release-1.31": "11f92a075a2a6b97448d8bb586ad7eac14871e04", "release-1.32": "a6b9d383dfe5cba5d846d3f05475c6cc25f3d2d7", "release-1.33": "b9ab6105d0e3b6824dc368d3dd3b101fb4774575", "release-1.34": "47132eb5367cfdcba0a3b33a0b3ffc81185bd7e8", "release-1.35": "8817d358864b70a9710c5ad34f78df6a239be33d", "release-1.36": "1de955ebab"},
+           "pinned_shas": {"release-1.30": "c28dcd8393562ddc6adf89b920ad3c396166a31b", "release-1.31": "11f92a075a2a6b97448d8bb586ad7eac14871e04", "release-1.32": "a6b9d383dfe5cba5d846d3f05475c6cc25f3d2d7", "release-1.33": "b9ab6105d0e3b6824dc368d3dd3b101fb4774575", "release-1.34": "47132eb5367cfdcba0a3b33a0b3ffc81185bd7e8", "release-1.35": "8817d358864b70a9710c5ad34f78df6a239be33d", "release-1.36": "1de955ebabe7e17da1ebb4f582635491227f4157"},
            "effective_from": "committer date of git merge-base(release-V, main)", "effective_to": "effective_from of the next version; open for the last",
            "split_cluster": "second path component under content/en/docs (e.g. concepts/workloads)"},
     "S2": {"name": "postgresql-docs", "family": "doc-versioning", "repo": "https://git.postgresql.org/git/postgresql.git",

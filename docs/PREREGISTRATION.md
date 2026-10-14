@@ -53,3 +53,9 @@ Registered before any ingestion or generation. Nothing above this section was ch
 4. **Arms N0/N1** remain frozen as specified in s2; neither gains version or lifecycle logic.
 5. **Expected-inconclusive classes** are listed in the config. wrong-version has only two versioned sources (S1, S2) so it is expected to be **inconclusive** unless a third versioned source is registered by a further amendment before generation. Thresholds are not lowered.
 6. **Known threat to validity** (also in config): query text is derived from the gold page title; the N1 gap on versioned corpora is partly by construction. Interpretation requires the reported prevalence and the ablations.
+
+### Amendment 2 (2026-10-14): generator allocation and timezone, before any arm run
+First S1 generation run (counts only, no arm executed, no expectations evaluated) showed (a) F1 consumed the whole deduped pool leaving F2 with 1 case and F3 with 0; (b) window timestamps used the local timezone. Corrections, made before any arm ran on these cases:
+1. Each family draws an independent seeded sample (cap 150) from the same deduped pool; the same gold document may appear in different families (distinct failure classes, analysed separately). Within-class independence is unchanged.
+2. All committer dates are converted to UTC.
+These are generator implementation fixes and do not change thresholds, seeds, dedupe, splits or arm semantics. Seeing the counts is disclosed here.
