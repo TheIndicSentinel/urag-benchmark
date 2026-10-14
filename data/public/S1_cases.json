@@ -21909,1133 +21909,348 @@
   }
  },
  {
-  "id": "S1-F4-8c267b22t",
+  "id": "S1-F4-8833c225t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "tutorials/kubernetes-basics",
+  "cluster": "concepts/scheduling-eviction",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-03-11T06:27:05",
+   "version": "1.32"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.32"
+  },
+  "gold": {
+   "id": "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.32",
+   "path": "concepts/scheduling-eviction/scheduler-perf-tuning.md",
+   "version": "1.32"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.241,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.242,
+    "relation": "not_yet_effective"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.35",
+    "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.36"
+   ]
+  },
+  "twin_of": "S1-F1-8833c225",
+  "remove_docs": [
+   "k8s:concepts/scheduling-eviction/scheduler-perf-tuning.md@1.32"
+  ]
+ },
+ {
+  "id": "S1-F4-50119268t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/kubectl",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-06-01T21:27:08",
-   "version": "1.33"
+   "opened_at": "2026-07-06T08:49:15",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.33"
+   "doc": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.34"
   },
   "gold": {
-   "id": "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.33",
-   "path": "tutorials/kubernetes-basics/update/update-intro.md",
-   "version": "1.33"
+   "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.34",
+   "path": "reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md",
+   "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.192,
+    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.162,
     "relation": "wrong_version"
    },
    {
-    "id": "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.192,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.35",
-    "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-8c267b22",
-  "remove_docs": [
-   "k8s:tutorials/kubernetes-basics/update/update-intro.md@1.33"
-  ]
- },
- {
-  "id": "S1-F4-48eb331et",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/config-api",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-10-23T01:57:09",
-   "version": "1.31"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/config-api/apiserver-webhookadmission.v1.md@1.31"
-  },
-  "gold": {
-   "id": "k8s:reference/config-api/apiserver-webhookadmission.v1.md@1.31",
-   "path": "reference/config-api/apiserver-webhookadmission.v1.md",
-   "version": "1.31"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
+    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.101,
+    "relation": "wrong_version"
+   },
    {
-    "id": "k8s:reference/config-api/apiserver-webhookadmission.v1.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.375,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/config-api/apiserver-webhookadmission.v1.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-48eb331e",
-  "remove_docs": [
-   "k8s:reference/config-api/apiserver-webhookadmission.v1.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-cf394e91t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/tls",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-05-22T04:02:26"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/tls/certificate-issue-client-csr.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:tasks/tls/certificate-issue-client-csr.md@1.35",
-   "path": "tasks/tls/certificate-issue-client-csr.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
+    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.101,
+    "relation": "wrong_version"
+   },
    {
-    "id": "k8s:tasks/tls/certificate-issue-client-csr.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.128,
-    "relation": "not_yet_effective"
+    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.101,
+    "relation": "wrong_version"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:tasks/tls/certificate-issue-client-csr.md@1.36"
+    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.30",
+    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.31",
+    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.32",
+    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.33"
    ]
   },
-  "twin_of": "S1-F2-cf394e91",
+  "twin_of": "S1-F1-50119268",
   "remove_docs": [
-   "k8s:tasks/tls/certificate-issue-client-csr.md@1.35"
+   "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_current-context.md@1.34"
   ]
  },
  {
-  "id": "S1-F4-fe40d28dt",
+  "id": "S1-F4-085051fct",
   "family": "F4_constructed_abstention",
   "source": "S1",
   "cluster": "reference/instrumentation",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2025-09-22T21:14:07",
-   "version": "1.32"
+   "opened_at": "2026-07-29T13:16:00",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:reference/instrumentation/zpages.md@1.32"
+   "doc": "k8s:reference/instrumentation/understand-psi-metrics.md@1.34"
   },
   "gold": {
-   "id": "k8s:reference/instrumentation/zpages.md@1.32",
-   "path": "reference/instrumentation/zpages.md",
-   "version": "1.32"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/instrumentation/zpages.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.662,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:reference/instrumentation/zpages.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.715,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/instrumentation/zpages.md@1.35",
-    "k8s:reference/instrumentation/zpages.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-fe40d28d",
-  "remove_docs": [
-   "k8s:reference/instrumentation/zpages.md@1.32"
-  ]
- },
- {
-  "id": "S1-F4-996c6bb5t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/configure-pod-container",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-04-10T11:58:22",
-   "version": "1.33"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.33"
-  },
-  "gold": {
-   "id": "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.33",
-   "path": "tasks/configure-pod-container/assign-pod-level-resources.md",
-   "version": "1.33"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.108,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.126,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.147,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.34",
-    "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.35",
-    "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-996c6bb5",
-  "remove_docs": [
-   "k8s:tasks/configure-pod-container/assign-pod-level-resources.md@1.33"
-  ]
- },
- {
-  "id": "S1-F4-f0ae2b5dt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/setup-tools",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-05-22T13:28:47"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.35",
-   "path": "reference/setup-tools/kubeadm/kubeadm-reset.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.641,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.641,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.30",
-    "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.31"
-   ]
-  },
-  "twin_of": "S1-F2-f0ae2b5d",
-  "remove_docs": [
-   "k8s:reference/setup-tools/kubeadm/kubeadm-reset.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-8e7b3208t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/containers",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-03-17T04:27:22"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/containers/cri.md@1.34"
-  },
-  "gold": {
-   "id": "k8s:concepts/containers/cri.md@1.34",
-   "path": "concepts/containers/cri.md",
+   "id": "k8s:reference/instrumentation/understand-psi-metrics.md@1.34",
+   "path": "reference/instrumentation/understand-psi-metrics.md",
    "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:concepts/containers/cri.md@1.36",
+    "id": "k8s:reference/instrumentation/understand-psi-metrics.md@1.36",
     "version": "1.36",
-    "change_ratio": 0.392,
+    "change_ratio": 0.301,
     "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:concepts/containers/cri.md@1.36"
+    "k8s:reference/instrumentation/understand-psi-metrics.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-8e7b3208",
+  "twin_of": "S1-F1-085051fc",
   "remove_docs": [
-   "k8s:concepts/containers/cri.md@1.34"
+   "k8s:reference/instrumentation/understand-psi-metrics.md@1.34"
   ]
  },
  {
-  "id": "S1-F4-eb95de26t",
+  "id": "S1-F4-038b409ct",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "concepts/services-networking",
+  "cluster": "reference/access-authn-authz",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2024-09-19T00:59:46"
+   "opened_at": "2025-08-06T23:52:36",
+   "version": "1.30"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:concepts/services-networking/ingress.md@1.30"
+   "doc": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.30"
   },
   "gold": {
-   "id": "k8s:concepts/services-networking/ingress.md@1.30",
-   "path": "concepts/services-networking/ingress.md",
+   "id": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.30",
+   "path": "reference/access-authn-authz/certificate-signing-requests.md",
    "version": "1.30"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:concepts/services-networking/ingress.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.136,
-    "relation": "not_yet_effective"
+    "id": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.15,
+    "relation": "wrong_version"
    },
    {
-    "id": "k8s:concepts/services-networking/ingress.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.136,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/services-networking/ingress.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.136,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/services-networking/ingress.md@1.34",
-    "k8s:concepts/services-networking/ingress.md@1.35",
-    "k8s:concepts/services-networking/ingress.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-eb95de26",
-  "remove_docs": [
-   "k8s:concepts/services-networking/ingress.md@1.30"
-  ]
- },
- {
-  "id": "S1-F4-b03a95d9t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/tools",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-04-08T20:34:32"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/tools/_index.md@1.31"
-  },
-  "gold": {
-   "id": "k8s:reference/tools/_index.md@1.31",
-   "path": "reference/tools/_index.md",
-   "version": "1.31"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/tools/_index.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.293,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:reference/tools/_index.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.293,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/tools/_index.md@1.35",
-    "k8s:reference/tools/_index.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-b03a95d9",
-  "remove_docs": [
-   "k8s:reference/tools/_index.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-145571cct",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/overview",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-11-06T09:44:40"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/overview/working-with-objects/annotations.md@1.33"
-  },
-  "gold": {
-   "id": "k8s:concepts/overview/working-with-objects/annotations.md@1.33",
-   "path": "concepts/overview/working-with-objects/annotations.md",
-   "version": "1.33"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/overview/working-with-objects/annotations.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.125,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/overview/working-with-objects/annotations.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-145571cc",
-  "remove_docs": [
-   "k8s:concepts/overview/working-with-objects/annotations.md@1.33"
-  ]
- },
- {
-  "id": "S1-F4-ceff442at",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/cluster-administration",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-09-19T03:38:10"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/cluster-administration/swap-memory-management.md@1.33"
-  },
-  "gold": {
-   "id": "k8s:concepts/cluster-administration/swap-memory-management.md@1.33",
-   "path": "concepts/cluster-administration/swap-memory-management.md",
-   "version": "1.33"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/cluster-administration/swap-memory-management.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.151,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/swap-memory-management.md@1.35",
-    "version": "1.35",
+    "id": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.33",
+    "version": "1.33",
     "change_ratio": 0.153,
     "relation": "not_yet_effective"
    },
    {
-    "id": "k8s:concepts/cluster-administration/swap-memory-management.md@1.36",
+    "id": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.286,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.308,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.36",
     "version": "1.36",
-    "change_ratio": 0.157,
+    "change_ratio": 0.364,
     "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:concepts/cluster-administration/swap-memory-management.md@1.34",
-    "k8s:concepts/cluster-administration/swap-memory-management.md@1.35",
-    "k8s:concepts/cluster-administration/swap-memory-management.md@1.36"
+    "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.32",
+    "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.33",
+    "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.34",
+    "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.35",
+    "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-ceff442a",
+  "twin_of": "S1-F1-038b409c",
   "remove_docs": [
-   "k8s:concepts/cluster-administration/swap-memory-management.md@1.33"
+   "k8s:reference/access-authn-authz/certificate-signing-requests.md@1.30"
   ]
  },
  {
-  "id": "S1-F4-e964b971t",
+  "id": "S1-F4-8512edb2t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "concepts/workloads",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-07-18T19:07:08"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/workloads/controllers/deployment.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:concepts/workloads/controllers/deployment.md@1.35",
-   "path": "concepts/workloads/controllers/deployment.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/workloads/controllers/deployment.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.114,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/workloads/controllers/deployment.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.11,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/workloads/controllers/deployment.md@1.30",
-    "k8s:concepts/workloads/controllers/deployment.md@1.31"
-   ]
-  },
-  "twin_of": "S1-F2-e964b971",
-  "remove_docs": [
-   "k8s:concepts/workloads/controllers/deployment.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-ef249144t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/debug",
+  "cluster": "reference/command-line-tools-reference",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-09-13T18:56:25",
-   "version": "1.35"
+   "opened_at": "2026-09-05T03:39:08",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tasks/debug/debug-application/debug-running-pod.md@1.35"
+   "doc": "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.34"
   },
   "gold": {
-   "id": "k8s:tasks/debug/debug-application/debug-running-pod.md@1.35",
-   "path": "tasks/debug/debug-application/debug-running-pod.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/debug/debug-application/debug-running-pod.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.119,
-    "relation": "wrong_version"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/debug/debug-application/debug-running-pod.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F1-ef249144",
-  "remove_docs": [
-   "k8s:tasks/debug/debug-application/debug-running-pod.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-559f4f1bt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/configure-pod-container",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-10-02T20:04:31"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.36"
-  },
-  "gold": {
-   "id": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.36",
-   "path": "tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.506,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.515,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.507,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.507,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.532,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.30",
-    "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.31",
-    "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.32",
-    "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.33",
-    "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.34"
-   ]
-  },
-  "twin_of": "S1-F2-559f4f1b",
-  "remove_docs": [
-   "k8s:tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-86517633t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/tls",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-03-31T14:58:55"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/tls/certificate-rotation.md@1.34"
-  },
-  "gold": {
-   "id": "k8s:tasks/tls/certificate-rotation.md@1.34",
-   "path": "tasks/tls/certificate-rotation.md",
+   "id": "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.34",
+   "path": "reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md",
    "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:tasks/tls/certificate-rotation.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.119,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/tls/certificate-rotation.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-86517633",
-  "remove_docs": [
-   "k8s:tasks/tls/certificate-rotation.md@1.34"
-  ]
- },
- {
-  "id": "S1-F4-9fca2aa6t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "setup/production-environment",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-02-06T14:07:47"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.31"
-  },
-  "gold": {
-   "id": "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.31",
-   "path": "setup/production-environment/tools/kubeadm/control-plane-flags.md",
-   "version": "1.31"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.149,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.16,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.243,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.243,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.30",
-    "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.34",
-    "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.35",
-    "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-9fca2aa6",
-  "remove_docs": [
-   "k8s:setup/production-environment/tools/kubeadm/control-plane-flags.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-4982f302t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/security",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-03-16T05:10:44"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/security/secrets-good-practices.md@1.31"
-  },
-  "gold": {
-   "id": "k8s:concepts/security/secrets-good-practices.md@1.31",
-   "path": "concepts/security/secrets-good-practices.md",
-   "version": "1.31"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/security/secrets-good-practices.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.155,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/security/secrets-good-practices.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.155,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/security/secrets-good-practices.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.155,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/security/secrets-good-practices.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.155,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/security/secrets-good-practices.md@1.33",
-    "k8s:concepts/security/secrets-good-practices.md@1.34",
-    "k8s:concepts/security/secrets-good-practices.md@1.35",
-    "k8s:concepts/security/secrets-good-practices.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-4982f302",
-  "remove_docs": [
-   "k8s:concepts/security/secrets-good-practices.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-d4f05844t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/configuration",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-09-14T22:32:03"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/configuration/manage-resources-containers.md@1.36"
-  },
-  "gold": {
-   "id": "k8s:concepts/configuration/manage-resources-containers.md@1.36",
-   "path": "concepts/configuration/manage-resources-containers.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.422,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.391,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.32",
+    "id": "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.32",
     "version": "1.32",
-    "change_ratio": 0.363,
-    "relation": "superseded"
+    "change_ratio": 0.872,
+    "relation": "wrong_version"
    },
    {
-    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.33",
+    "id": "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.33",
     "version": "1.33",
-    "change_ratio": 0.363,
-    "relation": "superseded"
+    "change_ratio": 0.872,
+    "relation": "wrong_version"
    },
    {
-    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.138,
-    "relation": "superseded"
+    "id": "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.812,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.812,
+    "relation": "wrong_version"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:concepts/configuration/manage-resources-containers.md@1.30",
-    "k8s:concepts/configuration/manage-resources-containers.md@1.31",
-    "k8s:concepts/configuration/manage-resources-containers.md@1.32",
-    "k8s:concepts/configuration/manage-resources-containers.md@1.33",
-    "k8s:concepts/configuration/manage-resources-containers.md@1.34"
+    "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.32",
+    "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.33",
+    "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.35",
+    "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-d4f05844",
+  "twin_of": "S1-F1-8512edb2",
   "remove_docs": [
-   "k8s:concepts/configuration/manage-resources-containers.md@1.36"
+   "k8s:reference/command-line-tools-reference/feature-gates/KubeletPodResourcesDynamicResources.md@1.34"
   ]
  },
  {
-  "id": "S1-F4-68a6ea7bt",
+  "id": "S1-F4-b10c63a9t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "tasks/administer-cluster",
+  "cluster": "reference/using-api",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2025-06-14T04:06:48",
-   "version": "1.31"
+   "opened_at": "2026-08-05T20:25:53",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tasks/administer-cluster/kubeadm/kubeadm-certs.md@1.31"
+   "doc": "k8s:reference/using-api/declarative-validation.md@1.34"
   },
   "gold": {
-   "id": "k8s:tasks/administer-cluster/kubeadm/kubeadm-certs.md@1.31",
-   "path": "tasks/administer-cluster/kubeadm/kubeadm-certs.md",
-   "version": "1.31"
+   "id": "k8s:reference/using-api/declarative-validation.md@1.34",
+   "path": "reference/using-api/declarative-validation.md",
+   "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:tasks/administer-cluster/kubeadm/kubeadm-certs.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.138,
+    "id": "k8s:reference/using-api/declarative-validation.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.194,
     "relation": "wrong_version"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/administer-cluster/kubeadm/kubeadm-certs.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F1-68a6ea7b",
-  "remove_docs": [
-   "k8s:tasks/administer-cluster/kubeadm/kubeadm-certs.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-3099c7eft",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/setup-tools",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2024-12-29T03:20:31",
-   "version": "1.30"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/setup-tools/kubeadm/kubeadm-init-phase.md@1.30"
-  },
-  "gold": {
-   "id": "k8s:reference/setup-tools/kubeadm/kubeadm-init-phase.md@1.30",
-   "path": "reference/setup-tools/kubeadm/kubeadm-init-phase.md",
-   "version": "1.30"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
+   },
    {
-    "id": "k8s:reference/setup-tools/kubeadm/kubeadm-init-phase.md@1.36",
+    "id": "k8s:reference/using-api/declarative-validation.md@1.36",
     "version": "1.36",
-    "change_ratio": 0.17,
+    "change_ratio": 0.347,
     "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:reference/setup-tools/kubeadm/kubeadm-init-phase.md@1.36"
+    "k8s:reference/using-api/declarative-validation.md@1.35",
+    "k8s:reference/using-api/declarative-validation.md@1.36"
    ]
   },
-  "twin_of": "S1-F1-3099c7ef",
+  "twin_of": "S1-F1-b10c63a9",
   "remove_docs": [
-   "k8s:reference/setup-tools/kubeadm/kubeadm-init-phase.md@1.30"
+   "k8s:reference/using-api/declarative-validation.md@1.34"
   ]
  },
  {
-  "id": "S1-F4-30b6201ct",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/tls",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-04-11T04:13:48",
-   "version": "1.32"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/tls/certificate-issue-client-csr.md@1.32"
-  },
-  "gold": {
-   "id": "k8s:tasks/tls/certificate-issue-client-csr.md@1.32",
-   "path": "tasks/tls/certificate-issue-client-csr.md",
-   "version": "1.32"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/tls/certificate-issue-client-csr.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.14,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/tls/certificate-issue-client-csr.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-30b6201c",
-  "remove_docs": [
-   "k8s:tasks/tls/certificate-issue-client-csr.md@1.32"
-  ]
- },
- {
-  "id": "S1-F4-461b068at",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/run-application",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-05-27T10:05:54",
-   "version": "1.31"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.31"
-  },
-  "gold": {
-   "id": "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.31",
-   "path": "tasks/run-application/horizontal-pod-autoscale.md",
-   "version": "1.31"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.125,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.148,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.33",
-    "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.34"
-   ]
-  },
-  "twin_of": "S1-F1-461b068a",
-  "remove_docs": [
-   "k8s:tasks/run-application/horizontal-pod-autoscale.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-a4580a8dt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tutorials/kubernetes-basics",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-10-04T13:32:43",
-   "version": "1.35"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.35",
-   "path": "tutorials/kubernetes-basics/create-cluster/cluster-intro.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.157,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.157,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.157,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.275,
-    "relation": "wrong_version"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.32",
-    "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.33",
-    "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.34",
-    "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-a4580a8d",
-  "remove_docs": [
-   "k8s:tutorials/kubernetes-basics/create-cluster/cluster-intro.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-3daf9456t",
+  "id": "S1-F4-451a70eft",
   "family": "F4_constructed_abstention",
   "source": "S1",
   "cluster": "tasks/debug",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-06-29T00:12:00"
+   "opened_at": "2026-08-20T20:11:31",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tasks/debug/debug-cluster/audit.md@1.35"
+   "doc": "k8s:tasks/debug/debug-cluster/audit.md@1.34"
   },
   "gold": {
-   "id": "k8s:tasks/debug/debug-cluster/audit.md@1.35",
+   "id": "k8s:tasks/debug/debug-cluster/audit.md@1.34",
    "path": "tasks/debug/debug-cluster/audit.md",
-   "version": "1.35"
+   "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
@@ -23043,19 +22258,19 @@
     "id": "k8s:tasks/debug/debug-cluster/audit.md@1.30",
     "version": "1.30",
     "change_ratio": 0.165,
-    "relation": "superseded"
+    "relation": "wrong_version"
    },
    {
     "id": "k8s:tasks/debug/debug-cluster/audit.md@1.31",
     "version": "1.31",
     "change_ratio": 0.139,
-    "relation": "superseded"
+    "relation": "wrong_version"
    },
    {
     "id": "k8s:tasks/debug/debug-cluster/audit.md@1.32",
     "version": "1.32",
     "change_ratio": 0.139,
-    "relation": "superseded"
+    "relation": "wrong_version"
    }
   ],
   "expect": {
@@ -23066,706 +22281,103 @@
     "k8s:tasks/debug/debug-cluster/audit.md@1.32"
    ]
   },
-  "twin_of": "S1-F2-3daf9456",
+  "twin_of": "S1-F1-451a70ef",
   "remove_docs": [
-   "k8s:tasks/debug/debug-cluster/audit.md@1.35"
+   "k8s:tasks/debug/debug-cluster/audit.md@1.34"
   ]
  },
  {
-  "id": "S1-F4-9db9467bt",
+  "id": "S1-F4-7b03c029t",
   "family": "F4_constructed_abstention",
   "source": "S1",
   "cluster": "concepts/cluster-administration",
   "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-10-03T22:07:11"
+   "opened_at": "2026-03-18T04:04:36",
+   "version": "1.33"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:concepts/cluster-administration/system-traces.md@1.36"
+   "doc": "k8s:concepts/cluster-administration/addons.md@1.33"
   },
   "gold": {
-   "id": "k8s:concepts/cluster-administration/system-traces.md@1.36",
-   "path": "concepts/cluster-administration/system-traces.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/cluster-administration/system-traces.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.117,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/system-traces.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.117,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/cluster-administration/system-traces.md@1.30",
-    "k8s:concepts/cluster-administration/system-traces.md@1.31"
-   ]
-  },
-  "twin_of": "S1-F2-9db9467b",
-  "remove_docs": [
-   "k8s:concepts/cluster-administration/system-traces.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-ae60b2aet",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "contribute/new-content",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-07-27T23:34:27"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:contribute/new-content/open-a-pr.md@1.32"
-  },
-  "gold": {
-   "id": "k8s:contribute/new-content/open-a-pr.md@1.32",
-   "path": "contribute/new-content/open-a-pr.md",
-   "version": "1.32"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:contribute/new-content/open-a-pr.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.135,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:contribute/new-content/open-a-pr.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.135,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:contribute/new-content/open-a-pr.md@1.35",
-    "k8s:contribute/new-content/open-a-pr.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-ae60b2ae",
-  "remove_docs": [
-   "k8s:contribute/new-content/open-a-pr.md@1.32"
-  ]
- },
- {
-  "id": "S1-F4-d61c5770t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/services-networking",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-01-22T02:06:11",
-   "version": "1.32"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/services-networking/ingress-controllers.md@1.32"
-  },
-  "gold": {
-   "id": "k8s:concepts/services-networking/ingress-controllers.md@1.32",
-   "path": "concepts/services-networking/ingress-controllers.md",
-   "version": "1.32"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/services-networking/ingress-controllers.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.237,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:concepts/services-networking/ingress-controllers.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.312,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/services-networking/ingress-controllers.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.312,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/services-networking/ingress-controllers.md@1.34",
-    "k8s:concepts/services-networking/ingress-controllers.md@1.35",
-    "k8s:concepts/services-networking/ingress-controllers.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-d61c5770",
-  "remove_docs": [
-   "k8s:concepts/services-networking/ingress-controllers.md@1.32"
-  ]
- },
- {
-  "id": "S1-F4-edfc65dbt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/architecture",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-08-15T02:07:17",
-   "version": "1.31"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/architecture/cri.md@1.31"
-  },
-  "gold": {
-   "id": "k8s:concepts/architecture/cri.md@1.31",
-   "path": "concepts/architecture/cri.md",
-   "version": "1.31"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/architecture/cri.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.701,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/architecture/cri.md@1.33"
-   ]
-  },
-  "twin_of": "S1-F1-edfc65db",
-  "remove_docs": [
-   "k8s:concepts/architecture/cri.md@1.31"
-  ]
- },
- {
-  "id": "S1-F4-f607b43dt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/cluster-administration",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-05-24T05:24:21"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/cluster-administration/addons.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:concepts/cluster-administration/addons.md@1.35",
+   "id": "k8s:concepts/cluster-administration/addons.md@1.33",
    "path": "concepts/cluster-administration/addons.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/cluster-administration/addons.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.165,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/addons.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.148,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/addons.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.137,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/addons.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.102,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/addons.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.102,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/cluster-administration/addons.md@1.30",
-    "k8s:concepts/cluster-administration/addons.md@1.31",
-    "k8s:concepts/cluster-administration/addons.md@1.32",
-    "k8s:concepts/cluster-administration/addons.md@1.33",
-    "k8s:concepts/cluster-administration/addons.md@1.34"
-   ]
-  },
-  "twin_of": "S1-F2-f607b43d",
-  "remove_docs": [
-   "k8s:concepts/cluster-administration/addons.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-5beccf44t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/storage",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-12-30T05:24:27",
-   "version": "1.32"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/storage/storage-limits.md@1.32"
-  },
-  "gold": {
-   "id": "k8s:concepts/storage/storage-limits.md@1.32",
-   "path": "concepts/storage/storage-limits.md",
-   "version": "1.32"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/storage/storage-limits.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.268,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:concepts/storage/storage-limits.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.429,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:concepts/storage/storage-limits.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.477,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/storage/storage-limits.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.597,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/storage/storage-limits.md@1.33",
-    "k8s:concepts/storage/storage-limits.md@1.34",
-    "k8s:concepts/storage/storage-limits.md@1.35",
-    "k8s:concepts/storage/storage-limits.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-5beccf44",
-  "remove_docs": [
-   "k8s:concepts/storage/storage-limits.md@1.32"
-  ]
- },
- {
-  "id": "S1-F4-7b416d38t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "setup/production-environment",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-09-17T18:51:36",
-   "version": "1.34"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.34"
-  },
-  "gold": {
-   "id": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.34",
-   "path": "setup/production-environment/tools/kubeadm/install-kubeadm.md",
-   "version": "1.34"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.199,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.112,
-    "relation": "wrong_version"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.30",
-    "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.31"
-   ]
-  },
-  "twin_of": "S1-F1-7b416d38",
-  "remove_docs": [
-   "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.34"
-  ]
- },
- {
-  "id": "S1-F4-149467e8t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/glossary",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-09-18T11:23:58"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/glossary/customresourcedefinition.md@1.36"
-  },
-  "gold": {
-   "id": "k8s:reference/glossary/customresourcedefinition.md@1.36",
-   "path": "reference/glossary/customresourcedefinition.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/glossary/customresourcedefinition.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.695,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/glossary/customresourcedefinition.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.695,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/glossary/customresourcedefinition.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.695,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/glossary/customresourcedefinition.md@1.30",
-    "k8s:reference/glossary/customresourcedefinition.md@1.31",
-    "k8s:reference/glossary/customresourcedefinition.md@1.32"
-   ]
-  },
-  "twin_of": "S1-F2-149467e8",
-  "remove_docs": [
-   "k8s:reference/glossary/customresourcedefinition.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-de7568a0t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/architecture",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-09-06T15:16:50"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/architecture/cloud-controller.md@1.36"
-  },
-  "gold": {
-   "id": "k8s:concepts/architecture/cloud-controller.md@1.36",
-   "path": "concepts/architecture/cloud-controller.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/architecture/cloud-controller.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.108,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/architecture/cloud-controller.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.108,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/architecture/cloud-controller.md@1.30",
-    "k8s:concepts/architecture/cloud-controller.md@1.31"
-   ]
-  },
-  "twin_of": "S1-F2-de7568a0",
-  "remove_docs": [
-   "k8s:concepts/architecture/cloud-controller.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-3cbab506t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/command-line-tools-reference",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-03-31T12:38:53"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.34"
-  },
-  "gold": {
-   "id": "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.34",
-   "path": "reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md",
-   "version": "1.34"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.534,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.534,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.35",
-    "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-3cbab506",
-  "remove_docs": [
-   "k8s:reference/command-line-tools-reference/feature-gates/UserNamespacesPodSecurityStandards.md@1.34"
-  ]
- },
- {
-  "id": "S1-F4-af44318ct",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/cluster-administration",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-07-16T11:49:23"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.35",
-   "path": "concepts/cluster-administration/coordinated-leader-election.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.777,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.777,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.745,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.745,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.31",
-    "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.32",
-    "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.33",
-    "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.34"
-   ]
-  },
-  "twin_of": "S1-F2-af44318c",
-  "remove_docs": [
-   "k8s:concepts/cluster-administration/coordinated-leader-election.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-86cec46ct",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/glossary",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-09-06T22:11:24"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/glossary/container-env-variables.md@1.33"
-  },
-  "gold": {
-   "id": "k8s:reference/glossary/container-env-variables.md@1.33",
-   "path": "reference/glossary/container-env-variables.md",
    "version": "1.33"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:reference/glossary/container-env-variables.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.19,
-    "relation": "superseded"
+    "id": "k8s:concepts/cluster-administration/addons.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.102,
+    "relation": "not_yet_effective"
    },
    {
-    "id": "k8s:reference/glossary/container-env-variables.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.19,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/glossary/container-env-variables.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.19,
-    "relation": "superseded"
+    "id": "k8s:concepts/cluster-administration/addons.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.102,
+    "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:reference/glossary/container-env-variables.md@1.30",
-    "k8s:reference/glossary/container-env-variables.md@1.31",
-    "k8s:reference/glossary/container-env-variables.md@1.32"
+    "k8s:concepts/cluster-administration/addons.md@1.35",
+    "k8s:concepts/cluster-administration/addons.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-86cec46c",
+  "twin_of": "S1-F1-7b03c029",
   "remove_docs": [
-   "k8s:reference/glossary/container-env-variables.md@1.33"
+   "k8s:concepts/cluster-administration/addons.md@1.33"
   ]
  },
  {
-  "id": "S1-F4-0d6499c5t",
+  "id": "S1-F4-36dcde78t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "concepts/architecture",
-  "split": "heldout",
+  "cluster": "concepts/security",
+  "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-09-07T17:30:51"
+   "opened_at": "2026-03-27T17:16:59",
+   "version": "1.32"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:concepts/architecture/leases.md@1.36"
+   "doc": "k8s:concepts/security/_index.md@1.32"
   },
   "gold": {
-   "id": "k8s:concepts/architecture/leases.md@1.36",
-   "path": "concepts/architecture/leases.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/architecture/leases.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.135,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/architecture/leases.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F2-0d6499c5",
-  "remove_docs": [
-   "k8s:concepts/architecture/leases.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-93c3c78bt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "setup/production-environment",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-07-24T10:04:01"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.32"
-  },
-  "gold": {
-   "id": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.32",
-   "path": "setup/production-environment/tools/kubeadm/install-kubeadm.md",
+   "id": "k8s:concepts/security/_index.md@1.32",
+   "path": "concepts/security/_index.md",
    "version": "1.32"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.30",
+    "id": "k8s:concepts/security/_index.md@1.30",
     "version": "1.30",
-    "change_ratio": 0.182,
-    "relation": "superseded"
+    "change_ratio": 0.13,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/security/_index.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.13,
+    "relation": "wrong_version"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.30"
+    "k8s:concepts/security/_index.md@1.30",
+    "k8s:concepts/security/_index.md@1.31"
    ]
   },
-  "twin_of": "S1-F2-93c3c78b",
+  "twin_of": "S1-F1-36dcde78",
   "remove_docs": [
-   "k8s:setup/production-environment/tools/kubeadm/install-kubeadm.md@1.32"
+   "k8s:concepts/security/_index.md@1.32"
   ]
  },
  {
@@ -23837,646 +22449,677 @@
   ]
  },
  {
-  "id": "S1-F4-de62af52t",
+  "id": "S1-F4-3bed1d61t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "reference/using-api",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-10-05T15:45:34",
-   "version": "1.32"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/using-api/api-concepts.md@1.32"
-  },
-  "gold": {
-   "id": "k8s:reference/using-api/api-concepts.md@1.32",
-   "path": "reference/using-api/api-concepts.md",
-   "version": "1.32"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/using-api/api-concepts.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.16,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:reference/using-api/api-concepts.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.14,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:reference/using-api/api-concepts.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.215,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/using-api/api-concepts.md@1.30",
-    "k8s:reference/using-api/api-concepts.md@1.35",
-    "k8s:reference/using-api/api-concepts.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-de62af52",
-  "remove_docs": [
-   "k8s:reference/using-api/api-concepts.md@1.32"
-  ]
- },
- {
-  "id": "S1-F4-9e03b4c3t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/access-authn-authz",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-06-02T12:35:25"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.35",
-   "path": "reference/access-authn-authz/kubelet-authn-authz.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.32,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.307,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.134,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.134,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.134,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.30",
-    "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.31",
-    "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.32",
-    "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.33",
-    "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.34"
-   ]
-  },
-  "twin_of": "S1-F2-9e03b4c3",
-  "remove_docs": [
-   "k8s:reference/access-authn-authz/kubelet-authn-authz.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-4913d682t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/storage",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-01-21T12:57:49"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/storage/ephemeral-storage.md@1.34"
-  },
-  "gold": {
-   "id": "k8s:concepts/storage/ephemeral-storage.md@1.34",
-   "path": "concepts/storage/ephemeral-storage.md",
-   "version": "1.34"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/storage/ephemeral-storage.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.191,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/storage/ephemeral-storage.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-4913d682",
-  "remove_docs": [
-   "k8s:concepts/storage/ephemeral-storage.md@1.34"
-  ]
- },
- {
-  "id": "S1-F4-542dce56t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/services-networking",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-03-29T08:59:01"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/services-networking/_index.md@1.34"
-  },
-  "gold": {
-   "id": "k8s:concepts/services-networking/_index.md@1.34",
-   "path": "concepts/services-networking/_index.md",
-   "version": "1.34"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/services-networking/_index.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.912,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/services-networking/_index.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.115,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:concepts/services-networking/_index.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.115,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/services-networking/_index.md@1.30",
-    "k8s:concepts/services-networking/_index.md@1.35",
-    "k8s:concepts/services-networking/_index.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-542dce56",
-  "remove_docs": [
-   "k8s:concepts/services-networking/_index.md@1.34"
-  ]
- },
- {
-  "id": "S1-F4-3e36467et",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/manage-kubernetes-objects",
+  "cluster": "reference/config-api",
   "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2025-09-16T04:24:12"
+   "opened_at": "2026-05-02T12:53:25",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.33"
+   "doc": "k8s:reference/config-api/apiserver-config.v1beta1.md@1.34"
   },
   "gold": {
-   "id": "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.33",
-   "path": "tasks/manage-kubernetes-objects/storage-version-migration.md",
-   "version": "1.33"
+   "id": "k8s:reference/config-api/apiserver-config.v1beta1.md@1.34",
+   "path": "reference/config-api/apiserver-config.v1beta1.md",
+   "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.248,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.29,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.35",
-    "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F2-3e36467e",
-  "remove_docs": [
-   "k8s:tasks/manage-kubernetes-objects/storage-version-migration.md@1.33"
-  ]
- },
- {
-  "id": "S1-F4-11fd06f7t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/administer-cluster",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-04-30T12:09:22"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/administer-cluster/kubeadm/_index.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:tasks/administer-cluster/kubeadm/_index.md@1.35",
-   "path": "tasks/administer-cluster/kubeadm/_index.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/administer-cluster/kubeadm/_index.md@1.30",
+    "id": "k8s:reference/config-api/apiserver-config.v1beta1.md@1.30",
     "version": "1.30",
-    "change_ratio": 1.0,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/administer-cluster/kubeadm/_index.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F2-11fd06f7",
-  "remove_docs": [
-   "k8s:tasks/administer-cluster/kubeadm/_index.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-c0788ca4t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/storage",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-05-06T06:14:06"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/storage/volumes.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:concepts/storage/volumes.md@1.35",
-   "path": "concepts/storage/volumes.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/storage/volumes.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.322,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/storage/volumes.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.237,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/storage/volumes.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.116,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/storage/volumes.md@1.30",
-    "k8s:concepts/storage/volumes.md@1.31",
-    "k8s:concepts/storage/volumes.md@1.32"
-   ]
-  },
-  "twin_of": "S1-F2-c0788ca4",
-  "remove_docs": [
-   "k8s:concepts/storage/volumes.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-cd5d13f5t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/administer-cluster",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-07-01T16:37:30"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.35",
-   "path": "tasks/administer-cluster/cluster-upgrade.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.14,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/administer-cluster/cluster-upgrade.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F2-cd5d13f5",
-  "remove_docs": [
-   "k8s:tasks/administer-cluster/cluster-upgrade.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-1b5a2b4et",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/containers",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-09-24T23:04:19",
-   "version": "1.35"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/containers/cri.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:concepts/containers/cri.md@1.35",
-   "path": "concepts/containers/cri.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/containers/cri.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.392,
+    "change_ratio": 0.13,
     "relation": "wrong_version"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:concepts/containers/cri.md@1.36"
+    "k8s:reference/config-api/apiserver-config.v1beta1.md@1.30"
    ]
   },
-  "twin_of": "S1-F1-1b5a2b4e",
+  "twin_of": "S1-F1-3bed1d61",
   "remove_docs": [
-   "k8s:concepts/containers/cri.md@1.35"
+   "k8s:reference/config-api/apiserver-config.v1beta1.md@1.34"
   ]
  },
  {
-  "id": "S1-F4-84d311f4t",
+  "id": "S1-F4-86517633t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "tasks/administer-cluster",
-  "split": "heldout",
+  "cluster": "tasks/tls",
+  "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2025-12-11T18:51:19",
-   "version": "1.32"
+   "opened_at": "2026-09-21T17:48:38",
+   "version": "1.34"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.32"
+   "doc": "k8s:tasks/tls/certificate-rotation.md@1.34"
   },
   "gold": {
-   "id": "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.32",
-   "path": "tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md",
-   "version": "1.32"
+   "id": "k8s:tasks/tls/certificate-rotation.md@1.34",
+   "path": "tasks/tls/certificate-rotation.md",
+   "version": "1.34"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.34",
-    "version": "1.34",
-    "change_ratio": 0.257,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.257,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.36",
+    "id": "k8s:tasks/tls/certificate-rotation.md@1.36",
     "version": "1.36",
-    "change_ratio": 0.257,
+    "change_ratio": 0.119,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:tasks/tls/certificate-rotation.md@1.36"
+   ]
+  },
+  "twin_of": "S1-F1-86517633",
+  "remove_docs": [
+   "k8s:tasks/tls/certificate-rotation.md@1.34"
+  ]
+ },
+ {
+  "id": "S1-F4-f36c0b78t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "tasks/tools",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2024-12-26T06:01:45",
+   "version": "1.30"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:tasks/tools/included/verify-kubectl.md@1.30"
+  },
+  "gold": {
+   "id": "k8s:tasks/tools/included/verify-kubectl.md@1.30",
+   "path": "tasks/tools/included/verify-kubectl.md",
+   "version": "1.30"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:tasks/tools/included/verify-kubectl.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.141,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:tasks/tools/included/verify-kubectl.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.141,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:tasks/tools/included/verify-kubectl.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.141,
     "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.34",
-    "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.35",
-    "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.36"
+    "k8s:tasks/tools/included/verify-kubectl.md@1.34",
+    "k8s:tasks/tools/included/verify-kubectl.md@1.35",
+    "k8s:tasks/tools/included/verify-kubectl.md@1.36"
    ]
   },
-  "twin_of": "S1-F1-84d311f4",
+  "twin_of": "S1-F1-f36c0b78",
   "remove_docs": [
-   "k8s:tasks/administer-cluster/migrating-from-dockershim/change-runtime-containerd.md@1.32"
+   "k8s:tasks/tools/included/verify-kubectl.md@1.30"
   ]
  },
  {
-  "id": "S1-F4-cedce489t",
+  "id": "S1-F4-9a18046at",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "tasks/network",
-  "split": "heldout",
+  "cluster": "contribute/style",
+  "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2024-12-18T22:13:50"
+   "opened_at": "2025-07-11T13:45:05",
+   "version": "1.31"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:tasks/network/customize-hosts-file-for-pods.md@1.31"
+   "doc": "k8s:contribute/style/page-content-types.md@1.31"
   },
   "gold": {
-   "id": "k8s:tasks/network/customize-hosts-file-for-pods.md@1.31",
-   "path": "tasks/network/customize-hosts-file-for-pods.md",
+   "id": "k8s:contribute/style/page-content-types.md@1.31",
+   "path": "contribute/style/page-content-types.md",
    "version": "1.31"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:tasks/network/customize-hosts-file-for-pods.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.154,
-    "relation": "superseded"
+    "id": "k8s:contribute/style/page-content-types.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.131,
+    "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:tasks/network/customize-hosts-file-for-pods.md@1.30"
+    "k8s:contribute/style/page-content-types.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-cedce489",
+  "twin_of": "S1-F1-9a18046a",
   "remove_docs": [
-   "k8s:tasks/network/customize-hosts-file-for-pods.md@1.31"
+   "k8s:contribute/style/page-content-types.md@1.31"
   ]
  },
  {
-  "id": "S1-F4-b84279fdt",
+  "id": "S1-F4-b14b8df8t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/kubernetes-api",
+  "split": "heldout",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-09-11T04:19:40",
+   "version": "1.35"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:reference/kubernetes-api/policy-resources/network-policy-v1.md@1.35"
+  },
+  "gold": {
+   "id": "k8s:reference/kubernetes-api/policy-resources/network-policy-v1.md@1.35",
+   "path": "reference/kubernetes-api/policy-resources/network-policy-v1.md",
+   "version": "1.35"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:reference/kubernetes-api/policy-resources/network-policy-v1.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.124,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/kubernetes-api/policy-resources/network-policy-v1.md@1.30"
+   ]
+  },
+  "twin_of": "S1-F1-b14b8df8",
+  "remove_docs": [
+   "k8s:reference/kubernetes-api/policy-resources/network-policy-v1.md@1.35"
+  ]
+ },
+ {
+  "id": "S1-F4-c8460a16t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "tasks/tools",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-09-25T06:57:34",
+   "version": "1.35"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:tasks/tools/included/kubectl-whats-next.md@1.35"
+  },
+  "gold": {
+   "id": "k8s:tasks/tools/included/kubectl-whats-next.md@1.35",
+   "path": "tasks/tools/included/kubectl-whats-next.md",
+   "version": "1.35"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:tasks/tools/included/kubectl-whats-next.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.171,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:tasks/tools/included/kubectl-whats-next.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.171,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:tasks/tools/included/kubectl-whats-next.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.171,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:tasks/tools/included/kubectl-whats-next.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.171,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:tasks/tools/included/kubectl-whats-next.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.171,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:tasks/tools/included/kubectl-whats-next.md@1.30",
+    "k8s:tasks/tools/included/kubectl-whats-next.md@1.31",
+    "k8s:tasks/tools/included/kubectl-whats-next.md@1.32",
+    "k8s:tasks/tools/included/kubectl-whats-next.md@1.33",
+    "k8s:tasks/tools/included/kubectl-whats-next.md@1.34"
+   ]
+  },
+  "twin_of": "S1-F1-c8460a16",
+  "remove_docs": [
+   "k8s:tasks/tools/included/kubectl-whats-next.md@1.35"
+  ]
+ },
+ {
+  "id": "S1-F4-b11700cct",
   "family": "F4_constructed_abstention",
   "source": "S1",
   "cluster": "reference/labels-annotations-taints",
   "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-03-28T19:36:49",
-   "version": "1.33"
+   "opened_at": "2026-09-21T11:05:33",
+   "version": "1.35"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:reference/labels-annotations-taints/_index.md@1.33"
+   "doc": "k8s:reference/labels-annotations-taints/audit-annotations.md@1.35"
   },
   "gold": {
-   "id": "k8s:reference/labels-annotations-taints/_index.md@1.33",
-   "path": "reference/labels-annotations-taints/_index.md",
-   "version": "1.33"
+   "id": "k8s:reference/labels-annotations-taints/audit-annotations.md@1.35",
+   "path": "reference/labels-annotations-taints/audit-annotations.md",
+   "version": "1.35"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:reference/labels-annotations-taints/_index.md@1.30",
+    "id": "k8s:reference/labels-annotations-taints/audit-annotations.md@1.30",
     "version": "1.30",
-    "change_ratio": 0.124,
+    "change_ratio": 0.215,
     "relation": "wrong_version"
    },
    {
-    "id": "k8s:reference/labels-annotations-taints/_index.md@1.36",
+    "id": "k8s:reference/labels-annotations-taints/audit-annotations.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.201,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/labels-annotations-taints/audit-annotations.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.201,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/labels-annotations-taints/audit-annotations.md@1.30",
+    "k8s:reference/labels-annotations-taints/audit-annotations.md@1.31",
+    "k8s:reference/labels-annotations-taints/audit-annotations.md@1.32"
+   ]
+  },
+  "twin_of": "S1-F1-b11700cc",
+  "remove_docs": [
+   "k8s:reference/labels-annotations-taints/audit-annotations.md@1.35"
+  ]
+ },
+ {
+  "id": "S1-F4-00ab084ct",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/config-api",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-09-02T21:21:57",
+   "version": "1.35"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:reference/config-api/kuberc.v1alpha1.md@1.35"
+  },
+  "gold": {
+   "id": "k8s:reference/config-api/kuberc.v1alpha1.md@1.35",
+   "path": "reference/config-api/kuberc.v1alpha1.md",
+   "version": "1.35"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:reference/config-api/kuberc.v1alpha1.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.202,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/config-api/kuberc.v1alpha1.md@1.33"
+   ]
+  },
+  "twin_of": "S1-F1-00ab084c",
+  "remove_docs": [
+   "k8s:reference/config-api/kuberc.v1alpha1.md@1.35"
+  ]
+ },
+ {
+  "id": "S1-F4-94632544t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "concepts/configuration",
+  "split": "heldout",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-09-12T00:46:24",
+   "version": "1.35"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:concepts/configuration/manage-resources-containers.md@1.35"
+  },
+  "gold": {
+   "id": "k8s:concepts/configuration/manage-resources-containers.md@1.35",
+   "path": "concepts/configuration/manage-resources-containers.md",
+   "version": "1.35"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.42,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.377,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.349,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.349,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/configuration/manage-resources-containers.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.118,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:concepts/configuration/manage-resources-containers.md@1.30",
+    "k8s:concepts/configuration/manage-resources-containers.md@1.31",
+    "k8s:concepts/configuration/manage-resources-containers.md@1.32",
+    "k8s:concepts/configuration/manage-resources-containers.md@1.33",
+    "k8s:concepts/configuration/manage-resources-containers.md@1.34"
+   ]
+  },
+  "twin_of": "S1-F1-94632544",
+  "remove_docs": [
+   "k8s:concepts/configuration/manage-resources-containers.md@1.35"
+  ]
+ },
+ {
+  "id": "S1-F4-b8bf9bbbt",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "concepts/architecture",
+  "split": "heldout",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2025-05-02T12:55:58",
+   "version": "1.31"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:concepts/architecture/nodes.md@1.31"
+  },
+  "gold": {
+   "id": "k8s:concepts/architecture/nodes.md@1.31",
+   "path": "concepts/architecture/nodes.md",
+   "version": "1.31"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:concepts/architecture/nodes.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.205,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/architecture/nodes.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.211,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/architecture/nodes.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.211,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/architecture/nodes.md@1.36",
     "version": "1.36",
-    "change_ratio": 0.113,
+    "change_ratio": 0.214,
     "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:reference/labels-annotations-taints/_index.md@1.30",
-    "k8s:reference/labels-annotations-taints/_index.md@1.36"
+    "k8s:concepts/architecture/nodes.md@1.33",
+    "k8s:concepts/architecture/nodes.md@1.34",
+    "k8s:concepts/architecture/nodes.md@1.35",
+    "k8s:concepts/architecture/nodes.md@1.36"
    ]
   },
-  "twin_of": "S1-F1-b84279fd",
+  "twin_of": "S1-F1-b8bf9bbb",
   "remove_docs": [
-   "k8s:reference/labels-annotations-taints/_index.md@1.33"
+   "k8s:concepts/architecture/nodes.md@1.31"
   ]
  },
  {
-  "id": "S1-F4-69665507t",
+  "id": "S1-F4-4c809df3t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "concepts/extend-kubernetes",
-  "split": "dev",
+  "cluster": "reference/_index.md",
+  "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-07-27T13:23:42"
+   "opened_at": "2026-01-23T09:54:12",
+   "version": "1.32"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.35"
+   "doc": "k8s:reference/_index.md@1.32"
   },
   "gold": {
-   "id": "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.35",
-   "path": "concepts/extend-kubernetes/api-extension/apiserver-aggregation.md",
-   "version": "1.35"
+   "id": "k8s:reference/_index.md@1.32",
+   "path": "reference/_index.md",
+   "version": "1.32"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.133,
-    "relation": "superseded"
+    "id": "k8s:reference/_index.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.218,
+    "relation": "not_yet_effective"
    },
    {
-    "id": "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.105,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.32",
-    "version": "1.32",
-    "change_ratio": 0.105,
-    "relation": "superseded"
+    "id": "k8s:reference/_index.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.218,
+    "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.30",
-    "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.31",
-    "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.32"
+    "k8s:reference/_index.md@1.35",
+    "k8s:reference/_index.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-69665507",
+  "twin_of": "S1-F1-4c809df3",
   "remove_docs": [
-   "k8s:concepts/extend-kubernetes/api-extension/apiserver-aggregation.md@1.35"
+   "k8s:reference/_index.md@1.32"
   ]
  },
  {
-  "id": "S1-F4-1e38e67bt",
+  "id": "S1-F4-7e086870t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/command-line-tools-reference",
+  "split": "heldout",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-09-18T17:42:19",
+   "version": "1.34"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:reference/command-line-tools-reference/feature-gates/DeclarativeValidation.md@1.34"
+  },
+  "gold": {
+   "id": "k8s:reference/command-line-tools-reference/feature-gates/DeclarativeValidation.md@1.34",
+   "path": "reference/command-line-tools-reference/feature-gates/DeclarativeValidation.md",
+   "version": "1.34"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:reference/command-line-tools-reference/feature-gates/DeclarativeValidation.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.171,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/command-line-tools-reference/feature-gates/DeclarativeValidation.md@1.36"
+   ]
+  },
+  "twin_of": "S1-F1-7e086870",
+  "remove_docs": [
+   "k8s:reference/command-line-tools-reference/feature-gates/DeclarativeValidation.md@1.34"
+  ]
+ },
+ {
+  "id": "S1-F4-0083d41ct",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/glossary",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2025-02-04T06:33:40",
+   "version": "1.30"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:reference/glossary/api-group.md@1.30"
+  },
+  "gold": {
+   "id": "k8s:reference/glossary/api-group.md@1.30",
+   "path": "reference/glossary/api-group.md",
+   "version": "1.30"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:reference/glossary/api-group.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.229,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:reference/glossary/api-group.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.229,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:reference/glossary/api-group.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.229,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:reference/glossary/api-group.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.229,
+    "relation": "not_yet_effective"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/glossary/api-group.md@1.33",
+    "k8s:reference/glossary/api-group.md@1.34",
+    "k8s:reference/glossary/api-group.md@1.35",
+    "k8s:reference/glossary/api-group.md@1.36"
+   ]
+  },
+  "twin_of": "S1-F1-0083d41c",
+  "remove_docs": [
+   "k8s:reference/glossary/api-group.md@1.30"
+  ]
+ },
+ {
+  "id": "S1-F4-0fcd969at",
   "family": "F4_constructed_abstention",
   "source": "S1",
   "cluster": "concepts/security",
   "split": "dev",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2025-10-07T15:47:54"
+   "opened_at": "2026-02-26T09:44:55",
+   "version": "1.32"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:concepts/security/cloud-native-security.md@1.33"
+   "doc": "k8s:concepts/security/cloud-native-security.md@1.32"
   },
   "gold": {
-   "id": "k8s:concepts/security/cloud-native-security.md@1.33",
+   "id": "k8s:concepts/security/cloud-native-security.md@1.32",
    "path": "concepts/security/cloud-native-security.md",
-   "version": "1.33"
+   "version": "1.32"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
@@ -24484,7 +23127,7 @@
     "id": "k8s:concepts/security/cloud-native-security.md@1.34",
     "version": "1.34",
     "change_ratio": 0.165,
-    "relation": "not_yet_effective"
+    "relation": "wrong_version"
    },
    {
     "id": "k8s:concepts/security/cloud-native-security.md@1.35",
@@ -24507,334 +23150,340 @@
     "k8s:concepts/security/cloud-native-security.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-1e38e67b",
+  "twin_of": "S1-F1-0fcd969a",
   "remove_docs": [
-   "k8s:concepts/security/cloud-native-security.md@1.33"
+   "k8s:concepts/security/cloud-native-security.md@1.32"
   ]
  },
  {
-  "id": "S1-F4-005fe582t",
+  "id": "S1-F4-dbb24a53t",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "tasks/debug",
+  "cluster": "reference/node",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-09-21T23:10:55"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/debug/debug-cluster/crictl.md@1.36"
-  },
-  "gold": {
-   "id": "k8s:tasks/debug/debug-cluster/crictl.md@1.36",
-   "path": "tasks/debug/debug-cluster/crictl.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/debug/debug-cluster/crictl.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.319,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/debug/debug-cluster/crictl.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F2-005fe582",
-  "remove_docs": [
-   "k8s:tasks/debug/debug-cluster/crictl.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-c3c585b7t",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "tasks/administer-cluster",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-02-13T01:37:13",
-   "version": "1.30"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.30"
-  },
-  "gold": {
-   "id": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.30",
-   "path": "tasks/administer-cluster/cluster-upgrade.md",
-   "version": "1.30"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.14,
-    "relation": "not_yet_effective"
-   },
-   {
-    "id": "k8s:tasks/administer-cluster/cluster-upgrade.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.14,
-    "relation": "not_yet_effective"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:tasks/administer-cluster/cluster-upgrade.md@1.35",
-    "k8s:tasks/administer-cluster/cluster-upgrade.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-c3c585b7",
-  "remove_docs": [
-   "k8s:tasks/administer-cluster/cluster-upgrade.md@1.30"
-  ]
- },
- {
-  "id": "S1-F4-4145a9fft",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "contribute/_index.md",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-04-28T09:25:54",
+   "opened_at": "2026-06-26T06:29:25",
    "version": "1.33"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:contribute/_index.md@1.33"
+   "doc": "k8s:reference/node/kubelet-files.md@1.33"
   },
   "gold": {
-   "id": "k8s:contribute/_index.md@1.33",
-   "path": "contribute/_index.md",
+   "id": "k8s:reference/node/kubelet-files.md@1.33",
+   "path": "reference/node/kubelet-files.md",
    "version": "1.33"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:contribute/_index.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.344,
+    "id": "k8s:reference/node/kubelet-files.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.226,
     "relation": "wrong_version"
    },
    {
-    "id": "k8s:contribute/_index.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.344,
-    "relation": "wrong_version"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:contribute/_index.md@1.30",
-    "k8s:contribute/_index.md@1.31"
-   ]
-  },
-  "twin_of": "S1-F1-4145a9ff",
-  "remove_docs": [
-   "k8s:contribute/_index.md@1.33"
-  ]
- },
- {
-  "id": "S1-F4-a57ed22at",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "reference/kubectl",
-  "split": "heldout",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-06-13T03:21:25"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.35"
-  },
-  "gold": {
-   "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.35",
-   "path": "reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.187,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.31",
-    "version": "1.31",
-    "change_ratio": 0.13,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.32",
+    "id": "k8s:reference/node/kubelet-files.md@1.32",
     "version": "1.32",
-    "change_ratio": 0.13,
-    "relation": "superseded"
-   },
-   {
-    "id": "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.33",
-    "version": "1.33",
-    "change_ratio": 0.13,
-    "relation": "superseded"
+    "change_ratio": 0.205,
+    "relation": "wrong_version"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.30",
-    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.31",
-    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.32",
-    "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.33"
+    "k8s:reference/node/kubelet-files.md@1.31",
+    "k8s:reference/node/kubelet-files.md@1.32"
    ]
   },
-  "twin_of": "S1-F2-a57ed22a",
+  "twin_of": "S1-F1-dbb24a53",
   "remove_docs": [
-   "k8s:reference/kubectl/generated/kubectl_config/kubectl_config_get-clusters.md@1.35"
+   "k8s:reference/node/kubelet-files.md@1.33"
   ]
  },
  {
-  "id": "S1-F4-ea1cb331t",
+  "id": "S1-F4-5bbd8dddt",
   "family": "F4_constructed_abstention",
   "source": "S1",
-  "cluster": "concepts/storage",
+  "cluster": "concepts/policy",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-07-05T18:11:00",
+   "version": "1.34"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:concepts/policy/resource-quotas.md@1.34"
+  },
+  "gold": {
+   "id": "k8s:concepts/policy/resource-quotas.md@1.34",
+   "path": "concepts/policy/resource-quotas.md",
+   "version": "1.34"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:concepts/policy/resource-quotas.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.454,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/policy/resource-quotas.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.437,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/policy/resource-quotas.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.419,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:concepts/policy/resource-quotas.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.292,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:concepts/policy/resource-quotas.md@1.30",
+    "k8s:concepts/policy/resource-quotas.md@1.31",
+    "k8s:concepts/policy/resource-quotas.md@1.32",
+    "k8s:concepts/policy/resource-quotas.md@1.33"
+   ]
+  },
+  "twin_of": "S1-F1-5bbd8ddd",
+  "remove_docs": [
+   "k8s:concepts/policy/resource-quotas.md@1.34"
+  ]
+ },
+ {
+  "id": "S1-F4-d96de33ct",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "concepts/configuration",
   "split": "heldout",
   "ticket": {
    "service": "kubernetes-docs",
-   "opened_at": "2026-09-29T00:16:28",
-   "version": "1.35"
+   "opened_at": "2026-07-19T21:55:07",
+   "version": "1.33"
   },
   "query_from": {
    "field": "title",
-   "doc": "k8s:concepts/storage/persistent-volumes.md@1.35"
+   "doc": "k8s:concepts/configuration/configmap.md@1.33"
   },
   "gold": {
-   "id": "k8s:concepts/storage/persistent-volumes.md@1.35",
-   "path": "concepts/storage/persistent-volumes.md",
-   "version": "1.35"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/storage/persistent-volumes.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.104,
-    "relation": "wrong_version"
-   },
-   {
-    "id": "k8s:concepts/storage/persistent-volumes.md@1.36",
-    "version": "1.36",
-    "change_ratio": 0.142,
-    "relation": "wrong_version"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/storage/persistent-volumes.md@1.30",
-    "k8s:concepts/storage/persistent-volumes.md@1.36"
-   ]
-  },
-  "twin_of": "S1-F1-ea1cb331",
-  "remove_docs": [
-   "k8s:concepts/storage/persistent-volumes.md@1.35"
-  ]
- },
- {
-  "id": "S1-F4-0d48d10bt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/workloads",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2026-09-03T19:01:01"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/workloads/controllers/cron-jobs.md@1.36"
-  },
-  "gold": {
-   "id": "k8s:concepts/workloads/controllers/cron-jobs.md@1.36",
-   "path": "concepts/workloads/controllers/cron-jobs.md",
-   "version": "1.36"
-  },
-  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
-  "distractors": [
-   {
-    "id": "k8s:concepts/workloads/controllers/cron-jobs.md@1.30",
-    "version": "1.30",
-    "change_ratio": 0.115,
-    "relation": "superseded"
-   }
-  ],
-  "expect": {
-   "applicable": null,
-   "critical_if_applicable": [
-    "k8s:concepts/workloads/controllers/cron-jobs.md@1.30"
-   ]
-  },
-  "twin_of": "S1-F2-0d48d10b",
-  "remove_docs": [
-   "k8s:concepts/workloads/controllers/cron-jobs.md@1.36"
-  ]
- },
- {
-  "id": "S1-F4-b86066edt",
-  "family": "F4_constructed_abstention",
-  "source": "S1",
-  "cluster": "concepts/workloads",
-  "split": "dev",
-  "ticket": {
-   "service": "kubernetes-docs",
-   "opened_at": "2025-11-28T23:11:19"
-  },
-  "query_from": {
-   "field": "title",
-   "doc": "k8s:concepts/workloads/_index.md@1.33"
-  },
-  "gold": {
-   "id": "k8s:concepts/workloads/_index.md@1.33",
-   "path": "concepts/workloads/_index.md",
+   "id": "k8s:concepts/configuration/configmap.md@1.33",
+   "path": "concepts/configuration/configmap.md",
    "version": "1.33"
   },
   "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
   "distractors": [
    {
-    "id": "k8s:concepts/workloads/_index.md@1.35",
-    "version": "1.35",
-    "change_ratio": 0.123,
+    "id": "k8s:concepts/configuration/configmap.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.144,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:concepts/configuration/configmap.md@1.30"
+   ]
+  },
+  "twin_of": "S1-F1-d96de33c",
+  "remove_docs": [
+   "k8s:concepts/configuration/configmap.md@1.33"
+  ]
+ },
+ {
+  "id": "S1-F4-8f4c55d4t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "concepts/cluster-administration",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2025-01-27T22:10:14",
+   "version": "1.30"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:concepts/cluster-administration/node-shutdown.md@1.30"
+  },
+  "gold": {
+   "id": "k8s:concepts/cluster-administration/node-shutdown.md@1.30",
+   "path": "concepts/cluster-administration/node-shutdown.md",
+   "version": "1.30"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:concepts/cluster-administration/node-shutdown.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.157,
     "relation": "not_yet_effective"
    },
    {
-    "id": "k8s:concepts/workloads/_index.md@1.36",
+    "id": "k8s:concepts/cluster-administration/node-shutdown.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.157,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/cluster-administration/node-shutdown.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.175,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/cluster-administration/node-shutdown.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.219,
+    "relation": "not_yet_effective"
+   },
+   {
+    "id": "k8s:concepts/cluster-administration/node-shutdown.md@1.36",
     "version": "1.36",
-    "change_ratio": 0.148,
+    "change_ratio": 0.219,
     "relation": "not_yet_effective"
    }
   ],
   "expect": {
    "applicable": null,
    "critical_if_applicable": [
-    "k8s:concepts/workloads/_index.md@1.35",
-    "k8s:concepts/workloads/_index.md@1.36"
+    "k8s:concepts/cluster-administration/node-shutdown.md@1.32",
+    "k8s:concepts/cluster-administration/node-shutdown.md@1.33",
+    "k8s:concepts/cluster-administration/node-shutdown.md@1.34",
+    "k8s:concepts/cluster-administration/node-shutdown.md@1.35",
+    "k8s:concepts/cluster-administration/node-shutdown.md@1.36"
    ]
   },
-  "twin_of": "S1-F2-b86066ed",
+  "twin_of": "S1-F1-8f4c55d4",
   "remove_docs": [
-   "k8s:concepts/workloads/_index.md@1.33"
+   "k8s:concepts/cluster-administration/node-shutdown.md@1.30"
+  ]
+ },
+ {
+  "id": "S1-F4-3b8fef47t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/node",
+  "split": "heldout",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-08-07T12:38:05",
+   "version": "1.34"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:reference/node/node-status.md@1.34"
+  },
+  "gold": {
+   "id": "k8s:reference/node/node-status.md@1.34",
+   "path": "reference/node/node-status.md",
+   "version": "1.34"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:reference/node/node-status.md@1.35",
+    "version": "1.35",
+    "change_ratio": 0.131,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/node/node-status.md@1.36",
+    "version": "1.36",
+    "change_ratio": 0.131,
+    "relation": "not_yet_effective"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/node/node-status.md@1.35",
+    "k8s:reference/node/node-status.md@1.36"
+   ]
+  },
+  "twin_of": "S1-F1-3b8fef47",
+  "remove_docs": [
+   "k8s:reference/node/node-status.md@1.34"
+  ]
+ },
+ {
+  "id": "S1-F4-79c095f2t",
+  "family": "F4_constructed_abstention",
+  "source": "S1",
+  "cluster": "reference/glossary",
+  "split": "dev",
+  "ticket": {
+   "service": "kubernetes-docs",
+   "opened_at": "2026-10-06T07:15:39",
+   "version": "1.35"
+  },
+  "query_from": {
+   "field": "title",
+   "doc": "k8s:reference/glossary/resource-quota.md@1.35"
+  },
+  "gold": {
+   "id": "k8s:reference/glossary/resource-quota.md@1.35",
+   "path": "reference/glossary/resource-quota.md",
+   "version": "1.35"
+  },
+  "origin": "mechanical generator configs/generator.json v1; constructed (gold removed), synthetic",
+  "distractors": [
+   {
+    "id": "k8s:reference/glossary/resource-quota.md@1.30",
+    "version": "1.30",
+    "change_ratio": 0.922,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/glossary/resource-quota.md@1.31",
+    "version": "1.31",
+    "change_ratio": 0.922,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/glossary/resource-quota.md@1.32",
+    "version": "1.32",
+    "change_ratio": 0.922,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/glossary/resource-quota.md@1.33",
+    "version": "1.33",
+    "change_ratio": 0.196,
+    "relation": "wrong_version"
+   },
+   {
+    "id": "k8s:reference/glossary/resource-quota.md@1.34",
+    "version": "1.34",
+    "change_ratio": 0.196,
+    "relation": "wrong_version"
+   }
+  ],
+  "expect": {
+   "applicable": null,
+   "critical_if_applicable": [
+    "k8s:reference/glossary/resource-quota.md@1.30",
+    "k8s:reference/glossary/resource-quota.md@1.31",
+    "k8s:reference/glossary/resource-quota.md@1.32",
+    "k8s:reference/glossary/resource-quota.md@1.33",
+    "k8s:reference/glossary/resource-quota.md@1.34"
+   ]
+  },
+  "twin_of": "S1-F1-79c095f2",
+  "remove_docs": [
+   "k8s:reference/glossary/resource-quota.md@1.35"
   ]
  }
 ]

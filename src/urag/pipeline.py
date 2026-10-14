@@ -94,6 +94,8 @@ def classify_runbook(d, inc, catalog, env_aliases=None, disable=frozenset(), dim
     if "authority" not in disable and d["approval_state"] != "approved":  # fail closed: draft, unreviewed, unknown
         return "excluded", f'approval_state={d["approval_state"]!r}: not approved guidance'
     ef, et = _dt(d.get("effective_from")), _dt(d.get("effective_to"))
+    if "version" in dims and "lifecycle" not in disable and ef is None:  # Amendment 7.2 (document corpora only)
+        return "applicability_unknown", "lifecycle unknown: effective_from missing; not treated as authoritative"
     if "lifecycle" not in disable and ((ef and at < ef) or (et and at >= et)):
         return "historical", "outside effective window at incident time"
     if "applicability" in disable:
@@ -155,12 +157,13 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
     catalog = corpus["service_catalog"]
     visible = corpus["docs"] if arm == "N0" else authorize(corpus["docs"], user)
     cand = [d for d in visible if d["type"] in ("runbook", "incident")]
-    if "meta_prefilter" in variant:  # Amendment 6: metadata filter before ranking (window + known version only)
+    if "meta_prefilter" in variant or "meta_prefilter_closed" in variant:  # Amendments 6, 7
         at_ = _dt(incident["opened_at"]); iv_ = incident.get("version")
+        closed = "meta_prefilter_closed" in variant
         cand = [d for d in cand
-                if (not d.get("effective_from") or _dt(d["effective_from"]) <= at_)
+                if (_dt(d.get("effective_from")) <= at_ if d.get("effective_from") else not closed)
                 and (not d.get("effective_to") or at_ < _dt(d["effective_to"]))
-                and (iv_ is None or d.get("version") is None or str(d["version"]) == str(iv_))]
+                and (iv_ is None or (str(d["version"]) == str(iv_) if d.get("version") is not None else not closed))]
     svc = resolve_service(incident.get("service"), catalog)
     if prefilter and svc:  # optional metadata pre-filter; unscoped docs kept
         cand = [d for d in cand if d.get("service") in (svc, None)]
@@ -193,6 +196,16 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
         elif label == "applicability_unknown":
             out["applicability_flags"].append({"id": d["id"], "note": reason})
             out["manifest"].append(d["id"])
+    if "relevance_floor" in variant:  # Amendment 8.1: mechanical sufficiency on eligible candidates
+        qtok = {w for w in re.findall(r"[a-z0-9]+", incident["summary"].lower()) if len(w) >= 3 and w not in _STOP}
+        if qtok:
+            kept_c, dropped = [], []
+            for d in current:
+                dt = set(re.findall(r"[a-z0-9]+", f'{d["title"]} {d["body"]}'.lower()))
+                (kept_c if len(qtok & dt) / len(qtok) >= 0.70 else dropped).append(d)
+            for d in dropped:
+                out["missing_information"].append(f"candidate {d['id']} below relevance floor")
+            current = kept_c
     if ("lifecycle" not in disable and incident.get("version") is None
             and "version" in corpus.get("applicability_dims", ())):
         # lineage rule (Amendment 5): version unspecified -> newest in-window revision of a lineage is current

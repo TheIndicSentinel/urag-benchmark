@@ -223,10 +223,10 @@ def main(sid):
             cases.append(case)
     # F4 constructed abstention twins from F1/F2 cases
     r4 = random.Random(CFG["seeds"]["constructed_abstention"])
-    base = [c for c in cases if c["family"].startswith(("F1", "F2"))]
+    base = [c for c in cases if c["family"].startswith("F1")]  # Amendment 8.4
     for c in r4.sample(base, k=max(1, round(0.2 * len(base)))):
         t = json.loads(json.dumps(c))
-        t["id"] = c["id"].replace("-F1-", "-F4-").replace("-F2-", "-F4-") + "t"; t["family"] = "F4_constructed_abstention"
+        t["id"] = c["id"].replace("-F1-", "-F4-") + "t"; t["family"] = "F4_constructed_abstention"
         t["twin_of"] = c["id"]; t["remove_docs"] = [c["gold"]["id"]]
         t["expect"] = {"applicable": None, "critical_if_applicable": [d["id"] for d in c["distractors"]]}
         t["origin"] += "; constructed (gold removed), synthetic"

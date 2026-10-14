@@ -63,15 +63,15 @@
    "dev": 27
   },
   "F4_constructed_abstention": {
-   "heldout": 16,
-   "dev": 12
+   "dev": 5,
+   "heldout": 9
   }
  },
  "distinct_clusters_by_family": {
-  "F4_constructed_abstention": 26,
-  "F1_wrong_version": 66,
   "F3_acl_exposure": 62,
-  "F2_stale_or_not_yet_effective": 66
+  "F4_constructed_abstention": 14,
+  "F2_stale_or_not_yet_effective": 66,
+  "F1_wrong_version": 66
  },
- "n_cases": 233
+ "n_cases": 219
 }
