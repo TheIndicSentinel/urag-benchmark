@@ -78,6 +78,7 @@ def main():
     ap.add_argument("--sources", default="S1,S2")
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--reverse", action="store_true", help="process tasks in reverse order (second runner; deterministic, shares checkpoints)")
     a = ap.parse_args()
     sids = a.sources.split(",")
     for sid in sids:
@@ -88,6 +89,8 @@ def main():
         cs = [c for c in json.load(open(os.path.join(ROOT, "data", "public", f"{sid}_cases.json"))) if c["split"] == "dev"]
         CASES[sid] = cs[:a.limit] if a.limit else cs
     tasks = [(s, k, m, sd) for s in sids for k in LEVELS for m in MODES for sd in SEEDS]
+    if a.reverse:
+        tasks = tasks[::-1]
     with mp.get_context("fork").Pool(a.workers) as pool:
         res = pool.map(task, tasks, chunksize=1)
     json.dump({"arms": ARMS, "levels": LEVELS, "seeds": SEEDS, "modes": MODES, "fields": FIELDS, "results": res},
