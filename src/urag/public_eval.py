@@ -6,7 +6,7 @@
 Source text is read from untracked local extracts; outputs contain ids only.
 Outcome taxonomy is fixed by Amendment 3 of docs/PREREGISTRATION.md.
 """
-import argparse, hashlib, json, os, pickle, random, subprocess, sys
+import argparse, hashlib, json, os, pickle, random, re, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "src"))
@@ -60,10 +60,23 @@ def classify(case, out):
 
 
 VARIANTS = {"A2": ("A", {"ranked_alternatives"}), "N1P": ("N1", {"meta_prefilter"}),
-            "AP": ("A", {"meta_prefilter"}), "A2P": ("A", {"ranked_alternatives", "meta_prefilter"})}
+            "AP": ("A", {"meta_prefilter"}), "A2P": ("A", {"ranked_alternatives", "meta_prefilter"}),
+            "N1P-closed": ("N1", {"meta_prefilter_closed"}),
+            "A-S": ("A", {"relevance_floor"}), "A2-S": ("A", {"ranked_alternatives", "relevance_floor"})}
+_STOPW = set(pipeline._STOP)
 
 
-def run_case(case, base_docs, docs_by_id, arm, disable):
+def lead_query(doc, n=15):
+    """Amendment 8.2: first n content words of the body after the title."""
+    body = doc["body"]
+    tn = re.sub(r"\s+", " ", re.sub(r"[^a-z0-9\s]", " ", (doc["title"] or "").lower())).strip()
+    if tn and body.startswith(tn):
+        body = body[len(tn):]
+    toks = [w for w in re.findall(r"[a-z0-9]+", body.lower()) if len(w) >= 3 and w not in _STOPW]
+    return " ".join(toks[:n])
+
+
+def run_case(case, base_docs, docs_by_id, arm, disable, query_style="title", ticket_version="__case__"):
     variant = frozenset()
     if arm in VARIANTS:
         arm, v = VARIANTS[arm]; variant = frozenset(v)
@@ -77,9 +90,11 @@ def run_case(case, base_docs, docs_by_id, arm, disable):
     svc = docs_by_id[case["query_from"]["doc"]]["service"]
     corpus = {"service_catalog": {svc: []}, "environment_aliases": {}, "applicability_dims": ["service", "version"],
               "cache_index": True, "docs": docs}
-    title = docs_by_id[case["query_from"]["doc"]]["title"]
+    gold_doc = docs_by_id[case["query_from"]["doc"]]
+    title = gold_doc["title"] if query_style == "title" else lead_query(gold_doc)
+    ver = case["ticket"].get("version") if ticket_version == "__case__" else ticket_version
     inc = {"id": case["id"], "summary": title, "service": svc, "environment": None,
-           "opened_at": case["ticket"]["opened_at"], "version": case["ticket"].get("version")}
+           "opened_at": case["ticket"]["opened_at"], "version": ver}
     tr = {}
     out = pipeline.investigate(corpus, ANALYST, inc, trace=tr, arm=arm, disable=frozenset(disable), variant=variant)
     return classify(case, out), out, tr.get("retrieved", [])
@@ -133,7 +148,7 @@ def summarize(rows):
             if rt and arm in entry:
                 entry[arm]["gold_in_top10"] = round(sum(x["gold_in_top10"] for x in rt) / len(rt), 3)
                 entry[arm]["same_path_in_top10"] = round(sum(x["same_path_in_top10"] for x in rt) / len(rt), 3)
-        for x_, y_ in (("A", "N1"), ("A2", "N1"), ("AP", "N1P"), ("A2P", "N1P")):
+        for x_, y_ in (("A", "N1"), ("A2", "N1"), ("AP", "N1P"), ("A2P", "N1P"), ("A2", "N1P"), ("A2", "N1P-closed"), ("A-S", "A"), ("A2-S", "A2")):
             if x_ in entry and y_ in entry:
                 pairs = [(r["cluster"], int(r["outcomes"][x_] != "correct"), int(r["outcomes"][y_] != "correct")) for r in fr]
                 entry[f"{x_}_minus_{y_}"] = boot_ci(pairs)
@@ -148,7 +163,8 @@ def main():
     ap.add_argument("--split", choices=["dev", "heldout"], required=True)
     ap.add_argument("--ablate", action="store_true")
     ap.add_argument("--sources", default="S1,S2")
-    ap.add_argument("--variants", action="store_true", help="also run A2, N1P, AP, A2P (Amendment 6)")
+    ap.add_argument("--variants", action="store_true", help="also run A2, N1P, AP, A2P (Amendment 6) and N1P-closed, A-S, A2-S (7, 8)")
+    ap.add_argument("--query-style", choices=["title", "lead"], default="title")
     ap.add_argument("--confirm-frozen", action="store_true", help="required for heldout")
     ap.add_argument("--limit", type=int, help="dev smoke runs only")
     a = ap.parse_args()
@@ -178,7 +194,7 @@ def main():
         r = {"id": c["id"], "family": c["family"], "source": c["source"], "cluster": f'{c["source"]}:{c["cluster"]}', "outcomes": {}}
         for arm, dis in arms:
             key = arm if not dis else f"A-{dis[0]}"
-            oc, out, got = run_case(c, bases[c['source']][1], by_ids[c['source']], arm, dis)
+            oc, out, got = run_case(c, bases[c['source']][1], by_ids[c['source']], arm, dis, a.query_style)
             r["outcomes"][key] = oc
             r.setdefault("equiv", {})[key] = oc == "wrong_doc" and equivalent(c, out, None)
             if not dis:
@@ -195,7 +211,7 @@ def main():
            "g1_status": ("NOT EVALUABLE: %d source(s) (< 3 required); dev/regression evidence only" % len(sids)) if len(sids) < 3
                         else "sources >= 3, but dev split is never G1 evidence; held-out single run required",
            "families": summ, "cases": rows}
-    name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}{'_variants' if a.variants else ''}.json"
+    name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}{'_variants' if a.variants else ''}{'_lead' if a.query_style == 'lead' else ''}.json"
     json.dump(out, open(os.path.join(ROOT, name), "w"), indent=1)
     if a.split == "heldout":
         open(log, "a").write(f"{h} {subprocess.check_output(['git','-C',ROOT,'rev-parse','HEAD']).decode().strip()}\n")
