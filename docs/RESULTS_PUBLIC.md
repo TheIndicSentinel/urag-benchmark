@@ -108,3 +108,8 @@ Raw: `results/public_S1-S2_dev_variants.json` (title queries), `..._variants_lea
 4. **Sufficiency (A-S, threshold 0.70, fixed a priori) mostly acts by resolving conflicts, not by abstaining on irrelevant evidence.** A-S vs A: F1 -0.11 / -0.14 (title/lead), F2 -0.09 / -0.17, F3 -0.08 / -0.14, all with CI excluding 0. But on F4, the case it was meant for, it removes only 2 of 13 wrong answers under lead (-0.095, CI [-0.22, 0.0]) and 2 of 12 under title (CI [-0.26, 0.0]): A-S still answers wrongly in 11/21 (lead). Under Amendment 8.3 sufficiency is **not declared dropped** (no coverage loss) but is **not demonstrated**: a lexical coverage floor cannot tell an on-topic near-duplicate page from the answer. A real sufficiency claim needs content-level evidence the benchmark does not provide.
 5. **A's abstention in F4 is accidental** (the conflict rule); N1P answers wrongly in 100% of F4 cases with 0 critical failures; A answers wrongly in 57-62%. No arm has a working sufficiency check.
 6. `N1P-closed` equals `N1P` on clean data, as expected (no missing fields); the difference appears only in G2.
+
+---
+# Determinism check (Amendment 9.5)
+Task `S2 / level 25 / corrupt / seed 12`, first 40 dev cases, five arms, run in two separate processes: `PYTHONHASHSEED=1` with index cache size 1, and `PYTHONHASHSEED=777` with cache size 3. SHA-256 prefix of the sorted JSON result: **`2e2eaa30b0620160` in both**. G2 outputs are independent of process, hash seed and cache size; checkpoint resumes and worker count therefore cannot change results (tasks are pure functions of source, level, mode, seed).
+Scope of the check: one task, one source. It is a spot check, not a proof.
