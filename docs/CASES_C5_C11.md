@@ -21,3 +21,13 @@ C8 is reclassified as dev and marked contaminated. Predictions on the current pi
 
 ## Retrieval pre-filter hypothesis (registered before measurement)
 H: restricting FTS candidates to the incident's resolved service (plus unscoped docs) reduces off-service results in top-10 with no recall loss on cases whose metadata is correct. Known risk: wrong or missing incident service metadata would remove the right runbook; this is measured separately and decides whether pre-filter may be default.
+
+## Addendum: C15-C16 (change-environment scoping), registered before the fix
+Gap found in review: change correlation matches on service only, so a staging change becomes a hypothesis for a production incident.
+| ID | Split | Severity | Intended behavior | Predicted on current pipeline |
+|---|---|---|---|---|
+| C15 | dev | high | Production incident: only the production deployment is a hypothesis; the staging deployment is not | **fail** (service-only match) |
+| C16 | heldout | high | Incident env `PRD` vs change env `production` resolve to the same environment; change is a hypothesis | pass (no env check today); guards the fix against over-excluding |
+
+Intended fix: normalize change environment with `environment_aliases`; a change whose environment is recognized and differs from the incident's recognized environment is excluded; unrecognized or missing change/incident environment keeps the change but flags "environment unverified". The missing/unrecognized-environment branch has no case yet (untested; evaluator would need a relevance-note check).
+Dates are placed on 2026-10-20/21 so no existing case's 24h lookback sees the new change records.

@@ -10,7 +10,7 @@ class Cases(unittest.TestCase):
 
     # Held-out failures documented in docs/RESULTS.md. Not fixed to avoid tuning
     # on held-out data; this test flips when the failure is resolved so it can't rot.
-    KNOWN_FAILING = set()
+    KNOWN_FAILING = {"C15-staging-change-not-hypothesis"}
 
     def test_all_cases(self):
         for c in self.cases:
