@@ -29,3 +29,11 @@
 | D10 | 2026-10-14 | Public evaluation proceeds on branch phase2/generator; no merge/tag/push without user approval | Active | brief s0 | await approval |
 | D11 | 2026-10-14 | Value claim restated as critical-error reduction, not accuracy | Proposed | RESULTS_PUBLIC.md items 1-2 | confirm on S2/S3 |
 | D12 | 2026-10-14 | F1 generator redesign needed (T after gold window) before held-out is run | Open | F1/F2 redundancy in ablation | Amendment 5 + regenerate |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D13 | 2026-10-14 | F1/F3 reported as "no difference by construction", not as falsification | Active | review; RESULTS_PUBLIC labels | G2 is the real test |
+| D14 | 2026-10-14 | Sufficiency kept as a stated-but-undemonstrated claim; lexical floor 0.70 fixed a priori | Active | v4 results | needs content-level ground truth or drop |
+| D15 | 2026-10-14 | Conflict rule recorded as a scoping flaw of frozen arm A; A2 is a variant, arm A not edited | Active | S2 over-abstention | none |
+| D16 | 2026-10-14 | Do not add a third versioned source to make F1 conclusive | Active | review; F1 is non-informative by construction | none |
+| D17 | 2026-10-14 | No push before user confirms remote; origin is PUBLIC | Blocked on user | gh repo view | user decision |

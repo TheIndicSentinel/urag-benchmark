@@ -8,7 +8,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "src"))
 from urag import public_eval as pe  # noqa: E402
 
-ARMS = ["N1", "N1P", "N1P-closed", "A", "A2"]
+ARMS = ["N1", "A", "A2", "N1P", "N1P-closed"]  # adjacent arms share candidate sets (index cache)
 LEVELS, SEEDS, MODES = [10, 25, 50], [11, 12, 13], ["drop", "corrupt"]
 FIELDS = ["version", "effective_from", "effective_to", "approval_state"]
 BASE, BYID, CASES, VERS = {}, {}, {}, {}
@@ -55,7 +55,7 @@ def task(args):
     part = os.path.join(PART_DIR, f"{sid}_{k}_{mode}_{seed}.json")
     if os.path.exists(part):  # resumable
         return json.load(open(part))
-    pe.pipeline._INDEX_CACHE_MAX = 1
+    pe.pipeline._INDEX_CACHE_MAX = 2
     docs = degrade_docs(BASE[sid], k, mode, seed)
     rows = []
     for c in CASES[sid]:
