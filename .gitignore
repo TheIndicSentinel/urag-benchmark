@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 # real interview notes stay local; only the blank template is tracked
 docs/discovery/*.local.*
+.local_sources/

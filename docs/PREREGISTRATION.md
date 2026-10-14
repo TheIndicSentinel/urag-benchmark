@@ -45,4 +45,11 @@ Also reported with every G1 result: prevalence (how often N1's top result is act
 - Inconclusive: collect more diverse sources or report as inconclusive; do not lower thresholds after seeing results.
 
 ## 7. Amendments
-(none)
+### Amendment 1 (2026-10-14): generator config and clarifications
+Registered before any ingestion or generation. Nothing above this section was changed.
+1. **Generator config.** `configs/generator.json` v1 fixes seeds, thresholds, families, dedupe, ACL simulation, degradation levels and the expected-inconclusive list.
+2. **Split interpretation.** s4 (split by source) and s5 (>=3 sources per class on held-out) cannot both hold with 3 sources. Clusters within each source are assigned wholly to dev (30%) or held-out (70%) by seeded hash. This weakens independence from source style; reported as a limitation. Source-level bootstrap clustering for G1 is unchanged.
+3. **Version semantics (to be implemented in arm A):** an incident carries an optional `version`. Document `version` known and incident `version` known and different: not applicable (critical if presented as applicable). Incident version unknown: version-scoped documents are flagged applicability-unknown, never silently chosen, and lifecycle (effective window as of the incident time) decides what is current. Documents effective_from after the incident time are out-of-window ("not yet effective").
+4. **Arms N0/N1** remain frozen as specified in s2; neither gains version or lifecycle logic.
+5. **Expected-inconclusive classes** are listed in the config. wrong-version has only two versioned sources (S1, S2) so it is expected to be **inconclusive** unless a third versioned source is registered by a further amendment before generation. Thresholds are not lowered.
+6. **Known threat to validity** (also in config): query text is derived from the gold page title; the N1 gap on versioned corpora is partly by construction. Interpretation requires the reported prevalence and the ablations.

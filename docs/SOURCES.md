@@ -34,3 +34,14 @@ Published benchmark artifacts contain case IDs, source pointers (repo, path, com
 - Unresolved-conflict: only via paired runbooks or Q&A; frequency uncertain.
 - Insufficient-evidence / unnecessary-abstention: constructed by removing the gold document; mechanical but synthetic, labelled so.
 Per PREREGISTRATION s5, classes below the minimum sample are reported as inconclusive; thresholds are not lowered.
+
+
+## Ingestion verification record (2026-10-14T13:59Z)
+Checked against primary files in local blob-less clones (untracked, `.local_sources/`):
+| ID | Licence file checked | Result | Pinned ref |
+|---|---|---|---|
+| S1 | `LICENSE` at repo root, branch release-1.34 | Creative Commons Attribution 4.0 International. No licence note found in README. Individual files may carry other terms (e.g. code samples); only pointers are published. | release-1.30..1.36, SHAs in `configs/generator.json` |
+| S2 | `COPYRIGHT` at tag REL_17_0 | PostgreSQL Licence; grant covers "software and its documentation" with copyright and paragraphs retained in copies. | REL_14_0..REL_18_0 tags, SHAs in config |
+| S3 | `LICENSE` at master | MIT, Copyright GitLab, Inc. | master @ 4cfd1ca7, 983 commits visible, 26,761 files of which 983 `.md` at HEAD (counts from local clone) |
+Re-verify before any publication. Not legal advice.
+S1 scale check: content/en/docs holds 1,343 (v1.30) to 1,672 (v1.36) `.md` files per release.
