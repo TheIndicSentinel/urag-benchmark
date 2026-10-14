@@ -8,6 +8,7 @@ def main(argv=None):
     p.add_argument("--cases", default="data/cases.json")
     p.add_argument("--case", help="case id to investigate")
     p.add_argument("--eval", action="store_true", help="run all cases against expectations")
+    p.add_argument("--prefilter", action="store_true", help="restrict retrieval to resolved service (experimental)")
     p.add_argument("--split", choices=["dev", "heldout"], help="restrict --eval to a split")
     a = p.parse_args(argv)
     corpus = pipeline.load(a.corpus)
@@ -18,7 +19,7 @@ def main(argv=None):
         return 0
     if a.eval:
         from .evaluate import run
-        res = run(corpus, cases, a.split)
+        res = run(corpus, cases, a.split, a.prefilter)
         print(json.dumps(res, indent=2))
         return 0 if all(r["pass"] for r in res["cases"]) else 1
     p.print_help()

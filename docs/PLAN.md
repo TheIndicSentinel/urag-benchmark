@@ -55,3 +55,18 @@ Record separately: fact / estimate / opinion / open question.
 
 ## Run
 `python3 -m unittest discover -s tests` · `PYTHONPATH=src python3 -m urag.cli --eval` · `PYTHONPATH=src python3 -m urag.cli --case C3-correlation-not-causation`
+
+## Solo operating mode (added after confirming solo development)
+**What a solo builder cannot do:** two-labeler inter-rater agreement; truly independent authorship. Do not claim either.
+**Substitutes, ranked by strength:**
+1. Public-source cases with externally written ground truth (postmortem narratives, versioned vendor docs, release notes). License-check each source; store only short excerpts or paraphrase plus a link; keep a `SOURCES.md`.
+2. Pre-registration: expectations and predictions committed before execution; held-out sibling cases written before each fix; contaminated cases reclassified.
+3. A second model run as an *independent labeler* on a subset, compared with my labels. Weak (same family bias), always labelled as such.
+4. A friendly human spot-check of 10-15 cases if one ever becomes available; never a dependency.
+
+**Cadence (time-boxed, adjust to real hours):**
+- Weekly: 2 outreach invitations via reachable communities or warm contacts; log any conversation within 24h.
+- Weekly: one evaluation increment (new cases or one fix), never both unregistered.
+- Stop rule: if after 8 invitations over 4 weeks there are 0 conversations, switch channel or reconsider the problem framing rather than building more.
+
+**Do not build while solo:** UI, connectors, vector search, second domain pack, multi-agent anything. The only technical expansion allowed before discovery results is Baseline B (constrained LLM), time-boxed.

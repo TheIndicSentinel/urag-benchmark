@@ -435,5 +435,40 @@
   "relevant": [
    "rb-pay-restart-v2"
   ]
+ },
+ {
+  "id": "C14-offservice-history-leak",
+  "origin": "regression case from failure analysis of C5 (post-hoc, dev; not pre-registered)",
+  "split": "dev",
+  "severity": "high",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2014",
+   "summary": "orders api timeouts queue backlog",
+   "service": "orders-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "A resolved historical incident of a different service must not be offered as relevant history.",
+  "expected_evidence": [
+   "rb-ord-a",
+   "rb-ord-b"
+  ],
+  "failure_condition": "inc-0900 (payments-api) appears anywhere in output.",
+  "expect": {
+   "absent_ids": [
+    "inc-0900"
+   ],
+   "status": "conflicting_evidence"
+  },
+  "relevant": [
+   "rb-ord-a",
+   "rb-ord-b"
+  ]
  }
 ]

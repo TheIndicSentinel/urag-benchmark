@@ -19,7 +19,7 @@ def should_answer(e):
     return bool(e.get("current_runbook") or e.get("hypotheses_support_exactly") or e.get("hypothesis_evidence"))
 
 
-def check(case, out, corpus=None):
+def check(case, out, corpus=None, prefilter=False):
     e, fails = case["expect"], []
     cur = (out.get("applicable_runbook") or {}).get("id")
     if "current_runbook" in e and cur != e["current_runbook"]:
@@ -55,7 +55,7 @@ def check(case, out, corpus=None):
         c2 = copy.deepcopy(corpus)
         rm = set(e["noninterference_remove"])
         c2["docs"] = [d for d in c2["docs"] if d["id"] not in rm]
-        ref = pipeline.investigate(c2, case["user"], case["incident"])
+        ref = pipeline.investigate(c2, case["user"], case["incident"], prefilter=prefilter)
         if ref != out:
             fails.append("output differs from corpus without unauthorized records")
     if out.get("status") == "validation_failed":
@@ -63,18 +63,21 @@ def check(case, out, corpus=None):
     return fails
 
 
-def run(corpus, cases, split=None):
+def run(corpus, cases, split=None, prefilter=False):
     rows = []
     for c in cases:
         if split and c.get("split", "dev") != split:
             continue
         tr = {}
-        out = pipeline.investigate(corpus, c["user"], c["incident"], trace=tr)
-        fails = check(c, out, corpus)
+        out = pipeline.investigate(corpus, c["user"], c["incident"], trace=tr, prefilter=prefilter)
+        fails = check(c, out, corpus, prefilter)
         rel = c.get("relevant", [])
         got = tr.get("retrieved", [])
         rec = None if not rel else round(sum(r in got for r in rel) / len(rel), 2)
-        rows.append({"id": c["id"], "split": c.get("split", "dev"), "severity": c["severity"], "pass": not fails,
+        svc = pipeline.resolve_service(c["incident"].get("service"), corpus["service_catalog"])
+        by = {d["id"]: d for d in corpus["docs"]}
+        off = sum(by[i].get("service") not in (svc, None) for i in got) if svc else None
+        rows.append({"id": c["id"], "off_service_in_top10": off, "split": c.get("split", "dev"), "severity": c["severity"], "pass": not fails,
                      "failures": fails, "answered": answered(out), "should_answer": should_answer(c["expect"]),
                      "recall_at_10": rec, "status": out.get("status")})
     n = len(rows)
@@ -88,6 +91,7 @@ def run(corpus, cases, split=None):
         "correct_abstentions": sum((not r["answered"]) and (not r["should_answer"]) and r["pass"] for r in rows),
         "unnecessary_abstentions": sum((not r["answered"]) and r["should_answer"] for r in rows),
         "mean_recall_at_10": round(sum(recs) / len(recs), 2) if recs else None,
+        "mean_off_service_in_top10": round(sum(r["off_service_in_top10"] for r in rows if r["off_service_in_top10"] is not None) / max(1, sum(r["off_service_in_top10"] is not None for r in rows)), 2),
         "note": "single operating point, small n; not a coverage-risk curve",
     }
     return {"cases": rows, "summary": summary}

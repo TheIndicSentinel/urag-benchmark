@@ -32,3 +32,31 @@ All cases are synthetic and agent-authored (C1-C4 by the baseline author, C5-C11
 - **Retrieval is noisy**: the OR query lets common tokens ("api", "errors") pull unrelated services into top-10 (C3 retrieves notify/auth/search runbooks). It's harmless today because classification filters them, but it will crowd out relevant records as the corpus grows. Metadata pre-filtering is the likely fix and should be measured before adopting.
 - `change_type` and `approval_state` are assumed present and correct; missing/wrong values in real systems are untested beyond one case.
 - One data point, not a coverage-risk curve; no threshold exists to sweep yet.
+
+## Run 3-5: environment handling, pre-filter, and two latent bugs
+Files: `results/run3_*`, `run4_*`, `run5_*`.
+
+**Run 3 (before fix):** C8, C12, C13 fail as pre-registered. 10/13.
+**Run 4 (env normalization + unknown-env flagged):** 13/13 default mode. C12 and C13 passed, but they were written by the same agent that knew the fix, so this is weak confirmation. C8 is contaminated and no longer counts as held out.
+
+**Pre-filter hypothesis check (Run 4, prefilter mode): 11/13, two failures, both traced:**
+| Failure | Cause | Class |
+|---|---|---|
+| C5 `insufficient_evidence` instead of `conflicting_evidence` | Final status assignment overwrote the conflict status when no historical/hypothesis items existed. In default mode an off-service incident (`inc-0900`) leaked in as "historical" and masked this. | Real pipeline bug, latent since baseline |
+| (same cause) off-service historical incident | Historical incidents were never checked for service applicability | Real applicability bug |
+| C10 output differs | Non-interference reference ran without the prefilter mode, so two different modes were compared | Evaluator bug; not a leak |
+
+**Run 5 (all fixes):** 14/14 in both modes. C14 was added post-hoc as a regression case for the history leak (dev, not pre-registered).
+
+| Metric (n=14) | default | prefilter |
+|---|---|---|
+| Passed | 14 | 14 |
+| Critical failures | 0 | 0 |
+| Coverage / risk among answered | 0.71 / 0.0 | 0.71 / 0.0 |
+| Correct / unnecessary abstentions | 4 / 0 | 4 / 0 |
+| Mean off-service docs in top-10 | 6.64 | 0.0 |
+| Mean recall@10 | 0.85 | 0.85 |
+
+**Reading it:** pre-filtering removes off-service noise with no recall loss on these cases. Cross-service runbooks would be classified "not applicable" anyway, so the benefit is protecting top-k from crowd-out as the corpus grows, not changing outputs today. Untested: unscoped docs when service is missing in the incident (pre-filter is skipped when the service doesn't resolve), and corpus sizes where crowd-out matters (current corpus has ~30 docs). Not yet made default.
+
+**Lesson:** the noise hid a correctness bug. Running every case in both modes is now part of the unit tests.

@@ -30,6 +30,17 @@ def resolve_service(name, catalog):
     return hits.pop() if len(hits) == 1 else None
 
 
+def canonical_env(name, env_aliases):
+    """Canonical environment id, or None if absent/unrecognized (never guessed)."""
+    if not name:
+        return None
+    n = name.strip().lower()
+    for canon, aliases in (env_aliases or {}).items():
+        if n == canon.lower() or n in (a.lower() for a in aliases):
+            return canon
+    return None
+
+
 def authorize(docs, user):
     """Tenant-free simulated ACL: a doc is visible iff the user shares a group. Fail closed."""
     groups = set(user.get("groups") or [])
@@ -51,7 +62,7 @@ def retrieve(candidates, text, k=10):
     return [by_id[r[0]] for r in rows]
 
 
-def classify_runbook(d, inc, catalog):
+def classify_runbook(d, inc, catalog, env_aliases=None):
     """Return (label, reason). Authority and applicability kept as separate checks."""
     at = _dt(inc["opened_at"])
     if d["approval_state"] in ("superseded", "deprecated"):
@@ -62,17 +73,23 @@ def classify_runbook(d, inc, catalog):
     if (ef and at < ef) or (et and at >= et):
         return "historical", "outside effective window at incident time"
     inc_svc = resolve_service(inc.get("service"), catalog)
-    if d.get("service") is None or d.get("environment") is None or inc_svc is None or not inc.get("environment"):
+    inc_env = canonical_env(inc.get("environment"), env_aliases)
+    doc_env = canonical_env(d.get("environment"), env_aliases)
+    if d.get("service") is None or doc_env is None or inc_svc is None or inc_env is None:
         return "applicability_unknown", "service/environment could not be established; not treated as authoritative"
-    if d["service"] != inc_svc or d["environment"] != inc["environment"]:
+    if d["service"] != inc_svc or doc_env != inc_env:
         return "excluded", "not applicable to this service/environment"
     return "current_guidance", "approved, in effective window, service and environment match"
 
 
-def investigate(corpus, user, incident, trace=None):
+def investigate(corpus, user, incident, trace=None, prefilter=False):
     catalog = corpus["service_catalog"]
     visible = authorize(corpus["docs"], user)
-    hits = retrieve([d for d in visible if d["type"] in ("runbook", "incident")],
+    cand = [d for d in visible if d["type"] in ("runbook", "incident")]
+    svc = resolve_service(incident.get("service"), catalog)
+    if prefilter and svc:  # optional metadata pre-filter; unscoped docs kept
+        cand = [d for d in cand if d.get("service") in (svc, None)]
+    hits = retrieve(cand,
                     incident["summary"] + " " + (incident.get("service") or ""))
     if trace is not None:  # eval-only; never part of user-visible output
         trace["retrieved"] = [d["id"] for d in hits]
@@ -84,9 +101,11 @@ def investigate(corpus, user, incident, trace=None):
     current = []
     for d in hits:
         if d["type"] == "incident":
+            if svc is None or d.get("service") != svc:  # applicability: same resolved service only
+                continue
             out["historical"].append({"id": d["id"], "note": "historical incident, not current guidance"})
             out["manifest"].append(d["id"]); continue
-        label, reason = classify_runbook(d, incident, catalog)
+        label, reason = classify_runbook(d, incident, catalog, corpus.get("environment_aliases"))
         if label == "current_guidance":
             current.append(d)
         elif label == "historical":
@@ -122,7 +141,7 @@ def investigate(corpus, user, incident, trace=None):
                                       "relevance_note": None if ctype else "change type unknown; relevance unverified",
                                       "needed_to_test": ["error onset time vs deploy completion", "error signature diff between versions", "rollback or canary result"]})
             out["manifest"].append(d["id"])
-    if out["applicable_runbook"] is None and not out["hypotheses"] and not out["historical"]:
+    if out["status"] == "ok" and out["applicable_runbook"] is None and not out["hypotheses"] and not out["historical"]:
         out["status"] = "insufficient_evidence"
     out["manifest"] = sorted(set(out["manifest"]))
     errors = validate(out, {d["id"] for d in visible})
