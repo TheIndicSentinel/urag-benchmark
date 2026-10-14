@@ -85,3 +85,26 @@ S1: A 0.62/0.84/0.68 (F1-F3) vs N1 0.91/0.98/0.96. S2: A 0.93/1.00/0.96 vs N1 0.
 ## What this changes
 - Value claim narrows to: *eligibility governance converts silent critical errors into flags/abstentions*, and a **simple metadata prefilter delivers most of that on clean metadata.** The distinct contribution is lineage/lifecycle policy and behaviour under degraded metadata, both still to be shown.
 - Not yet run: S3, held-out, G2 sweep.
+
+---
+# v4: corrected F4, sufficiency (A-S), closed filter, query styles. Dev, S1+S2, 275 cases (F4 twins now F1-only: n=21)
+Raw: `results/public_S1-S2_dev_variants.json` (title queries), `..._variants_lead.json` (lead queries, Amendment 8.2). **Not G1 evidence** (2 sources, dev). fail/crit(ical)/abstained/wrong_doc per family.
+
+| Style | Family | N1 | N1P(-closed identical, clean data) | A | A-S | A2 | A2-S |
+|---|---|---|---|---|---|---|---|
+| title | F1 | .91/25/0/52 | .42/0/0/36 | .73/0/52/10 | .62/0/38/15 | .42/0/2/34 | .42/0/5/31 |
+| title | F2 | .90/27/0/50 | .83/10/0/61 | .90/0/65/12 | .80/0/51/18 | .48/1/0/40 | .47/1/1/38 |
+| title | F3 | .90/25/0/50 | .52/0/0/43 | .77/0/53/11 | .69/0/42/15 | .51/0/2/40 | .49/0/4/37 |
+| title | F4 | 1.00/5/0/16 | 1.00/0/0/21 | .57/0/0/12 | .48/0/0/10 | .81/0/0/17 | .67/0/0/14 |
+| lead | F1 | .78/26/0/40 | .22/0/0/19 | .72/0/51/10 | .58/0/40/9 | .22/0/0/19 | .21/0/2/16 |
+| lead | F2 | .85/32/0/41 | .76/18/0/47 | .84/0/67/5 | .66/0/53/4 | .19/0/0/16 | .17/0/1/14 |
+| lead | F3 | .75/23/0/39 | .18/0/0/15 | .69/0/53/4 | .54/0/41/4 | .18/0/0/15 | .17/0/1/13 |
+| lead | F4 | 1.00/8/0/13 | 1.00/0/0/21 | .62/0/0/13 | .52/0/0/11 | .76/0/0/16 | .67/0/0/14 |
+
+## Findings
+1. **F1/F3 are non-informative by construction** (A2 and N1P identical per case; CI [0,0]). Not a falsification of the thesis; the absence of a test (see label corrections above).
+2. **F2 is the only family where a governance rule changes outcomes on clean metadata**: lead queries, N1P 0.76 / 18 critical vs A2 0.19 / 0 critical; title queries 0.83 / 10 vs 0.48 / 1. Policy-defined gold (Amendment 3.2); the one remaining A2 critical failure in F2 is unexamined.
+3. **Retrieval quality is the dominant factor**: gold@10 is 0.57-0.64 with title queries and 0.82-0.90 with lead queries; every arm's failure rate falls sharply with the better query. Absolute failure rates should not be read as product accuracy.
+4. **Sufficiency (A-S, threshold 0.70, fixed a priori) mostly acts by resolving conflicts, not by abstaining on irrelevant evidence.** A-S vs A: F1 -0.11 / -0.14 (title/lead), F2 -0.09 / -0.17, F3 -0.08 / -0.14, all with CI excluding 0. But on F4, the case it was meant for, it removes only 2 of 13 wrong answers under lead (-0.095, CI [-0.22, 0.0]) and 2 of 12 under title (CI [-0.26, 0.0]): A-S still answers wrongly in 11/21 (lead). Under Amendment 8.3 sufficiency is **not declared dropped** (no coverage loss) but is **not demonstrated**: a lexical coverage floor cannot tell an on-topic near-duplicate page from the answer. A real sufficiency claim needs content-level evidence the benchmark does not provide.
+5. **A's abstention in F4 is accidental** (the conflict rule); N1P answers wrongly in 100% of F4 cases with 0 critical failures; A answers wrongly in 57-62%. No arm has a working sufficiency check.
+6. `N1P-closed` equals `N1P` on clean data, as expected (no missing fields); the difference appears only in G2.
