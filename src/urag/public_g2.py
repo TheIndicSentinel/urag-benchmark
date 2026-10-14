@@ -47,8 +47,15 @@ def ticket_version(case, k, mode, seed, versions):
     return v
 
 
+PART_DIR = os.path.join(ROOT, "results", "g2_parts")
+
+
 def task(args):
     sid, k, mode, seed = args
+    part = os.path.join(PART_DIR, f"{sid}_{k}_{mode}_{seed}.json")
+    if os.path.exists(part):  # resumable
+        return json.load(open(part))
+    pe.pipeline._INDEX_CACHE_MAX = 1
     docs = degrade_docs(BASE[sid], k, mode, seed)
     rows = []
     for c in CASES[sid]:
@@ -60,13 +67,16 @@ def task(args):
             r["arms"][arm] = {"o": oc, "answered": out.get("applicable_runbook") is not None, "flagged": flagged,
                               "silent": oc in ("critical", "wrong_doc") and not flagged}
         rows.append(r)
-    return {"source": sid, "level": k, "mode": mode, "seed": seed, "rows": rows}
+    res = {"source": sid, "level": k, "mode": mode, "seed": seed, "rows": rows}
+    os.makedirs(PART_DIR, exist_ok=True)
+    json.dump(res, open(part + ".tmp", "w")); os.replace(part + ".tmp", part)
+    return res
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sources", default="S1,S2")
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--limit", type=int)
     a = ap.parse_args()
     sids = a.sources.split(",")

@@ -48,6 +48,7 @@ def authorize(docs, user):
 
 
 _INDEX_CACHE = {}
+_INDEX_CACHE_MAX = 3
 
 
 def _index(candidates):
@@ -58,7 +59,7 @@ def _index(candidates):
         db.execute("create virtual table t using fts5(id unindexed, content)")
         db.executemany("insert into t values (?,?)",
                        [(d["id"], f'{d["title"]} {d["body"]}') for d in candidates])
-        if len(_INDEX_CACHE) >= 3:
+        if len(_INDEX_CACHE) >= _INDEX_CACHE_MAX:
             _INDEX_CACHE.pop(next(iter(_INDEX_CACHE))).close()
         _INDEX_CACHE[key] = db
     return db
