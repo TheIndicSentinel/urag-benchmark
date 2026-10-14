@@ -62,16 +62,23 @@ def retrieve(candidates, text, k=10):
     return [by_id[r[0]] for r in rows]
 
 
-def classify_runbook(d, inc, catalog, env_aliases=None):
+# Governance checks that arm A performs; each can be disabled for ablation (docs/PREREGISTRATION.md s2).
+CHECKS = ("lifecycle", "authority", "applicability", "conflict", "sufficiency")
+ARMS = ("A", "N1", "N0")
+
+
+def classify_runbook(d, inc, catalog, env_aliases=None, disable=frozenset()):
     """Return (label, reason). Authority and applicability kept as separate checks."""
     at = _dt(inc["opened_at"])
-    if d["approval_state"] in ("superseded", "deprecated"):
+    if "lifecycle" not in disable and d["approval_state"] in ("superseded", "deprecated"):
         return "historical", f'{d["approval_state"]} (superseded_by={d.get("superseded_by")})'
-    if d["approval_state"] != "approved":  # fail closed: draft, unreviewed, unknown
+    if "authority" not in disable and d["approval_state"] != "approved":  # fail closed: draft, unreviewed, unknown
         return "excluded", f'approval_state={d["approval_state"]!r}: not approved guidance'
     ef, et = _dt(d.get("effective_from")), _dt(d.get("effective_to"))
-    if (ef and at < ef) or (et and at >= et):
+    if "lifecycle" not in disable and ((ef and at < ef) or (et and at >= et)):
         return "historical", "outside effective window at incident time"
+    if "applicability" in disable:
+        return "current_guidance", "applicability check disabled (ablation)"
     inc_svc = resolve_service(inc.get("service"), catalog)
     inc_env = canonical_env(inc.get("environment"), env_aliases)
     doc_env = canonical_env(d.get("environment"), env_aliases)
@@ -82,9 +89,30 @@ def classify_runbook(d, inc, catalog, env_aliases=None):
     return "current_guidance", "approved, in effective window, service and environment match"
 
 
-def investigate(corpus, user, incident, trace=None, prefilter=False):
+def _naive(hits, incident, visible_ids):
+    """N0/N1 output rule: the top-ranked runbook is the answer; no governance decisions."""
+    out = {"incident_id": incident["id"], "facts": [], "applicable_runbook": None,
+           "applicability_flags": [], "historical": [], "hypotheses": [],
+           "missing_information": [], "status": "ok", "manifest": []}
+    top = next((d for d in hits if d["type"] == "runbook"), None)
+    if top:
+        out["applicable_runbook"] = {"id": top["id"], "title": top["title"]}
+        out["manifest"].append(top["id"])
+    else:
+        out["missing_information"].append("No runbook retrieved.")
+    return out
+
+
+def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", disable=frozenset()):
+    """arm: "A" governed, "N1" ACL-filtered retrieval only, "N0" retrieval only (no ACL).
+    disable: subset of CHECKS to switch off in arm A (ablation)."""
+    if arm not in ARMS:
+        raise ValueError(f"unknown arm {arm!r}")
+    disable = frozenset(disable)
+    if not disable <= set(CHECKS):
+        raise ValueError(f"unknown checks {sorted(disable - set(CHECKS))}")
     catalog = corpus["service_catalog"]
-    visible = authorize(corpus["docs"], user)
+    visible = corpus["docs"] if arm == "N0" else authorize(corpus["docs"], user)
     cand = [d for d in visible if d["type"] in ("runbook", "incident")]
     svc = resolve_service(incident.get("service"), catalog)
     if prefilter and svc:  # optional metadata pre-filter; unscoped docs kept
@@ -93,6 +121,8 @@ def investigate(corpus, user, incident, trace=None, prefilter=False):
                     incident["summary"] + " " + (incident.get("service") or ""))
     if trace is not None:  # eval-only; never part of user-visible output
         trace["retrieved"] = [d["id"] for d in hits]
+    if arm != "A":
+        return _naive(hits, incident, {d["id"] for d in visible})
     out = {"incident_id": incident["id"], "facts": [], "applicable_runbook": None,
            "applicability_flags": [], "historical": [], "hypotheses": [],
            "missing_information": [], "status": "ok", "manifest": []}
@@ -105,7 +135,7 @@ def investigate(corpus, user, incident, trace=None, prefilter=False):
                 continue
             out["historical"].append({"id": d["id"], "note": "historical incident, not current guidance"})
             out["manifest"].append(d["id"]); continue
-        label, reason = classify_runbook(d, incident, catalog, corpus.get("environment_aliases"))
+        label, reason = classify_runbook(d, incident, catalog, corpus.get("environment_aliases"), disable)
         if label == "current_guidance":
             current.append(d)
         elif label == "historical":
@@ -115,6 +145,9 @@ def investigate(corpus, user, incident, trace=None, prefilter=False):
             out["applicability_flags"].append({"id": d["id"], "note": reason})
             out["manifest"].append(d["id"])
     if len(current) == 1:
+        out["applicable_runbook"] = {"id": current[0]["id"], "title": current[0]["title"]}
+        out["manifest"].append(current[0]["id"])
+    elif len(current) > 1 and "conflict" in disable:  # ablation: take the top-ranked eligible runbook
         out["applicable_runbook"] = {"id": current[0]["id"], "title": current[0]["title"]}
         out["manifest"].append(current[0]["id"])
     elif len(current) > 1:
@@ -141,7 +174,7 @@ def investigate(corpus, user, incident, trace=None, prefilter=False):
                                       "relevance_note": None if ctype else "change type unknown; relevance unverified",
                                       "needed_to_test": ["error onset time vs deploy completion", "error signature diff between versions", "rollback or canary result"]})
             out["manifest"].append(d["id"])
-    if out["status"] == "ok" and out["applicable_runbook"] is None and not out["hypotheses"] and not out["historical"]:
+    if "sufficiency" not in disable and out["status"] == "ok" and out["applicable_runbook"] is None and not out["hypotheses"] and not out["historical"]:
         out["status"] = "insufficient_evidence"
     out["manifest"] = sorted(set(out["manifest"]))
     errors = validate(out, {d["id"] for d in visible})

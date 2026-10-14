@@ -38,6 +38,22 @@ class Cases(unittest.TestCase):
         out = pipeline.investigate(self.corpus, {"id": "s", "groups": ["security-team"]}, self.cases[1]["incident"])
         self.assertEqual(out["applicable_runbook"]["id"], "rb-pay-sec")
 
+    def test_arm_contracts(self):
+        # N1 never surfaces records the user cannot see; N0 has no ACL and may. Arm A default is unchanged.
+        c = next(x for x in self.cases if x["id"].startswith("C2-"))
+        visible = {d["id"] for d in pipeline.authorize(self.corpus["docs"], c["user"])}
+        n1 = pipeline.investigate(self.corpus, c["user"], c["incident"], arm="N1")
+        self.assertTrue(set(n1["manifest"]) <= visible)
+        a = pipeline.investigate(self.corpus, c["user"], c["incident"])
+        self.assertEqual(a, pipeline.investigate(self.corpus, c["user"], c["incident"], arm="A", disable=frozenset()))
+
+    def test_invalid_arm_and_check_rejected(self):
+        inc = self.cases[0]["incident"]
+        with self.assertRaises(ValueError):
+            pipeline.investigate(self.corpus, self.cases[0]["user"], inc, arm="X")
+        with self.assertRaises(ValueError):
+            pipeline.investigate(self.corpus, self.cases[0]["user"], inc, disable={"nope"})
+
 
 if __name__ == "__main__":
     unittest.main()
