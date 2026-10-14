@@ -59,3 +59,11 @@ First S1 generation run (counts only, no arm executed, no expectations evaluated
 1. Each family draws an independent seeded sample (cap 150) from the same deduped pool; the same gold document may appear in different families (distinct failure classes, analysed separately). Within-class independence is unchanged.
 2. All committer dates are converted to UTC.
 These are generator implementation fixes and do not change thresholds, seeds, dedupe, splits or arm semantics. Seeing the counts is disclosed here.
+
+### Amendment 3 (2026-10-14): version-unknown semantics, registered before arm A code or any run
+Amendment 1.3 and the F2 expectations in `S1_cases.json` conflict. Resolution (a policy choice made before any arm output exists):
+1. **Incident version absent:** arm A defaults to the revision whose effective window contains the incident time, and records `version_defaulted` in the applicability note. It is not silent. It supersedes the "flagged applicability-unknown" wording of 1.3 for the case where a unique in-window revision exists.
+2. **F2 is policy-grounded, not externally grounded.** Gold under F2 = "latest revision effective at T" by documented policy; real teams may run older supported versions. F2 results therefore measure lifecycle handling under that policy, not user intent. Reported with this label.
+3. **Cross-path ambiguity:** if two or more different documents are simultaneously current and applicable, arm A reports `conflicting_evidence` (existing behaviour); this will be counted as a non-correct outcome for F1-F3 and is expected to cost coverage on generic titles.
+4. **Outcome taxonomy for public cases** (fixed now): `correct` (F1-F3: applicable == gold; F4: no applicable doc); `critical` (applicable is a listed distractor under its relation; or a forbidden restricted doc appears anywhere in output); `abstained` (no applicable doc where gold expected; counted as unnecessary abstention, not critical); `wrong_doc` (applicable is neither gold nor a listed distractor; non-critical failure). Failure = not `correct`.
+5. **Retrieval speed cache** (index reuse for identical candidate sets) must not change results; verified by comparing cached and uncached outputs on a sample.
