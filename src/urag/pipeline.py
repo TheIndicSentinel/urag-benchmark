@@ -164,6 +164,11 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
             continue
         ct = _dt(d["effective_from"])
         ctype = d.get("change_type")
+        c_env = canonical_env(d.get("environment"), corpus.get("environment_aliases"))
+        i_env = canonical_env(incident.get("environment"), corpus.get("environment_aliases"))
+        if c_env and i_env and c_env != i_env:  # recognized and different: not this environment
+            continue
+        env_unverified = not (c_env and i_env)
         if ctype is not None and ctype not in RUNTIME_CHANGE_TYPES:
             continue
         if ct and timedelta(0) <= at - ct <= CHANGE_LOOKBACK:
@@ -171,7 +176,8 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
             out["facts"].append({"claim": f'{d["title"]} occurred {mins} minutes before the incident opened.', "evidence": [d["id"]]})
             out["hypotheses"].append({"claim": f'The change {d["id"]} may have contributed; causality is not established.',
                                       "supporting": [d["id"]],
-                                      "relevance_note": None if ctype else "change type unknown; relevance unverified",
+                                      "relevance_note": "; ".join(n for n in ("change type unknown; relevance unverified" if not ctype else None,
+                                                   "environment unverified" if env_unverified else None) if n) or None,
                                       "needed_to_test": ["error onset time vs deploy completion", "error signature diff between versions", "rollback or canary result"]})
             out["manifest"].append(d["id"])
     if "sufficiency" not in disable and out["status"] == "ok" and out["applicable_runbook"] is None and not out["hypotheses"] and not out["historical"]:

@@ -60,3 +60,17 @@ Files: `results/run3_*`, `run4_*`, `run5_*`.
 **Reading it:** pre-filtering removes off-service noise with no recall loss on these cases. Cross-service runbooks would be classified "not applicable" anyway, so the benefit is protecting top-k from crowd-out as the corpus grows, not changing outputs today. Untested: unscoped docs when service is missing in the incident (pre-filter is skipped when the service doesn't resolve), and corpus sizes where crowd-out matters (current corpus has ~30 docs). Not yet made default.
 
 **Lesson:** the noise hid a correctness bug. Running every case in both modes is now part of the unit tests.
+
+## Run 6-7: comparison arms and change-environment fix (Phase 1)
+Files: `results/run6_arm_*.json` (14 cases), `results/run7_arm_*.json` (16 cases). **Regression cases only, not evidence for G1** (PREREGISTRATION s4): all are agent-authored, and N0/N1 lack the governance checks by construction.
+
+| Arm (16 cases) | Passed | Critical failures | Coverage | Risk among answered |
+|---|---|---|---|---|
+| A | 16 | 0 | 0.75 | 0.0 |
+| N1 (ACL only) | 4 | 7 | 1.0 | 0.75 |
+| N0 (no ACL) | 3 | 8 | 1.0 | 0.81 |
+
+Ablations on the 14 original cases (A minus one check): lifecycle 13/14 (C7), authority 9/14, applicability 7/14, conflict 12/14 (C5, C14), **sufficiency 14/14**. No current case isolates sufficiency; that check is untested by this set and must be exercised by constructed cases (gold document removed) in the public-data phase.
+
+**C15** (staging change as hypothesis for a prod incident) was registered and confirmed failing before the fix (commit 97193f0). Fix: change environment is normalized via `environment_aliases`; recognized-and-different excludes the change; missing or unrecognized environment keeps it with an "environment unverified" note. **C16** (held-out alias guard) passed before and after. The missing/unrecognized-environment branch has no case yet.
+Process note: the registration commit has the prefilter-mode test failing on C15 because that test did not honor KNOWN_FAILING; fixed in the following commit.
