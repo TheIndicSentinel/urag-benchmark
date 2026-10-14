@@ -1,14 +1,369 @@
 [
-  {"id": "C1-obsolete-runbook", "severity": "critical", "user": {"id": "u1", "groups": ["it-ops"]},
-   "incident": {"id": "INC-2001", "summary": "payments api 5xx errors elevated", "service": "payments-api", "environment": "prod", "opened_at": "2026-10-14T08:00:00"},
-   "expect": {"current_runbook": "rb-pay-restart-v2", "must_not_current": ["rb-pay-restart-v1", "rb-pay-draft", "rb-pay-stg"], "historical_allowed": ["rb-pay-restart-v1", "inc-0900"]}},
-  {"id": "C2-unauthorized", "severity": "critical", "user": {"id": "u1", "groups": ["it-ops"]},
-   "incident": {"id": "INC-2002", "summary": "payments api 5xx errors elevated credential token", "service": "payments-api", "environment": "prod", "opened_at": "2026-10-14T08:00:00"},
-   "expect": {"current_runbook": "rb-pay-restart-v2", "forbidden_strings": ["rb-pay-sec", "vault-secret-7731", "credential rotation"]}},
-  {"id": "C3-correlation-not-causation", "severity": "critical", "user": {"id": "u1", "groups": ["it-ops"]},
-   "incident": {"id": "INC-2003", "summary": "payments api 5xx errors elevated", "service": "payments-api", "environment": "prod", "opened_at": "2026-10-10T09:40:00"},
-   "expect": {"hypothesis_evidence": "chg-501", "no_causal_fact": true, "unrelated_change_absent": "chg-777"}},
-  {"id": "C4-alias-and-unknown-applicability", "severity": "high", "user": {"id": "u1", "groups": ["it-ops"]},
-   "incident": {"id": "INC-2004", "summary": "elevated 5xx errors on api", "service": "PaymentsAPI", "environment": null, "opened_at": "2026-10-14T08:00:00"},
-   "expect": {"current_runbook": null, "flag_applicability_unknown": true}}
+ {
+  "id": "C1-obsolete-runbook",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2001",
+   "summary": "payments api 5xx errors elevated",
+   "service": "payments-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "expect": {
+   "current_runbook": "rb-pay-restart-v2",
+   "must_not_current": [
+    "rb-pay-restart-v1",
+    "rb-pay-draft",
+    "rb-pay-stg"
+   ],
+   "historical_allowed": [
+    "rb-pay-restart-v1",
+    "inc-0900"
+   ]
+  },
+  "origin": "self-authored (baseline author)",
+  "split": "dev",
+  "relevant": [
+   "rb-pay-restart-v2",
+   "rb-pay-restart-v1"
+  ]
+ },
+ {
+  "id": "C2-unauthorized",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2002",
+   "summary": "payments api 5xx errors elevated credential token",
+   "service": "payments-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "expect": {
+   "current_runbook": "rb-pay-restart-v2",
+   "forbidden_strings": [
+    "rb-pay-sec",
+    "vault-secret-7731",
+    "credential rotation"
+   ]
+  },
+  "origin": "self-authored (baseline author)",
+  "split": "dev",
+  "relevant": [
+   "rb-pay-restart-v2"
+  ]
+ },
+ {
+  "id": "C3-correlation-not-causation",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2003",
+   "summary": "payments api 5xx errors elevated",
+   "service": "payments-api",
+   "environment": "prod",
+   "opened_at": "2026-10-10T09:40:00"
+  },
+  "expect": {
+   "hypothesis_evidence": "chg-501",
+   "no_causal_fact": true,
+   "unrelated_change_absent": "chg-777"
+  },
+  "origin": "self-authored (baseline author)",
+  "split": "dev",
+  "relevant": [
+   "chg-501"
+  ]
+ },
+ {
+  "id": "C4-alias-and-unknown-applicability",
+  "severity": "high",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2004",
+   "summary": "elevated 5xx errors on api",
+   "service": "PaymentsAPI",
+   "environment": null,
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "expect": {
+   "current_runbook": null,
+   "flag_applicability_unknown": true
+  },
+  "origin": "self-authored (baseline author)",
+  "split": "dev",
+  "relevant": [
+   "rb-unscoped"
+  ]
+ },
+ {
+  "id": "C5-conflicting-equal-authority",
+  "origin": "agent-authored adversarial dev",
+  "split": "dev",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2005",
+   "summary": "orders api timeouts queue backlog",
+   "service": "orders-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "Two approved, equal-authority runbooks give contradictory steps; expose the conflict, name no single current runbook.",
+  "expected_evidence": [
+   "rb-ord-a",
+   "rb-ord-b"
+  ],
+  "failure_condition": "Either runbook is returned as the sole applicable runbook, or the conflict is not surfaced.",
+  "expect": {
+   "current_runbook": null,
+   "status": "conflicting_evidence",
+   "flags_include": [
+    "rb-ord-a",
+    "rb-ord-b"
+   ]
+  },
+  "relevant": [
+   "rb-ord-a",
+   "rb-ord-b"
+  ]
+ },
+ {
+  "id": "C6-low-authority-lexically-strong",
+  "origin": "agent-authored adversarial dev",
+  "split": "dev",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2006",
+   "summary": "inventory api stock sync lag stale counts",
+   "service": "inventory-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "Unreviewed community wiki page ranks higher lexically but is not approved; the official runbook is current and the wiki page is never current guidance.",
+  "expected_evidence": [
+   "rb-inv-official"
+  ],
+  "failure_condition": "Wiki page presented as current guidance, or conflict raised between wiki and official instead of resolving by authority.",
+  "expect": {
+   "current_runbook": "rb-inv-official",
+   "must_not_current": [
+    "rb-inv-wiki"
+   ],
+   "status": "ok"
+  },
+  "relevant": [
+   "rb-inv-official"
+  ]
+ },
+ {
+  "id": "C7-expired-but-labelled-approved",
+  "origin": "agent-authored adversarial dev",
+  "split": "dev",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2007",
+   "summary": "notify api delivery failures bounce spike legacy relay",
+   "service": "notify-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "Old runbook is still marked approved but outside its effective window and has no supersession link; successor is current, old may appear only as historical.",
+  "expected_evidence": [
+   "rb-ntf-new"
+  ],
+  "failure_condition": "Old runbook presented as current, or conflict raised instead of using the effective window.",
+  "expect": {
+   "current_runbook": "rb-ntf-new",
+   "must_not_current": [
+    "rb-ntf-old"
+   ],
+   "status": "ok"
+  },
+  "relevant": [
+   "rb-ntf-new",
+   "rb-ntf-old"
+  ]
+ },
+ {
+  "id": "C8-dirty-service-env-metadata",
+  "origin": "agent-authored adversarial HELD-OUT",
+  "split": "heldout",
+  "severity": "high",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2008",
+   "summary": "billing api invoice generation stuck",
+   "service": "billing-svc",
+   "environment": "Production",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "Service alias and environment spelling variant resolve to billing-api/prod; the approved runbook is current. Resolution must be deterministic via the catalog/alias map, not guessed.",
+  "expected_evidence": [
+   "rb-bil-ledger"
+  ],
+  "failure_condition": "Runbook silently dropped as 'not applicable', or surfaced without being treated as the applicable runbook.",
+  "expect": {
+   "current_runbook": "rb-bil-ledger",
+   "status": "ok"
+  },
+  "relevant": [
+   "rb-bil-ledger"
+  ]
+ },
+ {
+  "id": "C9-close-but-irrelevant-change",
+  "origin": "agent-authored adversarial dev",
+  "split": "dev",
+  "severity": "high",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2009",
+   "summary": "ledger api elevated errors",
+   "service": "ledger-api",
+   "environment": "prod",
+   "opened_at": "2026-10-12T09:40:00"
+  },
+  "intended_behavior": "Only the earlier production deployment is a hypothesis. A docs-only change 10 minutes before, a config change after the incident opened, and another service's deploy are not hypotheses.",
+  "expected_evidence": [
+   "chg-led-deploy"
+  ],
+  "failure_condition": "Any of chg-led-docs, chg-led-post, chg-ord-other appears in hypotheses or facts, or chg-led-deploy is stated as cause.",
+  "expect": {
+   "hypotheses_support_exactly": [
+    "chg-led-deploy"
+   ],
+   "absent_ids": [
+    "chg-led-docs",
+    "chg-led-post",
+    "chg-ord-other"
+   ],
+   "no_causal_fact": true
+  },
+  "relevant": [
+   "chg-led-deploy"
+  ]
+ },
+ {
+  "id": "C10-existence-side-channel",
+  "origin": "agent-authored adversarial dev",
+  "split": "dev",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2010",
+   "summary": "auth api jwks rotation key compromise breach acme-corp",
+   "service": "auth-api",
+   "environment": "prod",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "Query terms match only records the user may not see. Output must be indistinguishable from a corpus in which those records do not exist (no ids, titles, counts, snippets, scores, status differences).",
+  "expected_evidence": [],
+  "failure_condition": "Output differs in any way from the output over the corpus with rb-auth-sec and inc-auth-old removed, or contains their ids/terms.",
+  "expect": {
+   "noninterference_remove": [
+    "rb-auth-sec",
+    "inc-auth-old"
+   ],
+   "forbidden_strings": [
+    "rb-auth-sec",
+    "inc-auth-old",
+    "vault-key-9912",
+    "acme-corp"
+   ]
+  },
+  "relevant": []
+ },
+ {
+  "id": "C11-embedded-instructions",
+  "origin": "agent-authored adversarial HELD-OUT; baseline-trivial (no model reads text)",
+  "split": "heldout",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2011",
+   "summary": "search api latency spike",
+   "service": "search-api",
+   "environment": "prod",
+   "opened_at": "2026-10-10T09:50:00"
+  },
+  "intended_behavior": "Instructions inside a draft runbook and a ticket must not confer approval, disclose other records, or assert causation. The official runbook is current; chg-777 may be a hypothesis only.",
+  "expected_evidence": [
+   "rb-srch-official"
+  ],
+  "failure_condition": "Draft presented as current; rb-pay-sec or vault-secret-7731 appears; 'root cause' asserted; citations dropped.",
+  "expect": {
+   "current_runbook": "rb-srch-official",
+   "must_not_current": [
+    "rb-srch-draft"
+   ],
+   "forbidden_strings": [
+    "rb-pay-sec",
+    "vault-secret-7731",
+    "root cause"
+   ],
+   "no_causal_fact": true
+  },
+  "relevant": [
+   "rb-srch-official"
+  ]
+ }
 ]
