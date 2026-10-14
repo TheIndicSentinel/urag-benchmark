@@ -47,12 +47,31 @@ def authorize(docs, user):
     return [d for d in docs if groups & set(d.get("acl_groups") or [])]
 
 
-def retrieve(candidates, text, k=10):
-    """Keyword retrieval over the authorized candidate set only (index built per request)."""
-    db = sqlite3.connect(":memory:")
-    db.execute("create virtual table t using fts5(id unindexed, content)")
-    db.executemany("insert into t values (?,?)",
-                   [(d["id"], f'{d["title"]} {d["body"]}') for d in candidates])
+_INDEX_CACHE = {}
+
+
+def _index(candidates):
+    key = hash(tuple(d["id"] for d in candidates))
+    db = _INDEX_CACHE.get(key)
+    if db is None:
+        db = sqlite3.connect(":memory:")
+        db.execute("create virtual table t using fts5(id unindexed, content)")
+        db.executemany("insert into t values (?,?)",
+                       [(d["id"], f'{d["title"]} {d["body"]}') for d in candidates])
+        if len(_INDEX_CACHE) >= 3:
+            _INDEX_CACHE.pop(next(iter(_INDEX_CACHE))).close()
+        _INDEX_CACHE[key] = db
+    return db
+
+
+def retrieve(candidates, text, k=10, cache=False):
+    """Keyword retrieval over the authorized candidate set only (index built per candidate set)."""
+    db = _index(candidates) if cache else None
+    if db is None:
+        db = sqlite3.connect(":memory:")
+        db.execute("create virtual table t using fts5(id unindexed, content)")
+        db.executemany("insert into t values (?,?)",
+                       [(d["id"], f'{d["title"]} {d["body"]}') for d in candidates])
     toks = [w for w in re.findall(r"[a-z0-9]+", text.lower()) if w not in _STOP]
     if not toks:
         return []
@@ -67,7 +86,7 @@ CHECKS = ("lifecycle", "authority", "applicability", "conflict", "sufficiency")
 ARMS = ("A", "N1", "N0")
 
 
-def classify_runbook(d, inc, catalog, env_aliases=None, disable=frozenset()):
+def classify_runbook(d, inc, catalog, env_aliases=None, disable=frozenset(), dims=("service", "environment")):
     """Return (label, reason). Authority and applicability kept as separate checks."""
     at = _dt(inc["opened_at"])
     if "lifecycle" not in disable and d["approval_state"] in ("superseded", "deprecated"):
@@ -80,13 +99,35 @@ def classify_runbook(d, inc, catalog, env_aliases=None, disable=frozenset()):
     if "applicability" in disable:
         return "current_guidance", "applicability check disabled (ablation)"
     inc_svc = resolve_service(inc.get("service"), catalog)
-    inc_env = canonical_env(inc.get("environment"), env_aliases)
-    doc_env = canonical_env(d.get("environment"), env_aliases)
-    if d.get("service") is None or doc_env is None or inc_svc is None or inc_env is None:
-        return "applicability_unknown", "service/environment could not be established; not treated as authoritative"
-    if d["service"] != inc_svc or doc_env != inc_env:
-        return "excluded", "not applicable to this service/environment"
-    return "current_guidance", "approved, in effective window, service and environment match"
+    if tuple(dims) == ("service", "environment"):  # legacy semantics, unchanged (frozen arm contract)
+        inc_env = canonical_env(inc.get("environment"), env_aliases)
+        doc_env = canonical_env(d.get("environment"), env_aliases)
+        if d.get("service") is None or doc_env is None or inc_svc is None or inc_env is None:
+            return "applicability_unknown", "service/environment could not be established; not treated as authoritative"
+        if d["service"] != inc_svc or doc_env != inc_env:
+            return "excluded", "not applicable to this service/environment"
+        return "current_guidance", "approved, in effective window, service and environment match"
+    if d.get("service") is None or inc_svc is None:
+        return "applicability_unknown", "service could not be established; not treated as authoritative"
+    if d["service"] != inc_svc:
+        return "excluded", "not applicable to this service"
+    if "environment" in dims:
+        inc_env = canonical_env(inc.get("environment"), env_aliases)
+        doc_env = canonical_env(d.get("environment"), env_aliases)
+        if doc_env is None or inc_env is None:
+            return "applicability_unknown", "service/environment could not be established; not treated as authoritative"
+        if doc_env != inc_env:
+            return "excluded", "not applicable to this service/environment"
+    note = "approved, in effective window, service and environment match"
+    if "version" in dims:
+        dv, iv = d.get("version"), inc.get("version")
+        if dv is None:
+            return "applicability_unknown", "document version unknown; not treated as authoritative"
+        if iv is not None and str(iv) != str(dv):
+            return "excluded", f"wrong version (document {dv}, incident {iv})"
+        note = "approved, in effective window, service and version match" if iv is not None else \
+               "version_defaulted: incident version absent; document is the revision effective at incident time"
+    return "current_guidance", note
 
 
 def _naive(hits, incident, visible_ids):
@@ -118,7 +159,8 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
     if prefilter and svc:  # optional metadata pre-filter; unscoped docs kept
         cand = [d for d in cand if d.get("service") in (svc, None)]
     hits = retrieve(cand,
-                    incident["summary"] + " " + (incident.get("service") or ""))
+                    incident["summary"] + " " + (incident.get("service") or ""),
+                    cache=bool(corpus.get("cache_index")))
     if trace is not None:  # eval-only; never part of user-visible output
         trace["retrieved"] = [d["id"] for d in hits]
     if arm != "A":
@@ -135,7 +177,8 @@ def investigate(corpus, user, incident, trace=None, prefilter=False, arm="A", di
                 continue
             out["historical"].append({"id": d["id"], "note": "historical incident, not current guidance"})
             out["manifest"].append(d["id"]); continue
-        label, reason = classify_runbook(d, incident, catalog, corpus.get("environment_aliases"), disable)
+        label, reason = classify_runbook(d, incident, catalog, corpus.get("environment_aliases"), disable,
+                                         tuple(corpus.get("applicability_dims", ("service", "environment"))))
         if label == "current_guidance":
             current.append(d)
         elif label == "historical":
