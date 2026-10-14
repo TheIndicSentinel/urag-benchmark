@@ -7,6 +7,8 @@ import json, re, sqlite3, hashlib
 from datetime import datetime, timedelta
 
 CHANGE_LOOKBACK = timedelta(hours=24)
+# change types that can plausibly affect runtime behavior; missing type is kept but flagged
+RUNTIME_CHANGE_TYPES = {"deployment", "config", "infrastructure", "schema"}
 _STOP = {"a", "an", "the", "on", "of", "to", "and", "or", "in", "is", "for"}
 
 
@@ -52,10 +54,10 @@ def retrieve(candidates, text, k=10):
 def classify_runbook(d, inc, catalog):
     """Return (label, reason). Authority and applicability kept as separate checks."""
     at = _dt(inc["opened_at"])
-    if d["approval_state"] == "draft":
-        return "excluded", "draft: not approved guidance"
     if d["approval_state"] in ("superseded", "deprecated"):
         return "historical", f'{d["approval_state"]} (superseded_by={d.get("superseded_by")})'
+    if d["approval_state"] != "approved":  # fail closed: draft, unreviewed, unknown
+        return "excluded", f'approval_state={d["approval_state"]!r}: not approved guidance'
     ef, et = _dt(d.get("effective_from")), _dt(d.get("effective_to"))
     if (ef and at < ef) or (et and at >= et):
         return "historical", "outside effective window at incident time"
@@ -109,11 +111,15 @@ def investigate(corpus, user, incident, trace=None):
         if d["type"] != "change" or inc_svc is None or d.get("service") != inc_svc:
             continue
         ct = _dt(d["effective_from"])
+        ctype = d.get("change_type")
+        if ctype is not None and ctype not in RUNTIME_CHANGE_TYPES:
+            continue
         if ct and timedelta(0) <= at - ct <= CHANGE_LOOKBACK:
             mins = int((at - ct).total_seconds() // 60)
             out["facts"].append({"claim": f'{d["title"]} occurred {mins} minutes before the incident opened.', "evidence": [d["id"]]})
             out["hypotheses"].append({"claim": f'The change {d["id"]} may have contributed; causality is not established.',
                                       "supporting": [d["id"]],
+                                      "relevance_note": None if ctype else "change type unknown; relevance unverified",
                                       "needed_to_test": ["error onset time vs deploy completion", "error signature diff between versions", "rollback or canary result"]})
             out["manifest"].append(d["id"])
     if out["applicable_runbook"] is None and not out["hypotheses"] and not out["historical"]:

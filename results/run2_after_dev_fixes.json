@@ -1,0 +1,138 @@
+{
+  "cases": [
+    {
+      "id": "C1-obsolete-runbook",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    },
+    {
+      "id": "C2-unauthorized",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    },
+    {
+      "id": "C3-correlation-not-causation",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 0.0,
+      "status": "ok"
+    },
+    {
+      "id": "C4-alias-and-unknown-applicability",
+      "split": "dev",
+      "severity": "high",
+      "pass": true,
+      "failures": [],
+      "answered": false,
+      "should_answer": false,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    },
+    {
+      "id": "C5-conflicting-equal-authority",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": false,
+      "should_answer": false,
+      "recall_at_10": 1.0,
+      "status": "conflicting_evidence"
+    },
+    {
+      "id": "C6-low-authority-lexically-strong",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    },
+    {
+      "id": "C7-expired-but-labelled-approved",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    },
+    {
+      "id": "C8-dirty-service-env-metadata",
+      "split": "heldout",
+      "severity": "high",
+      "pass": false,
+      "failures": [
+        "current runbook None != 'rb-bil-ledger'"
+      ],
+      "answered": false,
+      "should_answer": true,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    },
+    {
+      "id": "C9-close-but-irrelevant-change",
+      "split": "dev",
+      "severity": "high",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 0.0,
+      "status": "ok"
+    },
+    {
+      "id": "C10-existence-side-channel",
+      "split": "dev",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": false,
+      "recall_at_10": null,
+      "status": "ok"
+    },
+    {
+      "id": "C11-embedded-instructions",
+      "split": "heldout",
+      "severity": "critical",
+      "pass": true,
+      "failures": [],
+      "answered": true,
+      "should_answer": true,
+      "recall_at_10": 1.0,
+      "status": "ok"
+    }
+  ],
+  "summary": {
+    "n": 11,
+    "passed": 10,
+    "critical_failures": [],
+    "coverage": 0.73,
+    "risk_among_answered": 0.0,
+    "correct_abstentions": 2,
+    "unnecessary_abstentions": 1,
+    "mean_recall_at_10": 0.8,
+    "note": "single operating point, small n; not a coverage-risk curve"
+  }
+}
