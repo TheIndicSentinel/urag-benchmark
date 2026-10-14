@@ -67,11 +67,13 @@ def classify_runbook(d, inc, catalog):
     return "current_guidance", "approved, in effective window, service and environment match"
 
 
-def investigate(corpus, user, incident):
+def investigate(corpus, user, incident, trace=None):
     catalog = corpus["service_catalog"]
     visible = authorize(corpus["docs"], user)
     hits = retrieve([d for d in visible if d["type"] in ("runbook", "incident")],
                     incident["summary"] + " " + (incident.get("service") or ""))
+    if trace is not None:  # eval-only; never part of user-visible output
+        trace["retrieved"] = [d["id"] for d in hits]
     out = {"incident_id": incident["id"], "facts": [], "applicable_runbook": None,
            "applicability_flags": [], "historical": [], "hypotheses": [],
            "missing_information": [], "status": "ok", "manifest": []}

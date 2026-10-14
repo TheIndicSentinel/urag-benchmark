@@ -12,7 +12,7 @@ class Cases(unittest.TestCase):
         for c in self.cases:
             with self.subTest(c["id"]):
                 out = pipeline.investigate(self.corpus, c["user"], c["incident"])
-                self.assertEqual(evaluate.check(c, out), [])
+                self.assertEqual(evaluate.check(c, out, self.corpus), [])
 
     def test_fail_closed_no_groups(self):
         out = pipeline.investigate(self.corpus, {"id": "x", "groups": []}, self.cases[0]["incident"])
