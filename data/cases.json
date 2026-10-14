@@ -1,0 +1,14 @@
+[
+  {"id": "C1-obsolete-runbook", "severity": "critical", "user": {"id": "u1", "groups": ["it-ops"]},
+   "incident": {"id": "INC-2001", "summary": "payments api 5xx errors elevated", "service": "payments-api", "environment": "prod", "opened_at": "2026-10-14T08:00:00"},
+   "expect": {"current_runbook": "rb-pay-restart-v2", "must_not_current": ["rb-pay-restart-v1", "rb-pay-draft", "rb-pay-stg"], "historical_allowed": ["rb-pay-restart-v1", "inc-0900"]}},
+  {"id": "C2-unauthorized", "severity": "critical", "user": {"id": "u1", "groups": ["it-ops"]},
+   "incident": {"id": "INC-2002", "summary": "payments api 5xx errors elevated credential token", "service": "payments-api", "environment": "prod", "opened_at": "2026-10-14T08:00:00"},
+   "expect": {"current_runbook": "rb-pay-restart-v2", "forbidden_strings": ["rb-pay-sec", "vault-secret-7731", "credential rotation"]}},
+  {"id": "C3-correlation-not-causation", "severity": "critical", "user": {"id": "u1", "groups": ["it-ops"]},
+   "incident": {"id": "INC-2003", "summary": "payments api 5xx errors elevated", "service": "payments-api", "environment": "prod", "opened_at": "2026-10-10T09:40:00"},
+   "expect": {"hypothesis_evidence": "chg-501", "no_causal_fact": true, "unrelated_change_absent": "chg-777"}},
+  {"id": "C4-alias-and-unknown-applicability", "severity": "high", "user": {"id": "u1", "groups": ["it-ops"]},
+   "incident": {"id": "INC-2004", "summary": "elevated 5xx errors on api", "service": "PaymentsAPI", "environment": null, "opened_at": "2026-10-14T08:00:00"},
+   "expect": {"current_runbook": null, "flag_applicability_unknown": true}}
+]
