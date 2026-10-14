@@ -15,3 +15,9 @@
 
 Metadata note: `change_type` and `authority` are fields assumed present; real-world absence is a separate dirty-metadata test still to do.
 Oracle for C10: byte-identical output across the two corpora (`noninterference_remove`).
+
+## Addendum: C12-C13 (held out), registered before the environment-handling fix
+C8 is reclassified as dev and marked contaminated. Predictions on the current pipeline: **C12 fails** (exact-string env match), **C13 fails** (silent exclusion, no flag). Intended fix: normalize environment via `environment_aliases`; an unrecognized incident environment makes env-scoped runbooks `applicability_unknown` rather than excluded. C13 guards against the fix over-matching.
+
+## Retrieval pre-filter hypothesis (registered before measurement)
+H: restricting FTS candidates to the incident's resolved service (plus unscoped docs) reduces off-service results in top-10 with no recall loss on cases whose metadata is correct. Known risk: wrong or missing incident service metadata would remove the right runbook; this is measured separately and decides whether pre-filter may be default.

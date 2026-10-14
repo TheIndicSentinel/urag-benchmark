@@ -225,8 +225,8 @@
  },
  {
   "id": "C8-dirty-service-env-metadata",
-  "origin": "agent-authored adversarial HELD-OUT",
-  "split": "heldout",
+  "origin": "agent-authored adversarial; CONTAMINATED (fixed after failure observed as held-out; superseded by C12/C13)",
+  "split": "dev",
   "severity": "high",
   "user": {
    "id": "u1",
@@ -364,6 +364,76 @@
   },
   "relevant": [
    "rb-srch-official"
+  ]
+ },
+ {
+  "id": "C12-env-alias-uppercase-abbrev",
+  "origin": "agent-authored adversarial HELD-OUT (written before the C8 fix)",
+  "split": "heldout",
+  "severity": "high",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2012",
+   "summary": "search api latency spike",
+   "service": "search-svc",
+   "environment": "PRD",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "Service alias and a different environment spelling (PRD) resolve deterministically; approved runbook is current.",
+  "expected_evidence": [
+   "rb-srch-official"
+  ],
+  "failure_condition": "Runbook dropped as not applicable or not selected as current.",
+  "expect": {
+   "current_runbook": "rb-srch-official",
+   "must_not_current": [
+    "rb-srch-draft"
+   ],
+   "status": "ok"
+  },
+  "relevant": [
+   "rb-srch-official"
+  ]
+ },
+ {
+  "id": "C13-unrecognized-environment",
+  "origin": "agent-authored adversarial HELD-OUT (written before the C8 fix)",
+  "split": "heldout",
+  "severity": "critical",
+  "user": {
+   "id": "u1",
+   "groups": [
+    "it-ops"
+   ]
+  },
+  "incident": {
+   "id": "INC-2013",
+   "summary": "payments api 5xx errors elevated",
+   "service": "payments-api",
+   "environment": "prod-eu",
+   "opened_at": "2026-10-14T08:00:00"
+  },
+  "intended_behavior": "An environment not in the alias map must not be guessed to be prod, nor silently discarded: the prod runbook is flagged applicability-unknown and no runbook is named current.",
+  "expected_evidence": [
+   "rb-pay-restart-v2"
+  ],
+  "failure_condition": "rb-pay-restart-v2 named current (guessed match), or dropped with no flag (silent exclusion).",
+  "expect": {
+   "current_runbook": null,
+   "flags_include": [
+    "rb-pay-restart-v2"
+   ],
+   "must_not_current": [
+    "rb-pay-restart-v2"
+   ]
+  },
+  "relevant": [
+   "rb-pay-restart-v2"
   ]
  }
 ]

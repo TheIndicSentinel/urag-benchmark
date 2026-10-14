@@ -10,7 +10,7 @@ class Cases(unittest.TestCase):
 
     # Held-out failures documented in docs/RESULTS.md. Not fixed to avoid tuning
     # on held-out data; this test flips when the failure is resolved so it can't rot.
-    KNOWN_FAILING = {"C8-dirty-service-env-metadata"}
+    KNOWN_FAILING = {"C8-dirty-service-env-metadata", "C12-env-alias-uppercase-abbrev", "C13-unrecognized-environment"}
 
     def test_all_cases(self):
         for c in self.cases:
