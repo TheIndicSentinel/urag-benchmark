@@ -4,3 +4,7 @@ __pycache__/
 # real interview notes stay local; only the blank template is tracked
 docs/discovery/*.local.*
 .local_sources/
+# G2 sweep working files (checkpoints and raw dump); the aggregated summary is tracked
+results/g2_parts/
+results/public_G2_dev_raw.json
+# NOTE: results/HELDOUT_RUNS.log is deliberately tracked (one-run-per-pipeline-hash record)

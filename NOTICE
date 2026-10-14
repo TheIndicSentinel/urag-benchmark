@@ -1,0 +1,34 @@
+URAG benchmark - third-party attributions and scope
+
+This repository's own code, configuration, case definitions and documents are
+released under the MIT License (see LICENSE).
+
+NO THIRD-PARTY DOCUMENTATION TEXT IS INCLUDED IN THIS REPOSITORY.
+Generated cases and results contain only identifiers and pointers (repository,
+file path, version/tag, commit SHA). Source text is read from local, untracked
+copies that users rebuild themselves from the upstream projects below. Titles
+and bodies of third-party pages are not republished here.
+
+Upstream sources the benchmark points to (each under its own terms; this
+project is not affiliated with or endorsed by any of them):
+
+1. Kubernetes website documentation
+   https://github.com/kubernetes/website (release-1.30 .. release-1.36)
+   Licence: Creative Commons Attribution 4.0 International (see LICENSE in that
+   repository). Individual files may carry other terms. Pointers only.
+
+2. PostgreSQL documentation (doc/src/sgml)
+   https://git.postgresql.org/git/postgresql.git, tags REL_14_0 .. REL_18_0
+   (REL_18_0 object verified identical via the github.com/postgres/postgres mirror)
+   Licence: PostgreSQL Licence. Portions Copyright (c) 1996-2024, PostgreSQL
+   Global Development Group; Portions Copyright (c) 1994, The Regents of the
+   University of California. The full licence text is in the COPYRIGHT file of
+   that repository; it must accompany any copy of the documentation text.
+
+3. GitLab runbooks (candidate source; not ingested in the current results)
+   https://gitlab.com/gitlab-com/runbooks
+   Licence: MIT, Copyright GitLab, Inc.
+
+Scope disclaimer: results in this repository come from synthetic, simulated or
+mechanically generated cases on public documentation. They are not evidence of
+production readiness, security assurance, compliance, or commercial value.
