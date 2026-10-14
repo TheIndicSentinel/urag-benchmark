@@ -69,7 +69,8 @@ def task(args):
         rows.append(r)
     res = {"source": sid, "level": k, "mode": mode, "seed": seed, "rows": rows}
     os.makedirs(PART_DIR, exist_ok=True)
-    json.dump(res, open(part + ".tmp", "w")); os.replace(part + ".tmp", part)
+    tmp = f"{part}.{os.getpid()}.tmp"  # per-process temp name: two runners never share a temp file
+    json.dump(res, open(tmp, "w")); os.replace(tmp, part)
     return res
 
 
@@ -93,8 +94,9 @@ def main():
         tasks = tasks[::-1]
     with mp.get_context("fork").Pool(a.workers) as pool:
         res = pool.map(task, tasks, chunksize=1)
-    json.dump({"arms": ARMS, "levels": LEVELS, "seeds": SEEDS, "modes": MODES, "fields": FIELDS, "results": res},
-              open(os.path.join(ROOT, "results", "public_G2_dev_raw.json"), "w"))
+    raw_path = os.path.join(ROOT, "results", f"public_G2_dev_raw.{os.getpid()}.tmp")
+    json.dump({"arms": ARMS, "levels": LEVELS, "seeds": SEEDS, "modes": MODES, "fields": FIELDS, "results": res}, open(raw_path, "w"))
+    os.replace(raw_path, os.path.join(ROOT, "results", "public_G2_dev_raw.json"))  # atomic; report reads g2_parts, not this
     print("tasks", len(res))
 
 

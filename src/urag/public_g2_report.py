@@ -1,8 +1,49 @@
-"""Aggregate results/public_G2_dev_raw.json per Amendment 7.5-7.6 (stdlib only)."""
-import json, os, random, sys
+"""Aggregate G2 checkpoints per Amendment 7.5-7.6 (stdlib only).
+
+Refuses to compute (and prints no metrics) unless all 36 expected tasks are present exactly once,
+each with the full case set and all five arms. Read once, when complete.
+"""
+import hashlib, json, os, random, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-raw = json.load(open(os.path.join(ROOT, "results", "public_G2_dev_raw.json")))
+EXPECT = {"levels": [10, 25, 50], "seeds": [11, 12, 13], "modes": ["drop", "corrupt"], "sources": ["S1", "S2"],
+          "arms": ["N1", "A", "A2", "N1P", "N1P-closed"]}
+PARTS = os.path.join(ROOT, "results", "g2_parts")
+
+
+def load_complete():
+    want = {f"{s}_{k}_{m}_{sd}.json" for s in EXPECT["sources"] for k in EXPECT["levels"]
+            for m in EXPECT["modes"] for sd in EXPECT["seeds"]}
+    have = sorted(f for f in os.listdir(PARTS) if f.endswith(".json")) if os.path.isdir(PARTS) else []
+    missing = sorted(want - set(have)); extra = sorted(set(have) - want)
+    if extra:
+        sys.exit(f"unexpected checkpoint files (possible duplicates): {extra}")
+    if missing:
+        sys.exit(f"INCOMPLETE: {len(want) - len(missing)}/{len(want)} tasks; not reading results. Missing {len(missing)}.")
+    ncases = {}
+    for s in EXPECT["sources"]:
+        cs = json.load(open(os.path.join(ROOT, "data", "public", f"{s}_cases.json")))
+        ncases[s] = {c["id"] for c in cs if c["split"] == "dev"}
+    results, digests = [], {}
+    for f in sorted(want):
+        raw_b = open(os.path.join(PARTS, f), "rb").read()
+        digests[f] = hashlib.sha256(raw_b).hexdigest()[:16]
+        r = json.loads(raw_b)
+        key = f"{r['source']}_{r['level']}_{r['mode']}_{r['seed']}.json"
+        if key != f:
+            sys.exit(f"{f}: content key {key} does not match file name")
+        ids = [row["id"] for row in r["rows"]]
+        if len(ids) != len(set(ids)) or set(ids) != ncases[r["source"]]:
+            sys.exit(f"{f}: case set mismatch (duplicates or missing cases)")
+        for row in r["rows"]:
+            if sorted(row["arms"]) != sorted(EXPECT["arms"]):
+                sys.exit(f"{f}: incomplete arms for {row['id']}")
+        results.append(r)
+    return {"arms": EXPECT["arms"], "levels": EXPECT["levels"], "seeds": EXPECT["seeds"], "modes": EXPECT["modes"],
+            "results": results, "digests": digests}
+
+
+raw = load_complete()
 ARMS = raw["arms"]
 ERR = ("critical", "wrong_doc")
 PAIRS = [("A", "N1P"), ("A", "N1P-closed"), ("A2", "N1P"), ("A2", "N1P-closed")]
@@ -54,6 +95,7 @@ def main():
                 ok.append(all(m[f"{gov}|{f}"]["risk_x"] < m[f"{gov}|{f}"]["risk_y"] for f in ("N1P", "N1P-closed")))
             wins[mode] = ok
         out["verdict"][gov] = {"wins_by_mode_and_level": wins, "favours_governance": all(all(v) for v in wins.values())}
+    out["task_digests"] = raw["digests"]
     json.dump(out, open(os.path.join(ROOT, "results", "public_G2_dev_summary.json"), "w"), indent=1)
     for k, e in out["by_mode_level"].items():
         print(k)
