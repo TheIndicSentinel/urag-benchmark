@@ -36,3 +36,7 @@ Discovery runs in parallel from Phase 0 (interview guide, no pitch, log within 2
 
 ## Risks
 A ~ N1 on held-out or negligible prevalence (reframe/stop); sources unusable (smaller benchmark); real metadata too poor (value shifts to metadata quality); no practitioner pull (stop rule); 8 GB hardware (drop LLM/rerank arms).
+
+
+## Status note (2026-10-14, after Phase 2 dev results)
+The surviving, benchmark-supportable claims are narrower than the thesis above: lifecycle/lineage policy, ACL and applicability behaviour. `Sufficient` is not demonstrated by any arm and is removed from the thesis wording (Amendment 9). A metadata filter (ACL + version/window) matches governance on clean metadata for wrong-version and ACL cases by construction; whether governance differs under degraded metadata is the registered G2 test. If G2 does not favour governance, the project adopts the benchmark-plus-policy framing (Amendment 9.2). Whether real incumbents lack these behaviours is not answerable by the benchmark; it needs practitioner conversations (G4), and none have taken place.
