@@ -22,6 +22,18 @@ ANALYST = {"id": "analyst", "groups": ["it-ops"]}
 BOOT_SEED, BOOT_N = 20261018, 2000
 
 
+def pipeline_manifest(root=ROOT):
+    """Amendment 11: files whose bytes define 'the same pipeline' for the one-held-out-run rule."""
+    import glob
+    rels = ["src/urag/pipeline.py", "src/urag/public_eval.py", "src/urag/gen/docs_gen.py", "configs/generator.json"]
+    rels += sorted(os.path.relpath(p, root) for p in glob.glob(os.path.join(root, "data", "public", "*_cases.json")))
+    return {r: hashlib.sha256(open(os.path.join(root, r), "rb").read()).hexdigest() for r in sorted(rels)}
+
+
+def pipeline_digest(manifest):
+    return hashlib.sha256("\n".join(f"{p} {h}" for p, h in sorted(manifest.items())).encode()).hexdigest()
+
+
 def build_base(sid):
     docs_gen.configure(sid)
     svc = docs_gen.META[sid]["service"]
@@ -160,7 +172,8 @@ def summarize(rows):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--split", choices=["dev", "heldout"], required=True)
+    ap.add_argument("--split", choices=["dev", "heldout"])
+    ap.add_argument("--print-pipeline-digest", action="store_true", help="print D and manifest (Amendment 11); runs nothing")
     ap.add_argument("--ablate", action="store_true")
     ap.add_argument("--sources", default="S1,S2")
     ap.add_argument("--variants", action="store_true", help="also run A2, N1P, AP, A2P (Amendment 6) and N1P-closed, A-S, A2-S (7, 8)")
@@ -168,20 +181,26 @@ def main():
     ap.add_argument("--confirm-frozen", action="store_true", help="required for heldout")
     ap.add_argument("--limit", type=int, help="dev smoke runs only")
     a = ap.parse_args()
+    if a.print_pipeline_digest:
+        m = pipeline_manifest()
+        print(json.dumps({"pipeline_digest": pipeline_digest(m), "manifest": m}, indent=1))
+        return
+    if not a.split:
+        ap.error("--split is required unless --print-pipeline-digest")
     sids = a.sources.split(",")
     cases = []
     for sid in sids:
         cases += [c for c in json.load(open(os.path.join(ROOT, "data", "public", f"{sid}_cases.json"))) if c["split"] == a.split]
     if a.limit:
         cases = cases[:a.limit]
-    h = hashlib.sha256(open(os.path.join(ROOT, "src/urag/pipeline.py"), "rb").read() +
-                       open(os.path.join(ROOT, "src/urag/public_eval.py"), "rb").read()).hexdigest()[:16]
+    manifest = pipeline_manifest()
+    h = pipeline_digest(manifest)[:16]  # Amendment 11 digest D (short form in outputs)
     log = os.path.join(ROOT, "results", "HELDOUT_RUNS.log")
     if a.split == "heldout":
         if not a.confirm_frozen:
             sys.exit("heldout requires --confirm-frozen")
-        if os.path.exists(log) and h in open(log).read():
-            sys.exit(f"held-out already run for pipeline hash {h}; a rerun must be logged as an amendment")
+        if os.path.exists(log) and any(json.loads(l).get("digest", "").startswith(h) for l in open(log) if l.strip()):
+            sys.exit(f"held-out already run for pipeline digest {h}; a rerun must be logged as an amendment")
     bases = {sid: build_base(sid) for sid in sids}
     by_ids = {sid: {d["id"]: d for d in bases[sid][1]} for sid in sids}
     arms = [("A", [])] + [("N1", []), ("N0", [])]
@@ -214,7 +233,13 @@ def main():
     name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}{'_variants' if a.variants else ''}{'_lead' if a.query_style == 'lead' else ''}.json"
     json.dump(out, open(os.path.join(ROOT, name), "w"), indent=1)
     if a.split == "heldout":
-        open(log, "a").write(f"{h} {subprocess.check_output(['git','-C',ROOT,'rev-parse','HEAD']).decode().strip()}\n")
+        import datetime
+        prereg = hashlib.sha256(open(os.path.join(ROOT, "docs", "PREREGISTRATION.md"), "rb").read()).hexdigest()
+        rec = {"utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "digest": pipeline_digest(manifest),
+               "manifest": manifest, "prereg_sha256": prereg,
+               "git_head": subprocess.check_output(["git", "-C", ROOT, "rev-parse", "HEAD"]).decode().strip(),
+               "sources": sids, "arms": [x[0] + ("-" + x[1][0] if x[1] else "") for x in arms]}
+        open(log, "a").write(json.dumps(rec) + "\n")
     print(json.dumps({"pipeline_hash": h, "families": summ}, indent=1))
 
 
