@@ -37,3 +37,9 @@
 | D15 | 2026-10-14 | Conflict rule recorded as a scoping flaw of frozen arm A; A2 is a variant, arm A not edited | Active | S2 over-abstention | none |
 | D16 | 2026-10-14 | Do not add a third versioned source to make F1 conclusive | Active | review; F1 is non-informative by construction | none |
 | D17 | 2026-10-14 | No push before user confirms remote; origin is PUBLIC | Blocked on user | gh repo view | user decision |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D18 | 2026-10-15 | No refactor of frozen files (`pipeline.py`, `public_eval.py`, `docs_gen.py`) before the held-out run; they are in the Amendment 11 digest | Active | architecture review; digest definition | after held-out |
+| D19 | 2026-10-15 | After held-out: build new package (e.g. `urag_core`) as one change set: pure `decide()` governance engine + interfaces + versioned policy file; frozen files kept as reference; validated by output equivalence on all regression and S1/S2 cases | Proposed | review items 2-4 | after held-out |
+| D20 | 2026-10-15 | Known limitations, not fixed pre-held-out: (a) arm A raises KeyError on an *absent* `approval_state` key (G2 uses `None`, so G2 is unaffected); (b) module-level index cache mutated from `public_g2.py`; (c) dropping `effective_to` is indistinguishable from open-ended, so metadata loss can raise confidence (Amendment 7.2), a monotonicity property must encode this | Active | verified in code 2026-10-15 | fix in D19 change set |
