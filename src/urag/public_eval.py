@@ -65,8 +65,20 @@ def run_case(case, base_docs, docs_by_id, arm, disable):
     title = docs_by_id[case["query_from"]["doc"]]["title"]
     inc = {"id": case["id"], "summary": title, "service": "kubernetes-docs", "environment": None,
            "opened_at": case["ticket"]["opened_at"], "version": case["ticket"].get("version")}
-    out = pipeline.investigate(corpus, ANALYST, inc, arm=arm, disable=frozenset(disable))
-    return classify(case, out), out
+    tr = {}
+    out = pipeline.investigate(corpus, ANALYST, inc, trace=tr, arm=arm, disable=frozenset(disable))
+    return classify(case, out), out, tr.get("retrieved", [])
+
+
+def equivalent(case, out, change_ratio_by_id):
+    """Sensitivity (Amendment 4): same path as gold, other version, change below significance threshold."""
+    a = (out.get("applicable_runbook") or {}).get("id")
+    if a is None or case["family"].startswith("F4"):
+        return False
+    gp = case["gold"]["path"]
+    if a.split("@")[0] != "k8s:" + gp:
+        return False
+    return a != case["gold"]["id"] and a not in {d["id"] for d in case.get("distractors", [])}
 
 
 def boot_ci(pairs):
@@ -96,9 +108,16 @@ def summarize(rows):
         entry = {"n": len(fr), "clusters": len({r["cluster"] for r in fr})}
         for arm in sorted({k for r in fr for k in r["outcomes"]}):
             oc = [r["outcomes"][arm] for r in fr]
+            eq = [r.get("equiv", {}).get(arm, False) for r in fr]
             entry[arm] = {"failure_rate": round(sum(o != "correct" for o in oc) / len(oc), 3),
+                          "failure_rate_equiv_sensitivity": round(sum(o != "correct" and not e for o, e in zip(oc, eq)) / len(oc), 3),
                           "critical": sum(o == "critical" for o in oc), "abstained": sum(o == "abstained" for o in oc),
                           "wrong_doc": sum(o == "wrong_doc" for o in oc)}
+        for arm in ("A", "N1", "N0"):
+            rt = [r["retrieval"][arm] for r in fr if arm in r.get("retrieval", {})]
+            if rt and arm in entry:
+                entry[arm]["gold_in_top10"] = round(sum(x["gold_in_top10"] for x in rt) / len(rt), 3)
+                entry[arm]["same_path_in_top10"] = round(sum(x["same_path_in_top10"] for x in rt) / len(rt), 3)
         if "A" in entry and "N1" in entry:
             pairs = [(r["cluster"], r["outcomes"]["A"] != "correct", r["outcomes"]["N1"] != "correct") for r in fr]
             entry["A_minus_N1"] = boot_ci([(c, int(a), int(n)) for c, a, n in pairs])
@@ -135,8 +154,13 @@ def main():
         r = {"id": c["id"], "family": c["family"], "cluster": c["cluster"], "outcomes": {}}
         for arm, dis in arms:
             key = arm if not dis else f"A-{dis[0]}"
-            oc, out = run_case(c, base, by_id, arm, dis)
+            oc, out, got = run_case(c, base, by_id, arm, dis)
             r["outcomes"][key] = oc
+            r.setdefault("equiv", {})[key] = oc == "wrong_doc" and equivalent(c, out, None)
+            if not dis:
+                gp = "k8s:" + c["gold"]["path"]
+                r.setdefault("retrieval", {})[arm] = {"gold_in_top10": c["gold"]["id"] in got,
+                                                      "same_path_in_top10": any(x.split("@")[0] == gp for x in got)}
             if arm == "A" and not dis:
                 r["status"] = out.get("status")
         rows.append(r)

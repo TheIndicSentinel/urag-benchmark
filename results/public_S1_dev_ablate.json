@@ -1,0 +1,7953 @@
+{
+ "split": "dev",
+ "pipeline_hash": "3f192283b21bf75d",
+ "n_cases": 191,
+ "sources": [
+  "S1"
+ ],
+ "g1_status": "NOT EVALUABLE: 1 source (< 3 required); regression/dev evidence only",
+ "families": {
+  "F1_wrong_version": {
+   "n": 56,
+   "clusters": 19,
+   "A": {
+    "failure_rate": 0.75,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 0,
+    "abstained": 27,
+    "wrong_doc": 15,
+    "gold_in_top10": 0.589,
+    "same_path_in_top10": 0.679
+   },
+   "A-applicability": {
+    "failure_rate": 0.75,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 0,
+    "abstained": 27,
+    "wrong_doc": 15
+   },
+   "A-authority": {
+    "failure_rate": 0.75,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 0,
+    "abstained": 27,
+    "wrong_doc": 15
+   },
+   "A-conflict": {
+    "failure_rate": 0.5,
+    "failure_rate_equiv_sensitivity": 0.5,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 28
+   },
+   "A-lifecycle": {
+    "failure_rate": 0.75,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 0,
+    "abstained": 27,
+    "wrong_doc": 15
+   },
+   "A-sufficiency": {
+    "failure_rate": 0.75,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 0,
+    "abstained": 27,
+    "wrong_doc": 15
+   },
+   "N0": {
+    "failure_rate": 0.964,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 13,
+    "abstained": 0,
+    "wrong_doc": 41,
+    "gold_in_top10": 0.589,
+    "same_path_in_top10": 0.679
+   },
+   "N1": {
+    "failure_rate": 0.964,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 13,
+    "abstained": 0,
+    "wrong_doc": 41,
+    "gold_in_top10": 0.589,
+    "same_path_in_top10": 0.679
+   },
+   "A_minus_N1": {
+    "mean_diff": -0.2143,
+    "ci95": [
+     -0.3115,
+     -0.125
+    ],
+    "clusters": 19
+   },
+   "prevalence_N1_failure": 0.964
+  },
+  "F2_stale_or_not_yet_effective": {
+   "n": 57,
+   "clusters": 19,
+   "A": {
+    "failure_rate": 0.754,
+    "failure_rate_equiv_sensitivity": 0.754,
+    "critical": 0,
+    "abstained": 28,
+    "wrong_doc": 15,
+    "gold_in_top10": 0.596,
+    "same_path_in_top10": 0.684
+   },
+   "A-applicability": {
+    "failure_rate": 0.754,
+    "failure_rate_equiv_sensitivity": 0.754,
+    "critical": 0,
+    "abstained": 28,
+    "wrong_doc": 15
+   },
+   "A-authority": {
+    "failure_rate": 0.754,
+    "failure_rate_equiv_sensitivity": 0.754,
+    "critical": 0,
+    "abstained": 28,
+    "wrong_doc": 15
+   },
+   "A-conflict": {
+    "failure_rate": 0.491,
+    "failure_rate_equiv_sensitivity": 0.491,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 28
+   },
+   "A-lifecycle": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 57,
+    "wrong_doc": 0
+   },
+   "A-sufficiency": {
+    "failure_rate": 0.754,
+    "failure_rate_equiv_sensitivity": 0.754,
+    "critical": 0,
+    "abstained": 28,
+    "wrong_doc": 15
+   },
+   "N0": {
+    "failure_rate": 0.965,
+    "failure_rate_equiv_sensitivity": 0.737,
+    "critical": 13,
+    "abstained": 0,
+    "wrong_doc": 42,
+    "gold_in_top10": 0.596,
+    "same_path_in_top10": 0.684
+   },
+   "N1": {
+    "failure_rate": 0.965,
+    "failure_rate_equiv_sensitivity": 0.737,
+    "critical": 13,
+    "abstained": 0,
+    "wrong_doc": 42,
+    "gold_in_top10": 0.596,
+    "same_path_in_top10": 0.684
+   },
+   "A_minus_N1": {
+    "mean_diff": -0.2105,
+    "ci95": [
+     -0.3043,
+     -0.1212
+    ],
+    "clusters": 19
+   },
+   "prevalence_N1_failure": 0.965
+  },
+  "F3_acl_exposure": {
+   "n": 56,
+   "clusters": 19,
+   "A": {
+    "failure_rate": 0.732,
+    "failure_rate_equiv_sensitivity": 0.732,
+    "critical": 0,
+    "abstained": 33,
+    "wrong_doc": 8,
+    "gold_in_top10": 0.643,
+    "same_path_in_top10": 0.714
+   },
+   "A-applicability": {
+    "failure_rate": 0.732,
+    "failure_rate_equiv_sensitivity": 0.732,
+    "critical": 0,
+    "abstained": 33,
+    "wrong_doc": 8
+   },
+   "A-authority": {
+    "failure_rate": 0.732,
+    "failure_rate_equiv_sensitivity": 0.732,
+    "critical": 0,
+    "abstained": 33,
+    "wrong_doc": 8
+   },
+   "A-conflict": {
+    "failure_rate": 0.464,
+    "failure_rate_equiv_sensitivity": 0.464,
+    "critical": 0,
+    "abstained": 5,
+    "wrong_doc": 21
+   },
+   "A-lifecycle": {
+    "failure_rate": 0.732,
+    "failure_rate_equiv_sensitivity": 0.732,
+    "critical": 0,
+    "abstained": 33,
+    "wrong_doc": 8
+   },
+   "A-sufficiency": {
+    "failure_rate": 0.732,
+    "failure_rate_equiv_sensitivity": 0.732,
+    "critical": 0,
+    "abstained": 33,
+    "wrong_doc": 8
+   },
+   "N0": {
+    "failure_rate": 0.964,
+    "failure_rate_equiv_sensitivity": 0.75,
+    "critical": 39,
+    "abstained": 0,
+    "wrong_doc": 15,
+    "gold_in_top10": 0.589,
+    "same_path_in_top10": 0.679
+   },
+   "N1": {
+    "failure_rate": 0.946,
+    "failure_rate_equiv_sensitivity": 0.732,
+    "critical": 14,
+    "abstained": 0,
+    "wrong_doc": 39,
+    "gold_in_top10": 0.643,
+    "same_path_in_top10": 0.714
+   },
+   "A_minus_N1": {
+    "mean_diff": -0.2143,
+    "ci95": [
+     -0.2963,
+     -0.1458
+    ],
+    "clusters": 19
+   },
+   "prevalence_N1_failure": 0.946
+  },
+  "F4_constructed_abstention": {
+   "n": 22,
+   "clusters": 11,
+   "A": {
+    "failure_rate": 0.682,
+    "failure_rate_equiv_sensitivity": 0.682,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 15,
+    "gold_in_top10": 0.0,
+    "same_path_in_top10": 0.727
+   },
+   "A-applicability": {
+    "failure_rate": 0.682,
+    "failure_rate_equiv_sensitivity": 0.682,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 15
+   },
+   "A-authority": {
+    "failure_rate": 0.682,
+    "failure_rate_equiv_sensitivity": 0.682,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 15
+   },
+   "A-conflict": {
+    "failure_rate": 0.773,
+    "failure_rate_equiv_sensitivity": 0.773,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 17
+   },
+   "A-lifecycle": {
+    "failure_rate": 0.182,
+    "failure_rate_equiv_sensitivity": 0.182,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 4
+   },
+   "A-sufficiency": {
+    "failure_rate": 0.682,
+    "failure_rate_equiv_sensitivity": 0.682,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 15
+   },
+   "N0": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 6,
+    "abstained": 0,
+    "wrong_doc": 16,
+    "gold_in_top10": 0.0,
+    "same_path_in_top10": 0.727
+   },
+   "N1": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 6,
+    "abstained": 0,
+    "wrong_doc": 16,
+    "gold_in_top10": 0.0,
+    "same_path_in_top10": 0.727
+   },
+   "A_minus_N1": {
+    "mean_diff": -0.3182,
+    "ci95": [
+     -0.5333,
+     -0.15
+    ],
+    "clusters": 11
+   },
+   "prevalence_N1_failure": 1.0
+  }
+ },
+ "cases": [
+  {
+   "id": "S1-F1-3da0f75b",
+   "family": "F1_wrong_version",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-81201f65",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/manage-kubernetes-objects",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-555216e0",
+   "family": "F1_wrong_version",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-f16067e3",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-5ba8c1f6",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-730842f4",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-c000066f",
+   "family": "F1_wrong_version",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-164dabca",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-7638abab",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-da5bab4b",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/tls",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-51f8d184",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/run-application",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-fd7953f2",
+   "family": "F1_wrong_version",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-304cdc13",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-beeb0de6",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-9e91c87c",
+   "family": "F1_wrong_version",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-b8a5ad19",
+   "family": "F1_wrong_version",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-fa311154",
+   "family": "F1_wrong_version",
+   "cluster": "contribute/participate",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-5cc08a82",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-dd750542",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-a49c87ab",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-9d09989e",
+   "family": "F1_wrong_version",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-46244552",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-63cdd939",
+   "family": "F1_wrong_version",
+   "cluster": "contribute/style",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-975d0edf",
+   "family": "F1_wrong_version",
+   "cluster": "contribute/new-content",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-c94d4245",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-48a06f5f",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-5a38dbe7",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/access-application-cluster",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-81a58803",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/manage-kubernetes-objects",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-8ab63282",
+   "family": "F1_wrong_version",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-f36c0b78",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-3807edba",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-fd42560c",
+   "family": "F1_wrong_version",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-c30f2cc8",
+   "family": "F1_wrong_version",
+   "cluster": "reference/labels-annotations-taints",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-21ca5ebd",
+   "family": "F1_wrong_version",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "correct",
+    "N0": "correct",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-fa9abf14",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-5618c4d2",
+   "family": "F1_wrong_version",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-9db9467b",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-219f924f",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-c086e89d",
+   "family": "F1_wrong_version",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-5bbd8ddd",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-e5010218",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-af44318c",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-c7877f7e",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-8a128428",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-1f4848bf",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-cae9c6d8",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-8c4ce149",
+   "family": "F1_wrong_version",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-527e2d7a",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-9e274d0c",
+   "family": "F1_wrong_version",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-b05c32fe",
+   "family": "F1_wrong_version",
+   "cluster": "contribute/new-content",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-35c6f708",
+   "family": "F1_wrong_version",
+   "cluster": "reference/labels-annotations-taints",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-66630fc5",
+   "family": "F1_wrong_version",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "correct",
+    "N1": "correct",
+    "N0": "correct",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-0d48d10b",
+   "family": "F1_wrong_version",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F1-4a1d2064",
+   "family": "F1_wrong_version",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-d5676c63",
+   "family": "F1_wrong_version",
+   "cluster": "tasks/access-application-cluster",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F1-ceec5cb9",
+   "family": "F1_wrong_version",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-3da0f75b",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-51f8d184",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/run-application",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-5bbd8ddd",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-21ca5ebd",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "correct",
+    "N0": "correct",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-a49c87ab",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-ceec5cb9",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-48a06f5f",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-5ba8c1f6",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-9e91c87c",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-c000066f",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-4a1d2064",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-f16067e3",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-fa311154",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "contribute/participate",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-527e2d7a",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-5618c4d2",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-304cdc13",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-fa9abf14",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-fd42560c",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-da5bab4b",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/tls",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-9d09989e",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-5a38dbe7",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/access-application-cluster",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-dd750542",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-d5676c63",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/access-application-cluster",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-46244552",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-0d48d10b",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-fd7953f2",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-beeb0de6",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-9e274d0c",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-63cdd939",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "contribute/style",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-24d8817c",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/tls",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-c7877f7e",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-c086e89d",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-81201f65",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/manage-kubernetes-objects",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-164dabca",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-975d0edf",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "contribute/new-content",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-5cc08a82",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-8ab63282",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-219f924f",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-e5010218",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-c94d4245",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-c30f2cc8",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/labels-annotations-taints",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-af44318c",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-9db9467b",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-66630fc5",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "correct",
+    "N1": "correct",
+    "N0": "correct",
+    "A-lifecycle": "abstained",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-cae9c6d8",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-7638abab",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-8c4ce149",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-35c6f708",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/labels-annotations-taints",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-b8a5ad19",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-8a128428",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-f36c0b78",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-81a58803",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "tasks/manage-kubernetes-objects",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-b05c32fe",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "contribute/new-content",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-1f4848bf",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F2-555216e0",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-730842f4",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F2-3807edba",
+   "family": "F2_stale_or_not_yet_effective",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-9e91c87c",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-46244552",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-24d8817c",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/tls",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-c7877f7e",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-21ca5ebd",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "correct",
+    "N0": "correct",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-51f8d184",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/run-application",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "abstained",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-f16067e3",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-7638abab",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-9e274d0c",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-c30f2cc8",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/labels-annotations-taints",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-48a06f5f",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-fa9abf14",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-dd750542",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-b8a5ad19",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-fd7953f2",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-b05c32fe",
+   "family": "F3_acl_exposure",
+   "cluster": "contribute/new-content",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-8a128428",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-5bbd8ddd",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-5cc08a82",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-da5bab4b",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/tls",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "abstained",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-975d0edf",
+   "family": "F3_acl_exposure",
+   "cluster": "contribute/new-content",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-af44318c",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-fd42560c",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-35c6f708",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/labels-annotations-taints",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-ceec5cb9",
+   "family": "F3_acl_exposure",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-527e2d7a",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-81a58803",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/manage-kubernetes-objects",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-219f924f",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-e5010218",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/policy",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-c000066f",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "abstained",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-3807edba",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-304cdc13",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-4a1d2064",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-5a38dbe7",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/access-application-cluster",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-5ba8c1f6",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-0d48d10b",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-66630fc5",
+   "family": "F3_acl_exposure",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "correct",
+    "N1": "correct",
+    "N0": "correct",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-9db9467b",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-f36c0b78",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "abstained",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-3da0f75b",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-9d09989e",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-cae9c6d8",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "abstained",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-730842f4",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-81201f65",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/manage-kubernetes-objects",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-1f4848bf",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-fa311154",
+   "family": "F3_acl_exposure",
+   "cluster": "contribute/participate",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-c94d4245",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-8ab63282",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-5618c4d2",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-c086e89d",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-8c4ce149",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-beeb0de6",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-164dabca",
+   "family": "F3_acl_exposure",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-63cdd939",
+   "family": "F3_acl_exposure",
+   "cluster": "contribute/style",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F3-d5676c63",
+   "family": "F3_acl_exposure",
+   "cluster": "tasks/access-application-cluster",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "correct",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F3-555216e0",
+   "family": "F3_acl_exposure",
+   "cluster": "reference/config-api",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "critical",
+    "A-lifecycle": "abstained",
+    "A-authority": "abstained",
+    "A-applicability": "abstained",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "abstained"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F4-46244552t",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-5cc08a82t",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-66630fc5t",
+   "family": "F4_constructed_abstention",
+   "cluster": "setup/best-practices",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-f36c0b78t",
+   "family": "F4_constructed_abstention",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-21ca5ebdt",
+   "family": "F4_constructed_abstention",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-af44318ct",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/cluster-administration",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-b8a5ad19t",
+   "family": "F4_constructed_abstention",
+   "cluster": "reference/setup-tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-f36c0b78t",
+   "family": "F4_constructed_abstention",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-48a06f5ft",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-f16067e3t",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-c94d4245t",
+   "family": "F4_constructed_abstention",
+   "cluster": "tasks/tools",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-219f924ft",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-304cdc13t",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "correct",
+    "N1": "critical",
+    "N0": "critical",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "correct",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-3807edbat",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/scheduling-eviction",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F4-1f4848bft",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "wrong_doc",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-51f8d184t",
+   "family": "F4_constructed_abstention",
+   "cluster": "tasks/run-application",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-9e91c87ct",
+   "family": "F4_constructed_abstention",
+   "cluster": "reference/glossary",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-da5bab4bt",
+   "family": "F4_constructed_abstention",
+   "cluster": "tasks/tls",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-527e2d7at",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/extend-kubernetes",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "correct",
+    "A-applicability": "correct",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence"
+  },
+  {
+   "id": "S1-F4-1f4848bft",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-dd750542t",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/workloads",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  },
+  {
+   "id": "S1-F4-46244552t",
+   "family": "F4_constructed_abstention",
+   "cluster": "concepts/security",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A-lifecycle": "correct",
+    "A-authority": "wrong_doc",
+    "A-applicability": "wrong_doc",
+    "A-conflict": "wrong_doc",
+    "A-sufficiency": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A-lifecycle": false,
+    "A-authority": false,
+    "A-applicability": false,
+    "A-conflict": false,
+    "A-sufficiency": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok"
+  }
+ ]
+}

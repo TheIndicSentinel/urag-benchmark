@@ -23,3 +23,9 @@
 | N1 fails lifecycle cases by construction, so delta alone is tautological | Report prevalence on real corpora with every delta (PREREG s5) | open |
 | Public sources unusable or unlicensed | Source/licence survey before build; smaller benchmark fallback | open |
 | Duplicated mechanical cases inflate sample | Dedupe, per-template cap, effective sample size by family | open |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D10 | 2026-10-14 | Public evaluation proceeds on branch phase2/generator; no merge/tag/push without user approval | Active | brief s0 | await approval |
+| D11 | 2026-10-14 | Value claim restated as critical-error reduction, not accuracy | Proposed | RESULTS_PUBLIC.md items 1-2 | confirm on S2/S3 |
+| D12 | 2026-10-14 | F1 generator redesign needed (T after gold window) before held-out is run | Open | F1/F2 redundancy in ablation | Amendment 5 + regenerate |
