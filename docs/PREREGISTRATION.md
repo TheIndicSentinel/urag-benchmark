@@ -127,3 +127,7 @@ Context: the author has no reachable practitioners to invite, so the stop rule o
 5. **Consequence of failure.** If the stop rule fires, the project adopts the benchmark-plus-policy framing already provided for in Amendment 9.2; the platform thesis stays unsupported by practitioner evidence. G4 is not required for the benchmark-plus-policy artifact.
 6. **Privacy.** Record roles, not names; no private messages are quoted without consent; real notes stay in git-ignored `*.local.*` files.
 7. **Superseded text.** The invitation-count clause of s5 G4 and the stop rule in `docs/PLAN.md` ("8 invitations over 4 weeks") are superseded by this amendment for outreach counting; the 4-week duration is retained, measured from P.
+
+### Amendment 10a (2026-10-14): clarifications to Amendment 10 (append-only; Amendment 10 text is unchanged)
+1. **Wording.** Amendment 10's note that "G2 results had not been read" is restated precisely: the G2 sweep was in progress (some checkpoint files existed) and **no G2 output had been inspected or aggregated**.
+2. **Contact details.** Email addresses, handles and other contact details of people who reply are **not recorded in tracked files**; local notes are deleted on request. `docs/discovery/PUBLICATION_LOG.md` records venue, date and link of announcements only, never who replied.

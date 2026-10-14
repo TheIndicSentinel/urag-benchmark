@@ -8,3 +8,9 @@ docs/discovery/*.local.*
 results/g2_parts/
 results/public_G2_dev_raw.json
 # NOTE: results/HELDOUT_RUNS.log is deliberately tracked (one-run-per-pipeline-hash record)
+# Never commit: harness-managed gate records, local notes anywhere, caches, env files
+.harness/
+*.local.*
+*.pkl
+.env*
+.DS_Store

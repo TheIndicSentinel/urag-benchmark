@@ -1,6 +1,8 @@
 # Sources (Phase 2 survey, 2026-10-14)
 
-Status: **candidates only. No data has been ingested and no case generated.** Licence status: V = confirmed on a primary page this session; S = secondary source only; U = unverified. Re-check each licence file and record the commit SHA and retrieval date at ingestion time. Not legal advice.
+Status (updated 2026-10-14): S1 and S2 were ingested locally and cases generated from them (pointers only); S3 is still a candidate and has not been ingested. The original survey text below is kept as written.
+
+Original survey status: **candidates only. No data had been ingested and no case generated.** Licence status: V = confirmed on a primary page this session; S = secondary source only; U = unverified. Re-check each licence file and record the commit SHA and retrieval date at ingestion time. Not legal advice.
 
 ## Publication rule
 Published benchmark artifacts contain case IDs, source pointers (repo, path, commit SHA / version, URL) and rebuild scripts, **not** republished source text. Local working copies stay out of the repo. This avoids share-alike obligations on derived text and keeps attribution simple.

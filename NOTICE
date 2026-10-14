@@ -20,9 +20,10 @@ project is not affiliated with or endorsed by any of them):
 2. PostgreSQL documentation (doc/src/sgml)
    https://git.postgresql.org/git/postgresql.git, tags REL_14_0 .. REL_18_0
    (REL_18_0 object verified identical via the github.com/postgres/postgres mirror)
-   Licence: PostgreSQL Licence. Portions Copyright (c) 1996-2024, PostgreSQL
-   Global Development Group; Portions Copyright (c) 1994, The Regents of the
-   University of California. The full licence text is in the COPYRIGHT file of
+   Licence: PostgreSQL Licence. Portions Copyright (c) 1996-2025 (as of
+   REL_18_0; the year range varies by tag), PostgreSQL Global Development
+   Group; Portions Copyright (c) 1994, The Regents of the University of
+   California. The full licence text is in the COPYRIGHT file of
    that repository; it must accompany any copy of the documentation text.
 
 3. GitLab runbooks (candidate source; not ingested in the current results)
