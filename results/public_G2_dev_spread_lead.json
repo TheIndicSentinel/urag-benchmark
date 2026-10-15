@@ -1,0 +1,270 @@
+{
+ "label": "supplementary; not a gate",
+ "style": "lead",
+ "results": {
+  "drop/10/A|N1P": {
+   "gaps_by_seed": {
+    "11": 0.039,
+    "12": 0.0495,
+    "13": -0.0014
+   },
+   "mean": 0.029,
+   "min": -0.0014,
+   "max": 0.0495,
+   "seeds_positive": 2
+  },
+  "drop/10/A|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.0761,
+    "12": 0.0732,
+    "13": 0.0483
+   },
+   "mean": 0.0659,
+   "min": 0.0483,
+   "max": 0.0761,
+   "seeds_positive": 3
+  },
+  "drop/10/A2|N1P": {
+   "gaps_by_seed": {
+    "11": 0.0977,
+    "12": 0.1351,
+    "13": 0.0752
+   },
+   "mean": 0.1027,
+   "min": 0.0752,
+   "max": 0.1351,
+   "seeds_positive": 3
+  },
+  "drop/10/A2|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.1375,
+    "12": 0.1611,
+    "13": 0.1252
+   },
+   "mean": 0.1413,
+   "min": 0.1252,
+   "max": 0.1611,
+   "seeds_positive": 3
+  },
+  "drop/25/A|N1P": {
+   "gaps_by_seed": {
+    "11": 0.0536,
+    "12": 0.0322,
+    "13": 0.0029
+   },
+   "mean": 0.0296,
+   "min": 0.0029,
+   "max": 0.0536,
+   "seeds_positive": 3
+  },
+  "drop/25/A|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.0919,
+    "12": 0.0549,
+    "13": 0.0521
+   },
+   "mean": 0.0663,
+   "min": 0.0521,
+   "max": 0.0919,
+   "seeds_positive": 3
+  },
+  "drop/25/A2|N1P": {
+   "gaps_by_seed": {
+    "11": 0.0218,
+    "12": 0.0408,
+    "13": 0.0208
+   },
+   "mean": 0.0278,
+   "min": 0.0208,
+   "max": 0.0408,
+   "seeds_positive": 3
+  },
+  "drop/25/A2|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.0629,
+    "12": 0.0579,
+    "13": 0.0619
+   },
+   "mean": 0.0609,
+   "min": 0.0579,
+   "max": 0.0629,
+   "seeds_positive": 3
+  },
+  "drop/50/A|N1P": {
+   "gaps_by_seed": {
+    "11": 0.0008,
+    "12": -0.0574,
+    "13": 0.0176
+   },
+   "mean": -0.013,
+   "min": -0.0574,
+   "max": 0.0176,
+   "seeds_positive": 2
+  },
+  "drop/50/A|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.0712,
+    "12": -0.0066,
+    "13": 0.077
+   },
+   "mean": 0.0472,
+   "min": -0.0066,
+   "max": 0.077,
+   "seeds_positive": 2
+  },
+  "drop/50/A2|N1P": {
+   "gaps_by_seed": {
+    "11": -0.022,
+    "12": -0.0446,
+    "13": 0.0484
+   },
+   "mean": -0.0061,
+   "min": -0.0446,
+   "max": 0.0484,
+   "seeds_positive": 1
+  },
+  "drop/50/A2|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.0355,
+    "12": 0.0094,
+    "13": 0.1034
+   },
+   "mean": 0.0494,
+   "min": 0.0094,
+   "max": 0.1034,
+   "seeds_positive": 3
+  },
+  "corrupt/10/A|N1P": {
+   "gaps_by_seed": {
+    "11": 0.1449,
+    "12": 0.1438,
+    "13": 0.1175
+   },
+   "mean": 0.1354,
+   "min": 0.1175,
+   "max": 0.1449,
+   "seeds_positive": 3
+  },
+  "corrupt/10/A|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.136,
+    "12": 0.1291,
+    "13": 0.1119
+   },
+   "mean": 0.1257,
+   "min": 0.1119,
+   "max": 0.136,
+   "seeds_positive": 3
+  },
+  "corrupt/10/A2|N1P": {
+   "gaps_by_seed": {
+    "11": 0.2078,
+    "12": 0.2093,
+    "13": 0.2035
+   },
+   "mean": 0.2069,
+   "min": 0.2035,
+   "max": 0.2093,
+   "seeds_positive": 3
+  },
+  "corrupt/10/A2|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.2071,
+    "12": 0.2077,
+    "13": 0.2042
+   },
+   "mean": 0.2063,
+   "min": 0.2042,
+   "max": 0.2077,
+   "seeds_positive": 3
+  },
+  "corrupt/25/A|N1P": {
+   "gaps_by_seed": {
+    "11": 0.1171,
+    "12": 0.1614,
+    "13": 0.1829
+   },
+   "mean": 0.1538,
+   "min": 0.1171,
+   "max": 0.1829,
+   "seeds_positive": 3
+  },
+  "corrupt/25/A|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.1195,
+    "12": 0.1653,
+    "13": 0.1857
+   },
+   "mean": 0.1568,
+   "min": 0.1195,
+   "max": 0.1857,
+   "seeds_positive": 3
+  },
+  "corrupt/25/A2|N1P": {
+   "gaps_by_seed": {
+    "11": 0.1634,
+    "12": 0.207,
+    "13": 0.2504
+   },
+   "mean": 0.2069,
+   "min": 0.1634,
+   "max": 0.2504,
+   "seeds_positive": 3
+  },
+  "corrupt/25/A2|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.1631,
+    "12": 0.2072,
+    "13": 0.2491
+   },
+   "mean": 0.2065,
+   "min": 0.1631,
+   "max": 0.2491,
+   "seeds_positive": 3
+  },
+  "corrupt/50/A|N1P": {
+   "gaps_by_seed": {
+    "11": 0.0798,
+    "12": 0.1281,
+    "13": 0.1245
+   },
+   "mean": 0.1108,
+   "min": 0.0798,
+   "max": 0.1281,
+   "seeds_positive": 3
+  },
+  "corrupt/50/A|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.0801,
+    "12": 0.1319,
+    "13": 0.1233
+   },
+   "mean": 0.1118,
+   "min": 0.0801,
+   "max": 0.1319,
+   "seeds_positive": 3
+  },
+  "corrupt/50/A2|N1P": {
+   "gaps_by_seed": {
+    "11": 0.1237,
+    "12": 0.1124,
+    "13": 0.1595
+   },
+   "mean": 0.1319,
+   "min": 0.1124,
+   "max": 0.1595,
+   "seeds_positive": 3
+  },
+  "corrupt/50/A2|N1P-closed": {
+   "gaps_by_seed": {
+    "11": 0.1206,
+    "12": 0.1098,
+    "13": 0.1559
+   },
+   "mean": 0.1288,
+   "min": 0.1098,
+   "max": 0.1559,
+   "seeds_positive": 3
+  }
+ }
+}

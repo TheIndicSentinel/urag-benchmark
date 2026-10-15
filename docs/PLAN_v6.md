@@ -40,3 +40,7 @@ A ~ N1 on held-out or negligible prevalence (reframe/stop); sources unusable (sm
 
 ## Status note (2026-10-14, after Phase 2 dev results)
 The surviving, benchmark-supportable claims are narrower than the thesis above: lifecycle/lineage policy, ACL and applicability behaviour. `Sufficient` is not demonstrated by any arm and is removed from the thesis wording (Amendment 9). A metadata filter (ACL + version/window) matches governance on clean metadata for wrong-version and ACL cases by construction; whether governance differs under degraded metadata is the registered G2 test. If G2 does not favour governance, the project adopts the benchmark-plus-policy framing (Amendment 9.2). Whether real incumbents lack these behaviours is not answerable by the benchmark; it needs practitioner conversations (G4), and none have taken place.
+
+
+## Status note (2026-10-15): reframe rule fired
+The lead-style G2 verdict (gate-relevant, Amendment 12) is **false** for both A and A2 (one cell, drop at level 50, where governance is not lower-risk than the open metadata filter at matched coverage). Under the pre-registered rule (Amendment 9.2) the project adopts the **benchmark-plus-policy framing**: the deliverable is a published benchmark of eligibility-failure prevalence and behaviour under degraded metadata, plus a documented lifecycle/lineage policy and a reference implementation. The platform thesis in the sections above is superseded and is not a goal. Practitioner evidence (G4) remains absent and is not required for this artifact.

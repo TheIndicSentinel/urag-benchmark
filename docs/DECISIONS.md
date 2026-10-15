@@ -54,3 +54,9 @@
 |---|---|---|---|---|---|
 | D24 | 2026-10-15 | Held-out record lists arms as a literal that mirrors the arm construction in `public_eval.py`; accepted as a known minor drift risk rather than changing the digest again. The record also carries the full args, so a mismatch would be visible | Accepted | final guard review (PASS) | build arms first and record from the list in the post-held-out refactor (D19) |
 | D25 | 2026-10-15 | Exact held-out command to use after the digest is published: `python3 -I src/urag/public_eval.py --split heldout --confirm-frozen --query-style lead` (sources default to all available; warm the canon caches with a dev run first). Do not run it before the hashes are public and G2 lead-style is read | Active | Amendment 11b | after push + gist |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D26 | 2026-10-15 | **Reframe rule (Amendments 9.2, 12.3) fired.** Lead-style G2 verdict is false for both A and A2 (drop/50 fails). The project adopts the benchmark-plus-policy framing; the evidence-governance-platform thesis is dropped as a goal. Both verdicts (title TRUE, lead FALSE) are published | Active | `results/public_G2_dev_summary_lead.json` | write-up |
+| D27 | 2026-10-15 | The artifact is: a published benchmark of eligibility-failure prevalence and degraded-metadata behaviour, plus a documented lifecycle/lineage policy and a reference implementation. The architecture refactor (D19) is demoted to optional; no platform build is planned | Active | D26 | decide scope of write-up |
+| D28 | 2026-10-15 | G1 held-out run still proceeds: it is the registered test of the benchmark's own claims and costs nothing extra. It is no longer a gate for a platform decision | Active | Amendment 11b | after hash publication |

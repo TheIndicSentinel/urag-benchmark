@@ -160,3 +160,34 @@ Script `src/urag/public_g2_spread.py`, output `results/public_G2_dev_spread.json
 - Amendment 12 commit `b631207`: author date 2026-10-15T17:15:07+05:30 (local clock). Runner change commit `2adea98`: 17:15:22.
 - Earliest lead-style checkpoint file modification time (name and mtime only; contents unread): 2026-10-15T17:16:47.
 - Both are on the **local clock**. An external timestamp can only bound the amendment's existence from above; it cannot prove it preceded the first lead output. What does hold regardless: the amendment text states the rule before any lead-style output was read, and the commit chain hashes make later edits detectable. The push is intended to anchor the amendment text externally before the lead run is read.
+
+---
+# G2 degradation sweep: lead-style queries (GATE-RELEVANT, Amendment 12)
+Same procedure, arms, seeds and reading rule as the title-style sweep; 36/36 tasks validated before reading (digests in `results/public_G2_dev_summary_lead.json`); dev split only; n=275 cases pooled over S1+S2; means over 3 seeds.
+**Order evidence:** Amendment 12 committed 2026-10-15T17:15:07+05:30 (local); first lead-style checkpoint 17:16:47 (local); the amendments were pushed to the public repo with GitHub push time **2026-10-15T12:58:12Z (18:28 IST)**, and the lead-style result was read only after that push.
+
+## Registered verdict (mechanical): `favours_governance = FALSE` for A and for A2
+Wins by (mode: level 10/25/50): both arms `drop: true, true, FALSE`; `corrupt: true, true, true`. The failing cell is **drop / level 50**:
+
+| Cell | Arm | matched-coverage risk | N1P (open) | N1P-closed |
+|---|---|---|---|---|
+| drop/50 | A | **0.748** | 0.733 | 0.792 |
+| drop/50 | A2 | **0.744** | 0.736 | 0.793 |
+
+At the heaviest degradation, A and A2 are 0.015 and 0.008 *worse* than the open filter at matched coverage and better than the closed filter. Under the registered rule a single failing cell makes the mode, and so the verdict, false (Amendment 9.2: mixed counts as false).
+
+## Both verdicts
+| Query style | Role | A | A2 |
+|---|---|---|---|
+| title | secondary (ran by mistake as the primary; Amendment 12) | TRUE | TRUE |
+| **lead** | **gate-relevant** | **FALSE** | **FALSE** |
+
+## Supplementary seed-level spread (lead-style; descriptive, not a gate)
+- 67 of 72 seed-level gaps are positive (title-style: 70 of 72). **Four cells have at least one negative seed**: `drop/10 A|N1P` (-0.001), `drop/50 A|N1P` (-0.057), `drop/50 A|N1P-closed` (-0.007), `drop/50 A2|N1P` (-0.045 and -0.022; only 1 of 3 seeds positive).
+- Under `corrupt`, gaps are large and consistent (A: +0.08 to +0.19; A2: +0.11 to +0.25). Under `drop`, gaps are small and unstable, and they turn negative at the heaviest level.
+
+## Reading
+1. **The rule fired as pre-registered.** The result is not "governance fails everywhere": 17 of 18 cells favour A and the failing one is a narrow margin at the most severe degradation. But the rule was fixed in advance with no tolerance, and it is applied as written. The outcome does not depend on how favourable the other cells are.
+2. **What survives:** (a) lower critical-failure rates than a plain top-ranked retriever (N1) in every cell; (b) low *silent*-error rates under `drop` (A: 0.007-0.045 versus 0.51-0.80 for the filters), i.e. missing metadata is flagged, at a coverage cost (A answers 30-44%); (c) the lineage/lifecycle rule, whose effect is policy-defined.
+3. **What does not survive:** a claim that the governance rules answer *more correctly than a metadata filter* under heavy metadata loss. At matched coverage under `drop/50` they do not.
+4. **Not evidence for or against commercial value.** Dev split, synthetic degradation of fields the rules use, two sources, title/lead queries derived from gold pages.
