@@ -71,6 +71,7 @@ Limits, registered in advance: the wrong-version and ACL families **cannot show 
 - The conflict rule treats several eligible distinct pages as a conflict (over-abstains on documentation corpora).
 - Sufficiency is not demonstrated by any arm; the lexical floor does not separate an on-topic near-duplicate from the answer.
 - Documents are the unit of evidence; no passage-level citations; BM25 with k=10 only.
+- **The query style of the existing G2 degradation checkpoints rests on the directory name** (`results/g2_parts` = title queries, `results/g2_parts_lead` = lead queries; both are local, git-ignored working directories, not in this repository; the tracked outputs are the `results/public_G2_dev_summary*.json` files); the checkpoints do not record it, so the report script's style assertion cannot verify them. The first sweep ran with title queries by mistake (Amendment 12). No further G2 runs are planned, so this is accepted rather than fixed.
 See `docs/DECISIONS.md` (D20) and the [lifecycle/lineage policy](docs/LIFECYCLE_POLICY.md).
 
 ## Honest history
