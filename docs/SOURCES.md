@@ -65,12 +65,12 @@ Known weaknesses for Django as a test source: web-framework documentation, not I
 Pin by **release tag commit SHAs**, not branch tips, as for S2. Whichever source is chosen, ingestion needs: licence verification recorded here, an amendment registering the new arm(s) and digest **before** any generation, and a held-out claim lock as in Amendments 11/11a/11b.
 
 ### S4 licence verification record (2026-10-15; Amendments 13b.6, 13c)
-Fetched with `scripts/fetch_sources.py --sources S4` (depth-1, blob-less, pinned peeled release-tag commits for 4.2, 5.0, 5.1, 5.2, 6.0; docs tree only; `docs/releases/` removed).
+Fetched with `scripts/fetch_sources.py --sources S4` (depth-1, blob-less, pinned peeled release-tag commits for 4.2, 5.0, 5.1, 5.2, 6.0; docs tree only; `docs/releases/`, `docs/_theme/`, `docs/_ext/` and `docs/requirements.txt` removed).
 | Check | Result |
 |---|---|
 | Repository `LICENSE` at pinned 5.2 commit | BSD-3-Clause; header read; no documentation carve-out; no CC/GPL/Apache marker |
 | Other licence files | `LICENSE.python` at repo root (outside `docs/`); `docs/_theme/djangodocs/static/fontawesome/LICENSE.txt` (Font Awesome Free: CC BY 4.0 / OFL / MIT, third party) |
 | Documentation-specific licence statement | none found in the docs tree or `docs/README.rst` |
-| `.txt` pages after exclusions (13c) | 269 (4.2), 270 (5.0, 5.1), 272 (5.2), 277 (6.0) per the fetch step; the parser titled 270/270 pages of 5.2 after excluding `docs/_theme/` and `docs/requirements.txt` |
+| `.txt` pages after all exclusions (13c) | 267 (4.2), 268 (5.0), 268 (5.1), 270 (5.2), 275 (6.0); the parser titled 270/270 pages of 5.2 |
 | Third-party text in repo | none; cases are pointers only, source text stays in git-ignored `.local_sources/` |
 Not legal advice; re-verify before any publication of derived text (none is published).

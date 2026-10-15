@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rebuild the local, untracked source extracts used by the generators (pointers-only repo).
 
-  python3 -I scripts/fetch_sources.py [--out DIR] [--pg-mirror] [--sources S1,S2]
+  python3 -I scripts/fetch_sources.py [--out DIR] [--pg-mirror] [--sources S1,S2,S4]
 
 Reads configs/generator.json (pinned SHAs), creates blob-less bare clones and extracts only the documentation
 trees into DIR/s1/<version>/ and DIR/s2/<version>/ (default DIR = <repo>/.local_sources, which is git-ignored).
@@ -11,7 +11,7 @@ Every extracted ref is verified against the pinned SHA before use. Extracted fil
 git.postgresql.org was unreliable). The pinned SHA check still applies.
 After extraction, regenerate cases and compare:  python3 -I src/urag/gen/docs_gen.py S1 && git diff --exit-code data/public/
 """
-import argparse, json, os, shutil, subprocess, sys, tarfile
+import argparse, json, os, re, shutil, subprocess, sys, tarfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CFG = json.load(open(os.path.join(ROOT, "configs", "generator.json")))
@@ -68,8 +68,15 @@ def s2(out, mirror):
 
 
 def s4(out):
-    """S4 Django docs (Amendment 13): depth-1, blob-less fetch of each pinned release-tag commit; docs/ only."""
+    """S4 Django docs (Amendments 13, 13c): depth-1, blob-less fetch of each pinned release-tag commit; docs/ only."""
     c = CFG["sources"]["S4"]
+    for ver, sha in c["pinned_shas"].items():
+        if not re.fullmatch(r"[0-9a-f]{40}", sha):
+            sys.exit(f"S4 {ver}: pinned value is not a 40-hex commit SHA")
+    ex_prefixes = c.get("exclude_prefixes", [])
+    for ex in ex_prefixes + c.get("exclude_files", []):
+        if os.path.isabs(ex) or ".." in ex.split("/") or not ex.startswith("docs/"):
+            sys.exit(f"S4: unsafe exclusion entry {ex!r}")
     bare = os.path.join(out, "django.git")
     if not os.path.isdir(bare):
         os.makedirs(bare, exist_ok=True)
@@ -81,10 +88,19 @@ def s4(out):
             sys.exit(f"S4 {ver}: pinned commit {sha} not present after fetch")
         dest = os.path.join(out, "s4", ver)
         extract(bare, sha, "docs", dest)
-        for ex in c.get("exclude_prefixes", []):
-            shutil.rmtree(os.path.join(dest, ex.rstrip("/")), ignore_errors=True)
+        droot = os.path.realpath(os.path.join(dest, "docs"))
+        for ex in ex_prefixes:  # "docs/x/" -> <dest>/docs/x ; confined to dest by the validation above
+            target = os.path.realpath(os.path.join(dest, ex.rstrip("/")))
+            if os.path.commonpath([target, droot]) != droot:
+                sys.exit(f"S4: exclusion {ex!r} resolves outside the extraction")
+            shutil.rmtree(target, ignore_errors=True)
+        for exf in c.get("exclude_files", []):
+            try:
+                os.remove(os.path.join(dest, exf))
+            except FileNotFoundError:
+                pass
         n = sum(f.endswith(".txt") for _, _, fs in os.walk(os.path.join(dest, "docs")) for f in fs)
-        print(f"S4 {ver}: {n} .txt files @ {sha[:10]} (excluded: {c.get('exclude_prefixes')})")
+        print(f"S4 {ver}: {n} .txt pages after exclusions @ {sha[:10]}")
 
 
 def main():
@@ -96,7 +112,7 @@ def main():
     os.makedirs(a.out, exist_ok=True)
     for s in a.sources.split(","):
         {"S1": lambda: s1(a.out), "S2": lambda: s2(a.out, a.pg_mirror), "S4": lambda: s4(a.out)}[s]()
-    print("done. Next: python3 -I src/urag/gen/docs_gen.py S1 ; python3 -I src/urag/gen/docs_gen.py S2 ; git diff --exit-code data/public/")
+    print("done. Next: python3 -I src/urag/gen/docs_gen.py <S1|S2|S4> ; git diff --exit-code data/public/")
 
 
 if __name__ == "__main__":
