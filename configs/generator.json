@@ -1,7 +1,7 @@
 {
- "config_version": 2,
+ "config_version": 3,
  "registered": "2026-10-14",
- "note": "Committed before any ingestion or case generation. Changing any value after generation starts requires a dated amendment in docs/PREREGISTRATION.md and invalidates previously generated cases. | v2 (Amendment 5, 2026-10-14): support windows and F1 redesign; v1 cases are superseded.",
+ "note": "Committed before any ingestion or case generation. Changing any value after generation starts requires a dated amendment in docs/PREREGISTRATION.md and invalidates previously generated cases. | v2 (Amendment 5, 2026-10-14): support windows and F1 redesign; v1 cases are superseded. | v3 (Amendment 13, 2026-10-15): adds source S4 (Django docs) for a confirmatory test; S1/S2 entries unchanged.",
  "seeds": {
   "split": 20261014,
   "sampling": 20261015,
@@ -77,6 +77,37 @@
    "service_from": "first path component",
    "version_semantics": "document revision = blob at a commit; effective_from = commit date; effective_to = date of next commit touching the path; deleted path = retired at deletion commit",
    "split_cluster": "first path component"
+  },
+  "S4": {
+   "name": "django-docs",
+   "family": "doc-versioning",
+   "repo": "https://github.com/django/django.git",
+   "path_glob": "docs/**/*.txt",
+   "exclude_prefixes": [
+    "docs/releases/"
+   ],
+   "versions": {
+    "4.2": "4.2",
+    "5.0": "5.0",
+    "5.1": "5.1",
+    "5.2": "5.2",
+    "6.0": "6.0"
+   },
+   "pinned_shas": {
+    "4.2": "879e5d587b84e6fc961829611999431778eb9f6a",
+    "5.0": "617bcf611f3daa796e4054ba041089ece30a32fc",
+    "5.1": "373cb3037fe4e67adbac9ac43340391e859aa957",
+    "5.2": "9e7cc2b628fe8fd3895986af9b7fc9525034c1b0",
+    "6.0": "36b5f39d9372147f0e758f590e35ee2b2bc317dd"
+   },
+   "pinned_sha_note": "peeled commit of each release tag",
+   "licence": "BSD-3-Clause (repository LICENSE; no documentation carve-out found)",
+   "support_versions": 3,
+   "support_versions_note": "a convention for effective windows, not Django's published support policy",
+   "effective_from": "committer date of the release tag commit",
+   "effective_to": "effective_from of the version support_versions releases later; capped at retrieval date",
+   "markup_stripping": "reStructuredText: drop directives, role markers and literal blocks' markup; keep text content",
+   "split_cluster": "first two path components under docs/ (e.g. ref/models, topics/db)"
   }
  },
  "split": {
