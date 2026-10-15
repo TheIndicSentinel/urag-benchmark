@@ -195,3 +195,10 @@ Clarifies Amendment 13 items 4 and 7. It **narrows 'Falsified'** (a result Amend
 7. **Held-out arm list** is fixed in code as N0, N1, N1P, N1P-closed, A, AP, A2P and is the list written to the log record (Amendment 13a).
 8. **Paired critical-indicator CI** for the F2 criterion is computed in `summarize()` (key `<arm>_minus_<arm>_critical`) so that it is covered by the pipeline digest D2; no analysis step is left to analyst discretion.
 9. **Permanent closure.** `SPENT_HELDOUT_SOURCES = {S1, S2}` is hard-coded in `public_eval.py`; the spent sources stay closed even if `results/HELDOUT_RUNS.log` is lost.
+
+### Amendment 13c (2026-10-15): S4 file exclusions found during licence verification; registered before any S4 case generation
+Per Amendment 13b.6, per-file licence verification was done on the five pinned Django trees (`docs/` only, fetched with `scripts/fetch_sources.py --sources S4`). Findings, all recorded in `configs/generator.json` (`licence_verification`) and `docs/SOURCES.md`:
+1. `docs/_theme/djangodocs/static/fontawesome/LICENSE.txt` is a **third-party** licence file (Font Awesome Free: CC BY 4.0 / OFL / MIT) with a `.txt` extension that the registered glob would have ingested as a "document".
+2. `docs/requirements.txt` is a pip requirements file, not a documentation page.
+3. No documentation-specific licence statement exists in the docs tree; the repository `LICENSE` (BSD-3-Clause, no carve-out) applies. `LICENSE.python` sits at the repository root, outside `docs/`.
+**Registered refinement of Amendment 13.6:** exclude `docs/releases/`, `docs/_theme/`, `docs/_ext/` and the file `docs/requirements.txt`. Nothing else changes. No cases had been generated and no arm had been run on any S4 data.

@@ -84,7 +84,9 @@
    "repo": "https://github.com/django/django.git",
    "path_glob": "docs/**/*.txt",
    "exclude_prefixes": [
-    "docs/releases/"
+    "docs/releases/",
+    "docs/_theme/",
+    "docs/_ext/"
    ],
    "versions": {
     "4.2": "4.2",
@@ -107,7 +109,17 @@
    "effective_from": "committer date of the release tag commit",
    "effective_to": "effective_from of the version support_versions releases later; capped at retrieval date",
    "markup_stripping": "reStructuredText: drop directives, role markers and literal blocks' markup; keep text content",
-   "split_cluster": "first two path components under docs/ (e.g. ref/models, topics/db)"
+   "split_cluster": "first two path components under docs/ (e.g. ref/models, topics/db)",
+   "exclude_files": [
+    "docs/requirements.txt"
+   ],
+   "licence_verification": {
+    "date": "2026-10-15",
+    "repo_licence": "BSD-3-Clause (LICENSE at pinned 5.2 commit; header read)",
+    "third_party_in_docs": "docs/_theme/djangodocs/static/fontawesome/LICENSE.txt (Font Awesome Free: CC BY 4.0 / OFL / MIT) - excluded",
+    "docs_specific_statement": "none found in docs tree or docs/README.rst; repository LICENSE applies",
+    "other_licence_files": "LICENSE.python at repo root (not under docs/)"
+   }
   }
  },
  "split": {
