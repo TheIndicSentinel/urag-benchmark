@@ -270,3 +270,44 @@ Written 2026-10-15 after `949eadf` was public and before the held-out run. **The
 
 ## What would change nothing
 Whatever the outcome, no arm, rule, threshold or sample will be altered and re-run on S4 held-out. Any further use of S4 held-out is exploratory under a new digest and amendment (D31).
+
+---
+# S4 (Django docs) confirmatory test: held-out result (single run, digest f071b924…54ec)
+Run once, claimed before evaluation (`results/HELDOUT_RUNS.log`, lock `results/HELDOUT_LOCK_f071b9247239874a`), exact command `python3 -I src/urag/public_eval.py --split heldout --confirm-frozen --query-style lead --sources S4`. Output: `results/public_S4_heldout_lead.json`. 165 held-out cases, `lead` queries, clean metadata, strict taxonomy, arms N0, N1, N1P(open), N1P-closed, A, AP, A2P. Decision rule: Amendments 13 and 13b (13b governs over the Amendment 13 "Falsified" bullet).
+
+## Registered limits, restated next to the result
+1. **Label:** confirmatory test of post-hoc arms on **a single source**. Not G1. Not a platform decision. Not an IT-operations corpus.
+2. **F1 and F3 cannot show a critical-failure reduction** (the metadata filter has none there by construction). They can only show no harm, or harm.
+3. **F2's gold is policy-defined** ("latest revision effective at T"). The arm that implements that policy is rewarded by the definition of the gold.
+4. **F4 is below the registered floor** (13 cases, 13 clusters; floor 20 and 15) and is **inconclusive** by registration.
+5. Expectations were written after the S4 dev sanity output had been seen (not blind to dev); they were blind to held-out.
+
+## Results (fail rate / critical / unanswered / wrong_doc)
+| Family (n, clusters) | N1 | N1P (open = closed) | A | AP | A2P |
+|---|---|---|---|---|---|
+| F1 wrong-version (51, 38) | .73 / 18 / 0 / 19 | .10 / 0 / 0 / 5 | .96 / 0 / 49 / 0 | 1.00 / 0 / 51 / 0 | .10 / 0 / 0 / 5 |
+| F2 stale / not-yet-effective (51, 38) | .78 / 21 / 0 / 19 | .59 / 10 / 0 / 20 | 1.00 / 0 / 51 / 0 | 1.00 / 0 / 51 / 0 | .10 / 0 / 0 / 5 |
+| F3 ACL exposure (50, 38) | .78 / 15 / 0 / 24 | .10 / 0 / 0 / 5 | .98 / 0 / 49 / 0 | 1.00 / 0 / 50 / 0 | .10 / 0 / 0 / 5 |
+| F4 constructed (13, 13), inconclusive | 1.00 / 6 / 0 / 7 | 1.00 / 0 / 0 / 13 | .69 / 0 / 0 / 9 | .00 / 0 / 0 / 0 | 1.00 / 0 / 0 / 13 |
+
+## Registered primary contrast, A2P minus N1P (paired, two-sided 95% cluster bootstrap, 2000 resamples, seed 20261018)
+| Family | failure-rate difference | CI | critical-indicator difference | CI |
+|---|---|---|---|---|
+| F1 | 0.000 | [0.000, 0.000] | 0.000 | [0.000, 0.000] |
+| **F2** | **-0.490** | **[-0.614, -0.352]** | **-0.196** | **[-0.298, -0.089]** |
+| F3 | 0.000 | [0.000, 0.000] | 0.000 | [0.000, 0.000] |
+| F4 (not used) | 0.000 | [0.000, 0.000] | 0.000 | [0.000, 0.000] |
+
+## Applying the rule exactly as registered
+- **Floor (13b.1):** F1, F2, F3 meet it; F4 is below it (inconclusive).
+- **Falsified (13b.2)** requires a CI *lower* bound above 0 for the failure rate (F1-F3) or the F2 critical indicator: F1 lower bound 0.000, F2 -0.614 and -0.298, F3 0.000. **Not falsified.**
+- **Supported (13)** requires the F2 critical-indicator CI upper bound below 0 (**-0.089, met**) and failure-rate CI upper bound below +0.05 in F1, F2, F3 (**0.000, -0.352, 0.000, met**).
+- **Per-family conditions of the hypothesis are all met.**
+- **Overall verdict (13b.4): Supported on F1-F3 (per-family reading); Inconclusive under a literal 13b.4 reading.** Both labels stand with equal prominence, and the reading difference is as follows: 13b.4 also says "Inconclusive if any family is below the floor and none is falsified". Read literally with F4 counted as "any family", the overall label would be Inconclusive. The hypothesis and the decision rule concern F1-F3 (Amendment 13 items 3-4), and the pre-run note (item 3) fixed before the run that F4 is "reported but not used"; this reading is the one applied here. The wording of 13b.4 is ambiguous on this point and is recorded as such; a literal-reading label of **Inconclusive** is the alternative and is stated here so it is not silently dropped.
+
+## What this does and does not mean
+1. **The entire effect is F2, and it is the policy.** In F1 and F3 A2P and N1P have identical outcomes on every case (interval [0, 0]): no harm, and no benefit possible by construction. In F2 the filter presents a listed older or newer revision as the answer in 10 of 51 cases (critical) and answers a document that is neither the gold nor a listed distractor in 20 more (`wrong_doc`; not classified further), while A2P, which implements the "latest effective revision" lineage rule, does not. Because F2's gold is *defined* by that rule, this shows the rule behaves as specified, not that it is what users want.
+2. **A and AP are not competitive here:** they leave 96-100% of F1-F3 cases unanswered because the frozen conflict rule treats several eligible distinct pages as a conflict. This replicates S1 and S2. They have no critical failures, but they answer almost nothing.
+3. **Plain top-1 retrieval (N1) again has a high critical-failure share** (15-21 of ~50 per family: 30-41%), the cost of not filtering on version and date in an index holding five releases.
+4. **A2P still fails about 10% of F1-F3 cases** (5 of 51, 5 of 51 and 5 of 50), all `wrong_doc`: retrieval misses rather than governance decisions.
+5. **No change to the project's direction.** This is a single-source confirmatory test; it neither makes G1 evaluable nor revives the platform thesis, and it is not evidence of demand, production readiness, security or commercial value.

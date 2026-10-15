@@ -72,3 +72,8 @@
 | D32 | 2026-10-15 | Repo renamed `URAG-private` -> `urag-benchmark` (public); empty `URAG` archived; local remote `private` points to the new URL (old URLs redirect) | Done | gh repo rename/archive | none |
 | D33 | 2026-10-15 | Confirmatory test of post-hoc arms on S4 (Django) registered (Amendment 13) with time-box 2026-10-22; priority order set by the user: rename, push, announce, Django in parallel | Active | Amendment 13 | ingest after push |
 | D34 | 2026-10-15 | Spent held-out sources are refused regardless of digest (Amendment 13a); no held-out run until implemented | Active | digest changes with config | implement guard + S4 profile |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D35 | 2026-10-15 | S4 confirmatory held-out run performed once on digest f071b924...; verdict per 13b: all F1-F3 conditions met (Supported on F1-F3); literal reading of 13b.4 would label Inconclusive because F4 is below the floor: both stated; S4 held-out is spent and used for nothing else | Done | `results/public_S4_heldout_lead.json` | write-up |
+| D36 | 2026-10-15 | Amendment 13b.4 wording on "any family below the floor" is ambiguous (F4); recorded as a registration flaw, not corrected retroactively | Open | RESULTS_PUBLIC.md | none |
