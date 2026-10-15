@@ -53,8 +53,8 @@ The project began as a thesis for a governed-evidence platform. The registered r
 
 ## Reproducing
 The repository does not contain upstream documentation. Rebuild locally from the pinned refs in `configs/generator.json`:
-1. Clone Kubernetes `website` (release branches) and the PostgreSQL repo tags named there into a git-ignored `.local_sources/` directory (see `docs/SOURCES.md`; keep copies untracked).
-2. `python3 -I src/urag/gen/docs_gen.py S1` and `... S2` regenerate the case files (compare with `data/public/`).
+1. `python3 -I scripts/fetch_sources.py --pg-mirror` creates blob-less clones under the git-ignored `.local_sources/` and extracts only the documentation trees, verifying every ref against the pinned SHAs in `configs/generator.json`. A fresh run was checked byte-for-byte against the extracts the committed cases were generated from (S1: 1,343-1,672 `.md` files per release; S2: 162-170 `.sgml` files per tag). Needs about 300 MB. `--pg-mirror` uses the GitHub mirror of PostgreSQL; the tag objects are verified against the pinned SHAs either way.
+2. `python3 -I src/urag/gen/docs_gen.py S1`, then `... S2`, regenerate the case files; `git diff --exit-code data/public/` should report no differences.
 3. `python3 -I src/urag/public_eval.py --split dev --sources S1,S2 --query-style lead --variants` runs the dev arms.
 4. `python3 -I src/urag/public_g2.py --query-style lead` then `python3 -I src/urag/public_g2_report.py --style lead` reproduces the degradation sweep.
 5. `python3 -m unittest discover -s tests` runs the regression and digest tests.
