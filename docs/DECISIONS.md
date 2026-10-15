@@ -66,3 +66,9 @@
 | D29 | 2026-10-15 | Hash gist published before the held-out run (https://gist.github.com/TheIndicSentinel/f0a0c00f0c1df4e2c4c6a945841887a8); tags amend-10, 10a, 11, 11a, 11b, 12 pushed | Done | gist created 13:35:48Z | none |
 | D30 | 2026-10-15 | Held-out run performed once on digest 8a12b347...; result recorded in RESULTS_PUBLIC.md. Under the registered G1 criterion (A failure < N1 with CI excluding 0) F1-F3 would NOT have passed even if evaluable (CIs include 0); G1 is nonetheless not evaluable (2 sources) | Done | `results/public_S1-S2_heldout_lead.json` | write-up |
 | D31 | 2026-10-15 | Any rerun or variant on held-out data (e.g. A2, a fixed conflict rule) is exploratory and requires a new digest, a new amendment and an explicit label; the held-out split is spent for the current digest | Active | Amendment 11 | none |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D32 | 2026-10-15 | Repo renamed `URAG-private` -> `urag-benchmark` (public); empty `URAG` archived; local remote `private` points to the new URL (old URLs redirect) | Done | gh repo rename/archive | none |
+| D33 | 2026-10-15 | Confirmatory test of post-hoc arms on S4 (Django) registered (Amendment 13) with time-box 2026-10-22; priority order set by the user: rename, push, announce, Django in parallel | Active | Amendment 13 | ingest after push |
+| D34 | 2026-10-15 | Spent held-out sources are refused regardless of digest (Amendment 13a); no held-out run until implemented | Active | digest changes with config | implement guard + S4 profile |
