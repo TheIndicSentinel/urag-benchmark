@@ -11,7 +11,7 @@ Every extracted ref is verified against the pinned SHA before use. Extracted fil
 git.postgresql.org was unreliable). The pinned SHA check still applies.
 After extraction, regenerate cases and compare:  python3 -I src/urag/gen/docs_gen.py S1 && git diff --exit-code data/public/
 """
-import argparse, json, os, subprocess, sys, tarfile
+import argparse, json, os, shutil, subprocess, sys, tarfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 CFG = json.load(open(os.path.join(ROOT, "configs", "generator.json")))
@@ -22,6 +22,8 @@ def git(gitdir, *args, check=True):
 
 
 def extract(gitdir, sha, pathspec, dest):
+    if os.path.isdir(dest):
+        shutil.rmtree(dest)  # never mix files from an earlier run into a verified extraction
     os.makedirs(dest, exist_ok=True)
     p = subprocess.Popen(["git", "--git-dir", gitdir, "archive", sha, pathspec], stdout=subprocess.PIPE)
     with tarfile.open(fileobj=p.stdout, mode="r|") as tf:

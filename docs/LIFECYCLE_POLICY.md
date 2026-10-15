@@ -14,7 +14,7 @@
    | Check | Condition | Outcome |
    |---|---|---|
    | Lifecycle state | `approval_state` is `superseded` or `deprecated` | historical (never current) |
-   | Authority | `approval_state` is anything other than `approved` (draft, unreviewed, missing, unknown) | excluded (fail closed) |
+   | Authority | `approval_state` is anything other than `approved` (draft, unreviewed, `None` or an unrecognised value; an *absent key* raises an error, see section 5) | excluded (fail closed) |
    | Lifecycle window | `effective_from` missing (document corpora) | flagged `applicability_unknown`, not current |
    | Lifecycle window | `opened_at` before `effective_from` or at/after `effective_to` | historical ("outside effective window"; includes not-yet-effective) |
    | Applicability: service | document or request service unresolved | flagged `applicability_unknown` |

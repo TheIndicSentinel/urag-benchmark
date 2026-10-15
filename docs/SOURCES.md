@@ -54,7 +54,7 @@ Purpose (if pursued): a source never seen by any arm design, to test the post-ho
 
 | Candidate | Licence (checked at primary) | Release structure | Docs volume | Verdict |
 |---|---|---|---|---|
-| **Django** (`django/django`, `docs/`) | BSD-3-Clause; `LICENSE` read in full head, no documentation carve-out; no licence note found in `docs/README.rst` | `stable/X.Y.x` branches and release tags | 603 (4.2), 608 (5.0), 631 (5.1), 656 (5.2) `.txt` files under `docs/` | **Recommended.** Verify per-file headers and the docs-specific statement before ingestion |
+| **Django** (`django/django`, `docs/`) | BSD-3-Clause; `LICENSE` header read, no documentation carve-out in it; no licence note found in `docs/README.rst` | `stable/X.Y.x` branches and release tags | 603 (4.2), 608 (5.0), 631 (5.1), 656 (5.2) `.txt` files under `docs/` | **Recommended.** Verify per-file headers and the docs-specific statement before ingestion |
 | Flask (`pallets/flask`) | BSD-3-Clause (`LICENSE.txt`) | tags | much smaller docs tree | Possible but small; fewer changed pages |
 | NumPy | `NOASSERTION` (composite `LICENSE.txt`) | tags | large | Needs manual licence review (bundled third-party terms) |
 | CPython `Doc/` | `NOASSERTION` (PSF composite) | branches 3.x | large | Needs manual licence review; docs terms differ from code |
