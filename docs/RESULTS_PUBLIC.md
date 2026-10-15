@@ -202,3 +202,31 @@ At the heaviest degradation, A and A2 are 0.015 and 0.008 *worse* than the open 
 - **G1 is not evaluable.** It needs at least 3 sources per failure class on held-out data and at least 20 eligible cases. This benchmark has 2 sources (S1 Kubernetes docs, S2 PostgreSQL docs), and the wrong-version class has only those 2 versioned sources, so it is **inconclusive by construction**. The planned held-out run therefore tests the benchmark's own claims on a separate split; it is **not** a G1 verdict and will not be reported as one.
 - All case expectations are scripted from the same version/date metadata that the metadata filter uses, so F1 and F3 cannot separate filtering from governance on clean metadata. F2's gold is policy-defined. Approval state and ACLs are simulated. Queries are derived from gold pages.
 - Nothing here is evidence of production readiness, security assurance, compliance, practitioner demand or commercial value. Whether incumbent systems lack these behaviours is untested and needs the Amendment 10 inbound channel.
+
+---
+# Held-out run (single run; Amendments 6.4, 7, 11, 11a, 11b)
+Run once on pipeline digest `8a12b347d7b8422a…` (published in the hash gist before the run: https://gist.github.com/TheIndicSentinel/f0a0c00f0c1df4e2c4c6a945841887a8), command `python3 -I src/urag/public_eval.py --split heldout --confirm-frozen --query-style lead`, arms A, N1, N0, N1P(open), N1P-closed; claim and log written before evaluation (`results/HELDOUT_RUNS.log`, lock `results/HELDOUT_LOCK_8a12b347d7b8422a`). Output: `results/public_S1-S2_heldout_lead.json`. 423 held-out cases (S1 294, S2 129), clean metadata, `lead` queries, strict taxonomy. Clusters: 66-68 per family (F4: 20).
+
+**Scope first: G1 is not evaluable** (2 sources; wrong-version inconclusive by construction). The numbers below are descriptive results of the benchmark's own held-out split, not a G1 verdict.
+
+## Results (fail rate / critical / abstained / wrong_doc)
+| Family (n) | N1 | N1P (= N1P-closed) | A | A - N1 failure, 95% cluster CI |
+|---|---|---|---|---|
+| F1 wrong-version (135) | .84 / 48 / 0 / 65 | .20 / 0 / 0 / 27 | .81 / 0 / 100 / 10 | -0.022 [-0.119, +0.082] |
+| F2 stale / not-yet-effective (134) | .78 / 45 / 0 / 60 | .69 / 24 / 0 / 68 | .87 / 0 / 112 / 5 | +0.090 [-0.007, +0.197] |
+| F3 ACL exposure (131) | .80 / 49 / 0 / 56 | .22 / 0 / 0 / 29 | .76 / 0 / 91 / 9 | -0.038 [-0.129, +0.061] |
+| F4 constructed abstention (23) | 1.00 / 8 / 0 / 15 | 1.00 / 0 / 0 / 23 | .65 / 0 / 0 / 15 | -0.348 [-0.565, -0.167] |
+
+Overall critical failures over 423 cases: N0 152, N1 150, N1P 24 (all F2), N1P-closed 24, **A 0**.
+Supplementary paired contrasts (not registered; same bootstrap): A minus N1P failure rate F1 +0.61 [0.50, 0.75], F2 +0.19 [0.08, 0.30], F3 +0.54 [0.44, 0.66], F4 -0.35 [-0.57, -0.17].
+
+## What the held-out data says (plainly)
+1. **Arm A produced zero critical failures in 423 cases**, against 150 for ACL-filtered top-1 retrieval (35% of cases). That safety effect replicates from dev.
+2. **A is not more accurate than N1 overall.** On strict failure rate the interval includes zero for F1, F2 and F3; in F2 the point estimate is worse. A's silence is the mechanism: it abstained in 100/135, 112/134 and 91/131 cases, mostly because the frozen `conflict` rule treats several eligible distinct pages as a conflict (recorded as a flaw of arm A).
+3. **A plain metadata filter dominates A on clean metadata for wrong-version and ACL cases:** failure 0.20 / 0.22 versus A's 0.81 / 0.76, with 0 critical failures. This is partly by construction (the expectations come from the same fields the filter uses), but it means the governance layer, as built, adds no accuracy over a version/window pre-filter when metadata is clean.
+4. **F2 is where a rule matters:** the filter has 24 critical failures (an older supported revision presented as current) and A has none, but A answers in only about 16% of F2 cases.
+5. **Per source:** S2 shows A worse than N1 (failure 0.95-0.98 against 0.71-0.83) while still having 0 critical failures versus 56 for N1 across S2 F1-F3.
+6. **F4 is the only family where A's failure interval excludes zero** (-0.35), but it is the constructed (synthetic) family and not a working sufficiency check. Of A's 8 correct F4 outcomes, 4 came with a `conflicting_evidence` status (the conflict rule) and 4 with status `ok` and no applicable document. A correct F4 abstention is scored `correct`, which is why the abstained column shows 0 for F4.
+
+## Not claimed
+Not G1. Not practitioner demand, production readiness, security assurance, compliance or commercial value. The benchmark compares rule behaviour on public documentation under scripted expectations; it says nothing about whether incumbent products lack these behaviours.

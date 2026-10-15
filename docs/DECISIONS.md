@@ -60,3 +60,9 @@
 | D26 | 2026-10-15 | **Reframe rule (Amendments 9.2, 12.3) fired.** Lead-style G2 verdict is false for both A and A2 (drop/50 fails). The project adopts the benchmark-plus-policy framing; the evidence-governance-platform thesis is dropped as a goal. Both verdicts (title TRUE, lead FALSE) are published | Active | `results/public_G2_dev_summary_lead.json` | write-up |
 | D27 | 2026-10-15 | The artifact is: a published benchmark of eligibility-failure prevalence and degraded-metadata behaviour, plus a documented lifecycle/lineage policy and a reference implementation. The architecture refactor (D19) is demoted to optional; no platform build is planned | Active | D26 | decide scope of write-up |
 | D28 | 2026-10-15 | G1 held-out run still proceeds: it is the registered test of the benchmark's own claims and costs nothing extra. It is no longer a gate for a platform decision | Active | Amendment 11b | after hash publication |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D29 | 2026-10-15 | Hash gist published before the held-out run (https://gist.github.com/TheIndicSentinel/f0a0c00f0c1df4e2c4c6a945841887a8); tags amend-10, 10a, 11, 11a, 11b, 12 pushed | Done | gist created 13:35:48Z | none |
+| D30 | 2026-10-15 | Held-out run performed once on digest 8a12b347...; result recorded in RESULTS_PUBLIC.md. Under the registered G1 criterion (A failure < N1 with CI excluding 0) F1-F3 would NOT have passed even if evaluable (CIs include 0); G1 is nonetheless not evaluable (2 sources) | Done | `results/public_S1-S2_heldout_lead.json` | write-up |
+| D31 | 2026-10-15 | Any rerun or variant on held-out data (e.g. A2, a fixed conflict rule) is exploratory and requires a new digest, a new amendment and an explicit label; the held-out split is spent for the current digest | Active | Amendment 11 | none |
