@@ -113,3 +113,38 @@ Raw: `results/public_S1-S2_dev_variants.json` (title queries), `..._variants_lea
 # Determinism check (Amendment 9.5)
 Task `S2 / level 25 / corrupt / seed 12`, first 40 dev cases, five arms, run in two separate processes: `PYTHONHASHSEED=1` with index cache size 1, and `PYTHONHASHSEED=777` with cache size 3. SHA-256 prefix of the sorted JSON result: **`2e2eaa30b0620160` in both**. G2 outputs are independent of process, hash seed and cache size; checkpoint resumes and worker count therefore cannot change results (tasks are pure functions of source, level, mode, seed).
 Scope of the check: one task, one source. It is a spot check, not a proof.
+
+
+---
+# G2 degradation sweep: title-style queries (SECONDARY; see Amendment 12)
+Procedure per Amendments 7 and 9; 36/36 tasks (S1, S2 x levels 10/25/50 x drop/corrupt x seeds 11/12/13); dev split only; matched-coverage rule applied; per-task digests in `results/public_G2_dev_summary.json`. **Executed with title queries, not the registered primary `lead` style (Amendment 12).**
+
+Means over 3 seeds, pooled over S1+S2 dev cases (n=275). cov = answered; crit/wrong = rate over all cases; silent = wrong or critical with no flag; risk = (critical+wrong)/answered.
+
+| Mode/level | Arm | cov | crit | wrong | silent | risk@ans | matched-coverage risk vs N1P / N1P-closed |
+|---|---|---|---|---|---|---|---|
+| corrupt/10 | N1P | 1.00 | .050 | .650 | .699 | .699 | |
+| | A | .347 | .002 | .200 | .202 | .584 | .584 vs .701 / .698 |
+| | A2 | .851 | .011 | .461 | .471 | .554 | .554 vs .699 / .698 |
+| corrupt/50 | N1P | 1.00 | .101 | .779 | .880 | .880 | |
+| | A | .285 | .023 | .204 | .227 | .795 | .795 vs .881 / .881 |
+| | A2 | .584 | .070 | .400 | .470 | .805 | .805 vs .881 / .880 |
+| drop/10 | N1P / N1P-closed | 1.00 | .075 / .052 | .602 / .645 | .678 / .697 | .678 / .697 | |
+| | A | .451 | .002 | .281 | **.057** | .629 | .629 vs .674 / .697 |
+| | A2 | .875 | .015 | .507 | **.099** | .596 | .596 vs .678 / .697 |
+| drop/50 | N1P / N1P-closed | 1.00 | .233 / .078 | .612 / .766 | .845 / .844 | .845 / .844 | |
+| | A | .303 | .019 | .219 | **.009** | .782 | .782 vs .845 / .841 |
+| | A2 | .389 | .039 | .275 | **.009** | .797 | .797 vs .846 / .841 |
+(levels 25 behave in between; full table in the summary file.)
+
+## Registered verdict (mechanical)
+`favours_governance = TRUE` for A **and** A2: at matched coverage, risk is lower than both `N1P-open` and `N1P-closed` in all 3 levels under both `drop` and `corrupt`.
+
+## Reading (what the rule does not say)
+1. **The margins are modest.** Matched-coverage risk improves by about 0.04-0.12 (e.g. 0.584 vs 0.701; 0.782 vs 0.845). The registered rule is a strict inequality on means with no interval; 3 seeds on a 275-case dev set cannot support a stronger claim. No CI was registered for this rule.
+2. **Absolute risk is high for every arm** (0.55-0.80 of answered cases are wrong or critical), because title queries retrieve the gold page in only ~0.6 of cases (Section v4).
+3. **Where governance clearly differs is flagging.** Under `drop`, A's silent-error rate is 0.9-5.7% against 68-85% for the filters: missing metadata is flagged instead of silently mis-answered. This is the "flagging, not accuracy" reading of Amendment 7.6, and it is the main effect. A pays for it with coverage (0.30-0.45 answered).
+4. **Open vs closed filter is a real trade-off,** not a free choice: closed cuts critical failures (0.078 vs 0.233 at drop/50) by dropping candidates, at the cost of more wrong answers (0.766 vs 0.612).
+5. **Under `corrupt`, nothing can detect the change;** A's advantage there comes from selective answering (coverage 0.28-0.35), not from detecting corruption.
+6. **A2's critical rate rises with degradation** (0.07 at corrupt/50), above A's 0.023; it remains below `N1P-open` and `N1P-closed` at drop/50 but not below the closed filter by much at low levels.
+7. **Not G1 evidence.** Dev split only; synthetic metadata degradation of fields the governance rules use by construction.
