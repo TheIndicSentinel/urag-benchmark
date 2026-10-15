@@ -154,3 +154,10 @@ Found by the pre-push review (no held-out output exists; `results/HELDOUT_RUNS.l
 2. **Claim before computing.** The run is claimed with an atomically created lock file `results/HELDOUT_LOCK_<digest16>` (exclusive create) and the log record is written **before** any evaluation. A crash after the claim consumes the run (a rerun needs an amendment): the conservative direction. Two simultaneous runs cannot both claim.
 3. **Record the corpus snapshot.** The log record includes the SHA-256 of each `canon_<source>.pkl` cache used, so the run identifies which local corpus it read. These caches are not part of digest D (they are untracked); the record is informational.
 4. **Consequence:** the digest D changes. The earlier printed digest `dae48c94…` is superseded; the current D is printed by `--print-pipeline-digest` and is the value to publish. Amendment 11.6's statement about G2 provenance is unchanged: G2 results came from earlier versions of guard code with identical outcome-producing code.
+
+### Amendment 11b (2026-10-15): the held-out invocation is fixed, not caller-chosen; registered before the code and before any held-out run
+Reason: the claim lock is keyed on digest D only, so a held-out invocation with the wrong flags would consume the single run.
+1. **Fixed configuration for `--split heldout`:** query style `lead` (Amendment 9.1); arms exactly `A`, `N1`, `N0`, `N1P` (= N1P-open) and `N1P-closed` (Amendments 6.4, 7.1, 11); sources = every `data/public/*_cases.json` present. `--ablate`, `--variants`, `--limit` and a non-`lead` `--query-style` are rejected for held-out. The carried variant under Amendment 6.4 is arm A itself.
+2. **Everything is computed before the claim** (digest, corpus cache hashes, prereg digest, git HEAD); the claim and the log append happen together, immediately before evaluation.
+3. **The log record includes the full argument set** and the arm list actually run.
+4. **Exploratory arms** (A2, A2P, A-S, A2-S, AP) are not run on held-out. If wanted later, that is a second, separately registered run on a new digest and is labelled exploratory.
