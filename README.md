@@ -42,6 +42,8 @@ Held-out split, run once on a pre-published pipeline digest (`8a12b347d7b8422aâ€
 - **A metadata pre-filter beats A on clean metadata** for wrong-version and ACL cases. This is partly by construction because expectations come from the same fields.
 - **Under degraded metadata** (registered G2 sweep, dev split): governance clearly lowers risk at matched coverage when values are *corrupted*, and is not reliably different from the open metadata filter under heavy *drop*. The registered rule returns **FALSE** for the lead-style primary run (the title-style run, which ran by mistake first, returned TRUE; both are published).
 
+> **Prevalence caveat.** The ~0.8 failure rate for plain top-1 retrieval is for a version-blind retriever over an index holding every release (5-7 versions per page). Deployments that index one version or filter by version and date would see far less of this; the plain metadata filter above gives 0.20-0.22. Read the headline as the cost of *not* filtering, not as a typical production rate. Full list of threats to validity: [docs/RESULTS_PUBLIC.md](docs/RESULTS_PUBLIC.md#prevalence-caveat-and-threats-to-validity-read-with-every-headline-number).
+
 ## What this does not show
 - **G1 (the registered value gate) is not evaluable:** it needs at least 3 sources per class; there are 2, and wrong-version is inconclusive by construction.
 - Whether incumbent products already do this is **untested**; the benchmark cannot answer it.
@@ -49,7 +51,7 @@ Held-out split, run once on a pre-published pipeline digest (`8a12b347d7b8422aâ€
 - The held-out split is spent for this pipeline digest; any further use is exploratory and labelled so.
 
 ## Honest history
-The project began as a thesis for a governed-evidence platform. The registered reframe rule fired on the G2 result, so the project is now **benchmark-plus-policy**: a published measurement of eligibility-failure prevalence and behaviour under degraded metadata, with a documented lifecycle/lineage policy and reference implementation. Deviations (for example, G2 first ran with the wrong query style) are disclosed in Amendment 12.
+The project began as a thesis for a governed-evidence platform. The registered reframe rule fired on the G2 result, so the project is now **benchmark-plus-policy**: a published measurement of eligibility-failure prevalence and behaviour under degraded metadata, with a [documented lifecycle/lineage policy](docs/LIFECYCLE_POLICY.md) and a reference implementation. Deviations (for example, G2 first ran with the wrong query style) are disclosed in Amendment 12.
 
 ## Reproducing
 The repository does not contain upstream documentation. Rebuild locally from the pinned refs in `configs/generator.json`:

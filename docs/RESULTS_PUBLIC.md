@@ -230,3 +230,22 @@ Supplementary paired contrasts (not registered; same bootstrap): A minus N1P fai
 
 ## Not claimed
 Not G1. Not practitioner demand, production readiness, security assurance, compliance or commercial value. The benchmark compares rule behaviour on public documentation under scripted expectations; it says nothing about whether incumbent products lack these behaviours.
+
+
+---
+# Prevalence caveat and threats to validity (read with every headline number)
+
+## Prevalence: what the 0.78-0.84 means and does not mean
+The N1 failure rates (about 0.78-0.84 on held-out) are for a **version-blind BM25 retriever over an index that holds every release of each page** (5-7 versions), asked a title- or lead-sentence-derived query. They also count any outcome other than the gold document, including plain retrieval misses (gold is in the top 10 about 82% of the time). A deployment that indexes one version, or filters by version and date, would see far lower rates of the wrong-version and stale classes: the N1P control (a plain metadata filter) shows 0.20-0.22 on the wrong-version and ACL families. Treat the headline as **the cost of not filtering on metadata**, not as a typical production rate. This benchmark does not measure how often real systems do not filter.
+
+## Threats to validity
+1. **Scripted expectations share the filter's fields.** Gold is derived from the same version and date metadata that the metadata filter uses, so wrong-version (F1) and ACL (F3) cannot separate filtering from governance on clean metadata. F2's gold is policy-defined ("latest revision effective at T").
+2. **Simulated state.** ACLs are seeded overlays and `approval_state` is `approved` for every document, so the authority check is never exercised by public data (corrupting `approval_state` is a no-op in G2).
+3. **Queries are derived from the gold page** (title or first sentences), which favours retrieval of the gold page.
+4. **Document-level granularity.** No chunking or passage evidence; "relied upon" means "the document was named".
+5. **Two sources, both unusually clean.** Both are version-controlled documentation with explicit release structure. The wrong-version class has only these two sources; the registered minimum is three.
+6. **Held-out is not independent of dev.** It comes from the same generator and sources, split by path cluster rather than by source (Amendment 1.2). Style of source is shared across splits.
+7. **Single retriever and k.** BM25 with an OR query, k=10. No dense, hybrid or reranking arm was run; absolute failure rates are driven by this retriever.
+8. **Design decided partly after seeing results.** Disclosed: N1P and A2 were added after seeing dev results; arms A2/AP/A2P/A-S were selected after the first dev run; G2 first ran with the wrong query style (Amendment 12); the F1 generator was redesigned after the first dev run (Amendment 5).
+9. **Small effective sample.** 66-68 clusters per family on held-out (20 for the constructed family), 3 seeds for G2, and the matched-coverage rule has no registered interval.
+10. **Not tested against incumbents.** Whether existing products already filter by version, date or access is unknown here and needs practitioner input.
