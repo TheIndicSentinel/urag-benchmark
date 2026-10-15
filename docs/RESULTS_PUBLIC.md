@@ -249,3 +249,24 @@ The N1 failure rates (about 0.78-0.84 on held-out) are for a **version-blind BM2
 8. **Design decided partly after seeing results.** Disclosed: N1P and A2 were added after seeing dev results; arms A2/AP/A2P/A-S were selected after the first dev run; G2 first ran with the wrong query style (Amendment 12); the F1 generator was redesigned after the first dev run (Amendment 5).
 9. **Small effective sample.** 66-68 clusters per family on held-out (20 for the constructed family), 3 seeds for G2, and the matched-coverage rule has no registered interval.
 10. **Not tested against incumbents.** Whether existing products already filter by version, date or access is unknown here and needs practitioner input.
+
+---
+# S4 (Django docs) confirmatory test: expectations written BEFORE any held-out output exists
+Written 2026-10-15 after `949eadf` was public and before the held-out run. **These expectations were written after the S4 dev sanity output had been seen (it is public in `949eadf`); they are not blind to dev.** They are blind to held-out: no held-out output of any arm exists. Registered in Amendments 13, 13a, 13b, 13c. Pipeline digest to be used: `f071b9247239874ac10582f5eafafc23337c3549988f26f855f795eab84f54ec`.
+
+**Label:** confirmatory test of post-hoc arms on a single source. Not G1. Not a platform decision. Not an IT-operations corpus. It cannot change the project's direction (the platform thesis was dropped by Amendment 9.2 / D26).
+
+## What this test can and cannot show
+1. **F1 and F3 cannot show a critical-failure reduction.** The metadata filter (N1P) already has zero critical failures there by construction, because expectations are scripted from the same version and window fields the filter uses. In F1 and F3 the test can only show **no harm** (non-inferiority) or **harm** (Amendment 13b.2 allows 'Falsified' there when the interval lower bound is above 0).
+2. **F2 is the only family that can show a benefit,** and its gold is policy-defined ("latest revision effective at T"). A "Supported" verdict means "the lineage policy removes the critical failures the filter has, without hurting overall"; it does not mean users want that policy.
+3. **F4 is inconclusive by registration:** 13 held-out cases and 13 clusters, below the floor of 20 and 15. It is reported but not used.
+4. **The dev sanity run is not evidence** and is not quoted as such. It only confirms the pipeline runs on the new source. No rule, arm or threshold was changed after seeing it.
+5. **One source, 50-51 cases and 38 clusters per family:** intervals will be wide; "Not supported" from imprecision is a likely and acceptable outcome.
+
+## Pre-stated expectations (so they cannot be adjusted afterwards)
+- I expect A2P and N1P to have similar failure rates in F1 and F3, and A2P to have fewer critical failures than N1P in F2, because the lineage rule is the only difference that matters. Whether the intervals are narrow enough to call that "Supported" is open.
+- I expect A (frozen, with the conflict rule) to abstain in most cases and to look worse than N1P on failure rate, as in S1 and S2. That is context, not the test.
+- A result of "Not supported" or "Inconclusive" will be reported with the same prominence as "Supported".
+
+## What would change nothing
+Whatever the outcome, no arm, rule, threshold or sample will be altered and re-run on S4 held-out. Any further use of S4 held-out is exploratory under a new digest and amendment (D31).
