@@ -49,3 +49,8 @@
 | D21 | 2026-10-15 | Add a report-script assertion that the query style recorded in each result equals the registered primary; also record the style inside each checkpoint. Done AFTER the held-out run so gate-script behaviour stays stable during the gate | Deferred | G2 ran with the wrong style (Amendment 12) | after held-out |
 | D22 | 2026-10-15 | Seed-level spread reported as supplementary beside the strict-inequality verdict; never replaces it | Active | `public_g2_spread.py` | run on lead after 36/36 |
 | D23 | 2026-10-15 | Product implication carried forward: the surviving claim is "abstain and flag under uncertain metadata"; whether teams accept an answer rate of ~30-45% is a G4 question the benchmark cannot answer | Active | G2 title-style read | G4 after publication |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D24 | 2026-10-15 | Held-out record lists arms as a literal that mirrors the arm construction in `public_eval.py`; accepted as a known minor drift risk rather than changing the digest again. The record also carries the full args, so a mismatch would be visible | Accepted | final guard review (PASS) | build arms first and record from the list in the post-held-out refactor (D19) |
+| D25 | 2026-10-15 | Exact held-out command to use after the digest is published: `python3 -I src/urag/public_eval.py --split heldout --confirm-frozen --query-style lead` (sources default to all available; warm the canon caches with a dev run first). Do not run it before the hashes are public and G2 lead-style is read | Active | Amendment 11b | after push + gist |
