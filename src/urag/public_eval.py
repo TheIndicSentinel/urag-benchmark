@@ -198,8 +198,13 @@ def main():
         return
     if not a.split:
         ap.error("--split is required unless --print-pipeline-digest")
-    if a.split == "heldout" and a.limit:
-        sys.exit("--limit is not allowed for heldout runs (Amendment 11a)")
+    if a.split == "heldout":
+        if a.limit or a.ablate or a.variants or a.query_style != "lead":
+            sys.exit("heldout runs use a fixed configuration: --query-style lead, no --limit/--ablate/--variants (Amendment 11b)")
+        import glob
+        avail = sorted(os.path.basename(f).split("_")[0] for f in glob.glob(os.path.join(ROOT, "data", "public", "*_cases.json")))
+        if sorted(a.sources.split(",")) != avail:
+            sys.exit(f"heldout sources must be all available sources {avail} (Amendment 11b)")
     sids = a.sources.split(",")
     cases = []
     for sid in sids:
@@ -214,18 +219,22 @@ def main():
             sys.exit("heldout requires --confirm-frozen")
         if os.path.exists(log) and any(json.loads(l).get("digest", "").startswith(h) for l in open(log) if l.strip()):
             sys.exit(f"held-out already run for pipeline digest {h}; a rerun must be logged as an amendment")
-        claim_heldout_run(ROOT, h)
         import datetime
         corpus = {sid: hashlib.sha256(open(_cache(sid), "rb").read()).hexdigest() for sid in sids if os.path.exists(_cache(sid))}
+        prereg = hashlib.sha256(open(os.path.join(ROOT, "docs", "PREREGISTRATION.md"), "rb").read()).hexdigest()
+        head = subprocess.check_output(["git", "-C", ROOT, "rev-parse", "HEAD"]).decode().strip()
         rec = {"utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "digest": pipeline_digest(manifest),
-               "manifest": manifest, "corpus_cache_sha256": corpus,
-               "prereg_sha256": hashlib.sha256(open(os.path.join(ROOT, "docs", "PREREGISTRATION.md"), "rb").read()).hexdigest(),
-               "git_head": subprocess.check_output(["git", "-C", ROOT, "rev-parse", "HEAD"]).decode().strip(),
-               "sources": sids, "status": "claimed-before-evaluation"}
-        open(log, "a").write(json.dumps(rec) + "\n")
+               "manifest": manifest, "corpus_cache_sha256": corpus, "prereg_sha256": prereg, "git_head": head,
+               "sources": sids, "args": {k: v for k, v in vars(a).items()},
+               "arms": ["A", "N1", "N0", "N1P", "N1P-closed"], "status": "claimed-before-evaluation"}
+        claim_heldout_run(ROOT, h)
+        with open(log, "a") as fh:
+            fh.write(json.dumps(rec) + "\n")
     bases = {sid: build_base(sid) for sid in sids}
     by_ids = {sid: {d["id"]: d for d in bases[sid][1]} for sid in sids}
     arms = [("A", [])] + [("N1", []), ("N0", [])]
+    if a.split == "heldout":
+        arms += [("N1P", []), ("N1P-closed", [])]  # Amendment 11b fixed arm list
     if a.variants:
         arms += [(v, []) for v in VARIANTS]
     if a.ablate:
