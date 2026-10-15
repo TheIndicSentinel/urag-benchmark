@@ -34,6 +34,17 @@ def pipeline_digest(manifest):
     return hashlib.sha256("\n".join(f"{p} {h}" for p, h in sorted(manifest.items())).encode()).hexdigest()
 
 
+def claim_heldout_run(root, digest_short):
+    """Amendment 11a: atomically claim the single held-out run for this pipeline digest."""
+    lock = os.path.join(root, "results", f"HELDOUT_LOCK_{digest_short}")
+    try:
+        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError:
+        sys.exit(f"held-out already claimed for pipeline digest {digest_short}; a rerun must be logged as an amendment")
+    os.write(fd, b"claimed\n"); os.close(fd)
+    return lock
+
+
 def build_base(sid):
     docs_gen.configure(sid)
     svc = docs_gen.META[sid]["service"]
@@ -187,6 +198,8 @@ def main():
         return
     if not a.split:
         ap.error("--split is required unless --print-pipeline-digest")
+    if a.split == "heldout" and a.limit:
+        sys.exit("--limit is not allowed for heldout runs (Amendment 11a)")
     sids = a.sources.split(",")
     cases = []
     for sid in sids:
@@ -201,6 +214,15 @@ def main():
             sys.exit("heldout requires --confirm-frozen")
         if os.path.exists(log) and any(json.loads(l).get("digest", "").startswith(h) for l in open(log) if l.strip()):
             sys.exit(f"held-out already run for pipeline digest {h}; a rerun must be logged as an amendment")
+        claim_heldout_run(ROOT, h)
+        import datetime
+        corpus = {sid: hashlib.sha256(open(_cache(sid), "rb").read()).hexdigest() for sid in sids if os.path.exists(_cache(sid))}
+        rec = {"utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "digest": pipeline_digest(manifest),
+               "manifest": manifest, "corpus_cache_sha256": corpus,
+               "prereg_sha256": hashlib.sha256(open(os.path.join(ROOT, "docs", "PREREGISTRATION.md"), "rb").read()).hexdigest(),
+               "git_head": subprocess.check_output(["git", "-C", ROOT, "rev-parse", "HEAD"]).decode().strip(),
+               "sources": sids, "status": "claimed-before-evaluation"}
+        open(log, "a").write(json.dumps(rec) + "\n")
     bases = {sid: build_base(sid) for sid in sids}
     by_ids = {sid: {d["id"]: d for d in bases[sid][1]} for sid in sids}
     arms = [("A", [])] + [("N1", []), ("N0", [])]
@@ -232,14 +254,6 @@ def main():
            "families": summ, "cases": rows}
     name = f"results/public_{'-'.join(sids)}_{a.split}{'_ablate' if a.ablate else ''}{'_variants' if a.variants else ''}{'_lead' if a.query_style == 'lead' else ''}.json"
     json.dump(out, open(os.path.join(ROOT, name), "w"), indent=1)
-    if a.split == "heldout":
-        import datetime
-        prereg = hashlib.sha256(open(os.path.join(ROOT, "docs", "PREREGISTRATION.md"), "rb").read()).hexdigest()
-        rec = {"utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "digest": pipeline_digest(manifest),
-               "manifest": manifest, "prereg_sha256": prereg,
-               "git_head": subprocess.check_output(["git", "-C", ROOT, "rev-parse", "HEAD"]).decode().strip(),
-               "sources": sids, "arms": [x[0] + ("-" + x[1][0] if x[1] else "") for x in arms]}
-        open(log, "a").write(json.dumps(rec) + "\n")
     print(json.dumps({"pipeline_hash": h, "families": summ}, indent=1))
 
 

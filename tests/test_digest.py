@@ -23,5 +23,15 @@ class Digest(unittest.TestCase):
             self.assertNotEqual(a, pe.pipeline_digest(pe.pipeline_manifest(d1)))  # config included
 
 
+class Claim(unittest.TestCase):
+    def test_claim_is_exclusive(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "results"))
+            pe.claim_heldout_run(d, "abc123")
+            with self.assertRaises(SystemExit):
+                pe.claim_heldout_run(d, "abc123")
+            pe.claim_heldout_run(d, "different")  # another digest may claim its own run
+
+
 if __name__ == "__main__":
     unittest.main()
