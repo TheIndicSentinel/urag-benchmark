@@ -47,3 +47,19 @@ Checked against primary files in local blob-less clones (untracked, `.local_sour
 | S3 | `LICENSE` at master | MIT, Copyright GitLab, Inc. | master @ 4cfd1ca7, 983 commits visible, 26,761 files of which 983 `.md` at HEAD (counts from local clone) |
 Re-verify before any publication. Not legal advice.
 S1 scale check: content/en/docs holds 1,343 (v1.30) to 1,672 (v1.36) `.md` files per release.
+
+---
+## Candidate S4 for a fresh held-out comparison (survey 2026-10-15; not ingested, nothing generated)
+Purpose (if pursued): a source never seen by any arm design, to test the post-hoc arms (governance on top of a metadata filter, lineage-scoped conflict rule) on fresh held-out data. It cannot make G1 evaluable: the S1 and S2 held-out splits are spent for digest `8a12b347…`, so G1's "3 sources on held-out" cannot be reconstituted. It would be a single-source confirmatory test.
+
+| Candidate | Licence (checked at primary) | Release structure | Docs volume | Verdict |
+|---|---|---|---|---|
+| **Django** (`django/django`, `docs/`) | BSD-3-Clause; `LICENSE` read in full head, no documentation carve-out; no licence note found in `docs/README.rst` | `stable/X.Y.x` branches and release tags | 603 (4.2), 608 (5.0), 631 (5.1), 656 (5.2) `.txt` files under `docs/` | **Recommended.** Verify per-file headers and the docs-specific statement before ingestion |
+| Flask (`pallets/flask`) | BSD-3-Clause (`LICENSE.txt`) | tags | much smaller docs tree | Possible but small; fewer changed pages |
+| NumPy | `NOASSERTION` (composite `LICENSE.txt`) | tags | large | Needs manual licence review (bundled third-party terms) |
+| CPython `Doc/` | `NOASSERTION` (PSF composite) | branches 3.x | large | Needs manual licence review; docs terms differ from code |
+| Node.js `doc/api` | `NOASSERTION` (composite) | tags | medium | Needs manual licence review |
+
+Known weaknesses for Django as a test source: web-framework documentation, not IT operations; reStructuredText with Sphinx directives (needs a parser like the SGML one); release notes pages are version-specific by design (exclude or treat separately); no ACL or approval state, so those stay simulated as before. Domain mismatch bears on the "IT incident" framing but not on version/lifecycle behaviour.
+
+Pin by **release tag commit SHAs**, not branch tips, as for S2. Whichever source is chosen, ingestion needs: licence verification recorded here, an amendment registering the new arm(s) and digest **before** any generation, and a held-out claim lock as in Amendments 11/11a/11b.
