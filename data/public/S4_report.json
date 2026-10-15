@@ -1,0 +1,77 @@
+{
+ "source": "S4",
+ "config_version": 3,
+ "windows": {
+  "4.2": [
+   "2023-04-03T08:24:35",
+   "2025-04-02T12:56:34"
+  ],
+  "5.0": [
+   "2023-12-04T13:01:51",
+   "2025-12-03T16:20:45"
+  ],
+  "5.1": [
+   "2024-08-07T13:22:20",
+   "2026-10-14T00:00:00"
+  ],
+  "5.2": [
+   "2025-04-02T12:56:34",
+   "2026-10-14T00:00:00"
+  ],
+  "6.0": [
+   "2025-12-03T16:20:45",
+   "2026-10-14T00:00:00"
+  ]
+ },
+ "stats": {
+  "paths_with_multiple_versions": 270,
+  "candidate_gold_docs": 448,
+  "pool_sizes": {
+   "F1_wrong_version": 76,
+   "F2_stale_or_not_yet_effective": 76,
+   "F3_acl_exposure": 76
+  },
+  "drops": {
+   "F1_wrong_version": {
+    "exact_dup": 0,
+    "near_dup": 0,
+    "cluster_cap": 19
+   },
+   "F2_stale_or_not_yet_effective": {
+    "exact_dup": 0,
+    "near_dup": 0,
+    "cluster_cap": 19
+   },
+   "F3_acl_exposure": {
+    "exact_dup": 0,
+    "near_dup": 0,
+    "cluster_cap": 19
+   }
+  }
+ },
+ "cases_by_family_split": {
+  "F1_wrong_version": {
+   "heldout": 51,
+   "dev": 25
+  },
+  "F2_stale_or_not_yet_effective": {
+   "dev": 25,
+   "heldout": 51
+  },
+  "F3_acl_exposure": {
+   "dev": 25,
+   "heldout": 50
+  },
+  "F4_constructed_abstention": {
+   "dev": 2,
+   "heldout": 13
+  }
+ },
+ "distinct_clusters_by_family": {
+  "F3_acl_exposure": 54,
+  "F2_stale_or_not_yet_effective": 54,
+  "F4_constructed_abstention": 15,
+  "F1_wrong_version": 54
+ },
+ "n_cases": 242
+}

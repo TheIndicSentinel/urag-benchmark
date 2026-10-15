@@ -1,0 +1,7163 @@
+{
+ "split": "dev",
+ "pipeline_hash": "f071b9247239874a",
+ "n_cases": 77,
+ "sources": [
+  "S4"
+ ],
+ "g1_status": "NOT EVALUABLE: 1 source(s) (< 3 required); dev/regression evidence only",
+ "families": {
+  "F1_wrong_version": {
+   "n": 25,
+   "clusters": 16,
+   "A": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 25,
+    "wrong_doc": 0,
+    "gold_in_top10": 0.92,
+    "same_path_in_top10": 0.96
+   },
+   "A-S": {
+    "failure_rate": 0.64,
+    "failure_rate_equiv_sensitivity": 0.64,
+    "critical": 0,
+    "abstained": 16,
+    "wrong_doc": 0
+   },
+   "A2": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A2-S": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A2P": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "AP": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 25,
+    "wrong_doc": 0
+   },
+   "N0": {
+    "failure_rate": 0.88,
+    "failure_rate_equiv_sensitivity": 0.64,
+    "critical": 11,
+    "abstained": 0,
+    "wrong_doc": 11,
+    "gold_in_top10": 0.92,
+    "same_path_in_top10": 0.96
+   },
+   "N1": {
+    "failure_rate": 0.88,
+    "failure_rate_equiv_sensitivity": 0.64,
+    "critical": 11,
+    "abstained": 0,
+    "wrong_doc": 11,
+    "gold_in_top10": 0.92,
+    "same_path_in_top10": 0.96
+   },
+   "N1P": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "N1P-closed": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A_minus_N1": {
+    "mean_diff": 0.12,
+    "ci95": [
+     0.0,
+     0.2941
+    ],
+    "clusters": 16
+   },
+   "A_minus_N1_critical": {
+    "mean_diff": -0.44,
+    "ci95": [
+     -0.6667,
+     -0.2
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1": {
+    "mean_diff": -0.68,
+    "ci95": [
+     -0.8571,
+     -0.4783
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1_critical": {
+    "mean_diff": -0.44,
+    "ci95": [
+     -0.6667,
+     -0.2
+    ],
+    "clusters": 16
+   },
+   "AP_minus_N1P": {
+    "mean_diff": 0.8,
+    "ci95": [
+     0.64,
+     0.9583
+    ],
+    "clusters": 16
+   },
+   "AP_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2P_minus_N1P": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2P_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P-closed": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P-closed_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A-S_minus_A": {
+    "mean_diff": -0.36,
+    "ci95": [
+     -0.5652,
+     -0.1538
+    ],
+    "clusters": 16
+   },
+   "A-S_minus_A_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2-S_minus_A2": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2-S_minus_A2_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "prevalence_N1_failure": 0.88
+  },
+  "F2_stale_or_not_yet_effective": {
+   "n": 25,
+   "clusters": 16,
+   "A": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 25,
+    "wrong_doc": 0,
+    "gold_in_top10": 0.92,
+    "same_path_in_top10": 0.96
+   },
+   "A-S": {
+    "failure_rate": 0.72,
+    "failure_rate_equiv_sensitivity": 0.72,
+    "critical": 0,
+    "abstained": 18,
+    "wrong_doc": 0
+   },
+   "A2": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A2-S": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A2P": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "AP": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 25,
+    "wrong_doc": 0
+   },
+   "N0": {
+    "failure_rate": 0.84,
+    "failure_rate_equiv_sensitivity": 0.64,
+    "critical": 11,
+    "abstained": 0,
+    "wrong_doc": 10,
+    "gold_in_top10": 0.92,
+    "same_path_in_top10": 0.96
+   },
+   "N1": {
+    "failure_rate": 0.84,
+    "failure_rate_equiv_sensitivity": 0.64,
+    "critical": 11,
+    "abstained": 0,
+    "wrong_doc": 10,
+    "gold_in_top10": 0.92,
+    "same_path_in_top10": 0.96
+   },
+   "N1P": {
+    "failure_rate": 0.68,
+    "failure_rate_equiv_sensitivity": 0.44,
+    "critical": 6,
+    "abstained": 0,
+    "wrong_doc": 11
+   },
+   "N1P-closed": {
+    "failure_rate": 0.68,
+    "failure_rate_equiv_sensitivity": 0.44,
+    "critical": 6,
+    "abstained": 0,
+    "wrong_doc": 11
+   },
+   "A_minus_N1": {
+    "mean_diff": 0.16,
+    "ci95": [
+     0.0476,
+     0.2917
+    ],
+    "clusters": 16
+   },
+   "A_minus_N1_critical": {
+    "mean_diff": -0.44,
+    "ci95": [
+     -0.68,
+     -0.1905
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1": {
+    "mean_diff": -0.64,
+    "ci95": [
+     -0.8261,
+     -0.4643
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1_critical": {
+    "mean_diff": -0.44,
+    "ci95": [
+     -0.68,
+     -0.1905
+    ],
+    "clusters": 16
+   },
+   "AP_minus_N1P": {
+    "mean_diff": 0.32,
+    "ci95": [
+     0.1739,
+     0.4615
+    ],
+    "clusters": 16
+   },
+   "AP_minus_N1P_critical": {
+    "mean_diff": -0.24,
+    "ci95": [
+     -0.4444,
+     -0.0435
+    ],
+    "clusters": 16
+   },
+   "A2P_minus_N1P": {
+    "mean_diff": -0.48,
+    "ci95": [
+     -0.7,
+     -0.2857
+    ],
+    "clusters": 16
+   },
+   "A2P_minus_N1P_critical": {
+    "mean_diff": -0.24,
+    "ci95": [
+     -0.4444,
+     -0.0435
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P": {
+    "mean_diff": -0.48,
+    "ci95": [
+     -0.7,
+     -0.2857
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P_critical": {
+    "mean_diff": -0.24,
+    "ci95": [
+     -0.4444,
+     -0.0435
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P-closed": {
+    "mean_diff": -0.48,
+    "ci95": [
+     -0.7,
+     -0.2857
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P-closed_critical": {
+    "mean_diff": -0.24,
+    "ci95": [
+     -0.4444,
+     -0.0435
+    ],
+    "clusters": 16
+   },
+   "A-S_minus_A": {
+    "mean_diff": -0.28,
+    "ci95": [
+     -0.5,
+     -0.08
+    ],
+    "clusters": 16
+   },
+   "A-S_minus_A_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2-S_minus_A2": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2-S_minus_A2_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "prevalence_N1_failure": 0.84
+  },
+  "F3_acl_exposure": {
+   "n": 25,
+   "clusters": 16,
+   "A": {
+    "failure_rate": 0.96,
+    "failure_rate_equiv_sensitivity": 0.96,
+    "critical": 0,
+    "abstained": 24,
+    "wrong_doc": 0,
+    "gold_in_top10": 0.88,
+    "same_path_in_top10": 0.96
+   },
+   "A-S": {
+    "failure_rate": 0.8,
+    "failure_rate_equiv_sensitivity": 0.8,
+    "critical": 0,
+    "abstained": 20,
+    "wrong_doc": 0
+   },
+   "A2": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A2-S": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A2P": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "AP": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 25,
+    "wrong_doc": 0
+   },
+   "N0": {
+    "failure_rate": 0.76,
+    "failure_rate_equiv_sensitivity": 0.56,
+    "critical": 8,
+    "abstained": 0,
+    "wrong_doc": 11,
+    "gold_in_top10": 0.88,
+    "same_path_in_top10": 0.96
+   },
+   "N1": {
+    "failure_rate": 0.76,
+    "failure_rate_equiv_sensitivity": 0.56,
+    "critical": 8,
+    "abstained": 0,
+    "wrong_doc": 11,
+    "gold_in_top10": 0.88,
+    "same_path_in_top10": 0.96
+   },
+   "N1P": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "N1P-closed": {
+    "failure_rate": 0.2,
+    "failure_rate_equiv_sensitivity": 0.2,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 5
+   },
+   "A_minus_N1": {
+    "mean_diff": 0.2,
+    "ci95": [
+     0.0556,
+     0.4118
+    ],
+    "clusters": 16
+   },
+   "A_minus_N1_critical": {
+    "mean_diff": -0.32,
+    "ci95": [
+     -0.5556,
+     -0.1481
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1": {
+    "mean_diff": -0.56,
+    "ci95": [
+     -0.7273,
+     -0.3889
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1_critical": {
+    "mean_diff": -0.32,
+    "ci95": [
+     -0.5556,
+     -0.1481
+    ],
+    "clusters": 16
+   },
+   "AP_minus_N1P": {
+    "mean_diff": 0.8,
+    "ci95": [
+     0.6786,
+     0.9412
+    ],
+    "clusters": 16
+   },
+   "AP_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2P_minus_N1P": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2P_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P-closed": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2_minus_N1P-closed_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A-S_minus_A": {
+    "mean_diff": -0.16,
+    "ci95": [
+     -0.3529,
+     -0.0345
+    ],
+    "clusters": 16
+   },
+   "A-S_minus_A_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2-S_minus_A2": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "A2-S_minus_A2_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 16
+   },
+   "prevalence_N1_failure": 0.76
+  },
+  "F4_constructed_abstention": {
+   "n": 2,
+   "clusters": 2,
+   "A": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2,
+    "gold_in_top10": 0.0,
+    "same_path_in_top10": 1.0
+   },
+   "A-S": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2
+   },
+   "A2": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2
+   },
+   "A2-S": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2
+   },
+   "A2P": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2
+   },
+   "AP": {
+    "failure_rate": 0.0,
+    "failure_rate_equiv_sensitivity": 0.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 0
+   },
+   "N0": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 2,
+    "abstained": 0,
+    "wrong_doc": 0,
+    "gold_in_top10": 0.0,
+    "same_path_in_top10": 1.0
+   },
+   "N1": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 2,
+    "abstained": 0,
+    "wrong_doc": 0,
+    "gold_in_top10": 0.0,
+    "same_path_in_top10": 1.0
+   },
+   "N1P": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2
+   },
+   "N1P-closed": {
+    "failure_rate": 1.0,
+    "failure_rate_equiv_sensitivity": 1.0,
+    "critical": 0,
+    "abstained": 0,
+    "wrong_doc": 2
+   },
+   "A_minus_N1": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A_minus_N1_critical": {
+    "mean_diff": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "clusters": 2
+   },
+   "A2_minus_N1": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2_minus_N1_critical": {
+    "mean_diff": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "clusters": 2
+   },
+   "AP_minus_N1P": {
+    "mean_diff": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "clusters": 2
+   },
+   "AP_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2P_minus_N1P": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2P_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2_minus_N1P": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2_minus_N1P_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2_minus_N1P-closed": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2_minus_N1P-closed_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A-S_minus_A": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A-S_minus_A_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2-S_minus_A2": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "A2-S_minus_A2_critical": {
+    "mean_diff": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "clusters": 2
+   },
+   "prevalence_N1_failure": 1.0
+  }
+ },
+ "cases": [
+  {
+   "id": "S4-F1-574dbdd8",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-d2b7806f",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-9c76a75a",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/signals.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-f3ca79ab",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-4e596e07",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-9c11a37b",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-83fb3290",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/db",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-85fd5b55",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/mailing-lists.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-99c0c05f",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/db",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-7dc9035f",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:ref/request-response.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-03524297",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:faq/install.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-51358c6a",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/files.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-39f7f9b1",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-26363200",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/release-process.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-e27dec82",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/signing.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-04baf32b",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/class-based-views",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-24cbaeca",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-97cfe3bd",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-0702eff3",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/howto-release-django.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-6c2c4201",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-b852c0d8",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:topics/index.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-a8e39d39",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-bc24ef66",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:ref/utils.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-7dc5de7f",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:misc/distributions.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F1-f41623eb",
+   "family": "F1_wrong_version",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-39f7f9b1",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "critical",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "critical",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-af2c07f7",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "critical",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "critical",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-893822c1",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:ref/utils.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-dfe545ba",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-7aea1f4a",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-24cbaeca",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-b2556ac2",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:ref/request-response.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": true,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": true,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-ba1167fe",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/signing.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-f102e519",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "critical",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "critical",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-0702eff3",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/howto-release-django.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "critical",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "critical",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-c8748df3",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-04baf32b",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/class-based-views",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": true,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": true,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-1fe38083",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-b852c0d8",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/index.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": true,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": true,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-4e596e07",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": true,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": true,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-40bfff0c",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/db",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-91ac8e5f",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/release-process.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-9c11a37b",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-fffe9104",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:faq/install.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": true,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": true,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-e7c8c7be",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:misc/distributions.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "critical",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "critical",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-7b8917c7",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/db",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-60fe0148",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:internals/mailing-lists.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-b9e854d9",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/signals.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "critical",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "critical",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-8394d54f",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:topics/files.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": true,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": true,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F2-6c2c4201",
+   "family": "F2_stale_or_not_yet_effective",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-44a53a59",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-03524297",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:faq/install.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-64372d3d",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-65d27c5c",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:misc/distributions.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-81f8ee13",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "correct",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-0fb1e8c9",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/howto-release-django.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-a8944da2",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/mailing-lists.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-b2556ac2",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:ref/request-response.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-9c76a75a",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/signals.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-bc24ef66",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:ref/utils.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-aa120bd9",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-df452eb6",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/db",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-6402e909",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-f07d659e",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/signing.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-91ac8e5f",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/release-process.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "correct",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-c8748df3",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:internals/contributing",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-d731ac21",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-961930a1",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/class-based-views",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "correct",
+    "N0": "correct",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-da27e118",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-b852c0d8",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/index.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-736e9d32",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-fbea46e2",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-40bfff0c",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/db",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "abstained",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "abstained",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-8394d54f",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:topics/files.txt",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F3-4e596e07",
+   "family": "F3_acl_exposure",
+   "source": "S4",
+   "cluster": "S4:ref/forms",
+   "outcomes": {
+    "A": "abstained",
+    "N1": "wrong_doc",
+    "N0": "wrong_doc",
+    "A2": "correct",
+    "N1P": "correct",
+    "AP": "abstained",
+    "A2P": "correct",
+    "N1P-closed": "correct",
+    "A-S": "abstained",
+    "A2-S": "correct"
+   },
+   "equiv": {
+    "A": false,
+    "N1": true,
+    "N0": true,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "AP": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2P": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "N1P-closed": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": true,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "conflicting_evidence",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "conflicting_evidence",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F4-03524297t",
+   "family": "F4_constructed_abstention",
+   "source": "S4",
+   "cluster": "S4:faq/install.txt",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "correct",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "wrong_doc",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "AP": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2P": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1P-closed": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  },
+  {
+   "id": "S4-F4-b852c0d8t",
+   "family": "F4_constructed_abstention",
+   "source": "S4",
+   "cluster": "S4:topics/index.txt",
+   "outcomes": {
+    "A": "wrong_doc",
+    "N1": "critical",
+    "N0": "critical",
+    "A2": "wrong_doc",
+    "N1P": "wrong_doc",
+    "AP": "correct",
+    "A2P": "wrong_doc",
+    "N1P-closed": "wrong_doc",
+    "A-S": "wrong_doc",
+    "A2-S": "wrong_doc"
+   },
+   "equiv": {
+    "A": false,
+    "N1": false,
+    "N0": false,
+    "A2": false,
+    "N1P": false,
+    "AP": false,
+    "A2P": false,
+    "N1P-closed": false,
+    "A-S": false,
+    "A2-S": false
+   },
+   "retrieval": {
+    "A": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N0": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "N1P": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "AP": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A2P": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "N1P-closed": {
+     "gold_in_top10": false,
+     "same_path_in_top10": false
+    },
+    "A-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    },
+    "A2-S": {
+     "gold_in_top10": false,
+     "same_path_in_top10": true
+    }
+   },
+   "status": "ok",
+   "status_by_arm": {
+    "A2": "ok",
+    "N1P": "ok",
+    "AP": "conflicting_evidence",
+    "A2P": "ok",
+    "N1P-closed": "ok",
+    "A-S": "ok",
+    "A2-S": "ok"
+   }
+  }
+ ]
+}
