@@ -34,6 +34,12 @@ def pipeline_digest(manifest):
     return hashlib.sha256("\n".join(f"{p} {h}" for p, h in sorted(manifest.items())).encode()).hexdigest()
 
 
+# Sources whose held-out split was claimed under digest 8a12b347...; closed permanently even if the log is lost.
+SPENT_HELDOUT_SOURCES = frozenset({"S1", "S2"})
+# Amendment 13a fixed held-out arm list (primary contrast A2P vs N1P; context arms A, AP, N1, N0, N1P-closed)
+HELDOUT_ARMS = ["A", "N1", "N0", "N1P", "N1P-closed", "AP", "A2P"]
+
+
 def claim_heldout_run(root, digest_short):
     """Amendment 11a: atomically claim the single held-out run for this pipeline digest."""
     lock = os.path.join(root, "results", f"HELDOUT_LOCK_{digest_short}")
@@ -175,6 +181,8 @@ def summarize(rows):
             if x_ in entry and y_ in entry:
                 pairs = [(r["cluster"], int(r["outcomes"][x_] != "correct"), int(r["outcomes"][y_] != "correct")) for r in fr]
                 entry[f"{x_}_minus_{y_}"] = boot_ci(pairs)
+                cpairs = [(r["cluster"], int(r["outcomes"][x_] == "critical"), int(r["outcomes"][y_] == "critical")) for r in fr]
+                entry[f"{x_}_minus_{y_}_critical"] = boot_ci(cpairs)
         if "N1" in entry:
             entry["prevalence_N1_failure"] = entry["N1"]["failure_rate"]
         res[f] = entry
@@ -199,12 +207,25 @@ def main():
     if not a.split:
         ap.error("--split is required unless --print-pipeline-digest")
     if a.split == "heldout":
-        if a.limit or a.ablate or a.variants or a.query_style != "lead":
+        if a.limit is not None or a.ablate or a.variants or a.query_style != "lead":
             sys.exit("heldout runs use a fixed configuration: --query-style lead, no --limit/--ablate/--variants (Amendment 11b)")
         import glob
         avail = sorted(os.path.basename(f).split("_")[0] for f in glob.glob(os.path.join(ROOT, "data", "public", "*_cases.json")))
-        if sorted(a.sources.split(",")) != avail:
-            sys.exit(f"heldout sources must be all available sources {avail} (Amendment 11b)")
+        logf = os.path.join(ROOT, "results", "HELDOUT_RUNS.log")
+        spent = set(SPENT_HELDOUT_SOURCES)
+        if os.path.exists(logf):
+            for ln in open(logf):
+                if ln.strip():
+                    src = json.loads(ln).get("sources", [])
+                    spent |= {src} if isinstance(src, str) else set(src)
+        req = sorted(a.sources.split(","))
+        if set(req) & spent:
+            sys.exit(f"heldout sources already claimed in HELDOUT_RUNS.log: {sorted(set(req) & spent)} (Amendment 13a)")
+        unspent = sorted(set(avail) - spent)
+        if not unspent:
+            sys.exit("no unspent held-out sources are available (Amendment 13a)")
+        if req != unspent:
+            sys.exit(f"heldout sources must be exactly the unspent sources {unspent} (Amendments 11b, 13a)")
     sids = a.sources.split(",")
     cases = []
     for sid in sids:
@@ -226,7 +247,7 @@ def main():
         rec = {"utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "digest": pipeline_digest(manifest),
                "manifest": manifest, "corpus_cache_sha256": corpus, "prereg_sha256": prereg, "git_head": head,
                "sources": sids, "args": {k: v for k, v in vars(a).items()},
-               "arms": ["A", "N1", "N0", "N1P", "N1P-closed"], "status": "claimed-before-evaluation"}
+               "arms": HELDOUT_ARMS, "status": "claimed-before-evaluation"}
         claim_heldout_run(ROOT, h)
         with open(log, "a") as fh:
             fh.write(json.dumps(rec) + "\n")
@@ -234,7 +255,7 @@ def main():
     by_ids = {sid: {d["id"]: d for d in bases[sid][1]} for sid in sids}
     arms = [("A", [])] + [("N1", []), ("N0", [])]
     if a.split == "heldout":
-        arms += [("N1P", []), ("N1P-closed", [])]  # Amendment 11b fixed arm list
+        arms = [(n, []) for n in HELDOUT_ARMS]  # Amendments 11b, 13a: one fixed list, also written to the log
     if a.variants:
         arms += [(v, []) for v in VARIANTS]
     if a.ablate:

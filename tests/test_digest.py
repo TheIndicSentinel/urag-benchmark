@@ -33,5 +33,18 @@ class Claim(unittest.TestCase):
             pe.claim_heldout_run(d, "different")  # another digest may claim its own run
 
 
+class SpentSources(unittest.TestCase):
+    def test_spent_heldout_sources_refused_regardless_of_digest(self):
+        """Amendment 13a: S1/S2 held-out were claimed once; any later invocation must refuse before claiming."""
+        import subprocess
+        self.assertTrue((ROOT / "results/HELDOUT_RUNS.log").exists(), "log missing: refusing to run a held-out probe")
+        before = sorted(os.listdir(ROOT / "results"))
+        r = subprocess.run([sys.executable, "-I", str(ROOT / "src/urag/public_eval.py"), "--split", "heldout",
+                            "--confirm-frozen", "--query-style", "lead"], capture_output=True, text=True)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("Amendment 13a", r.stderr + r.stdout)
+        self.assertEqual(before, sorted(os.listdir(ROOT / "results")))  # no new lock, log or output
+
+
 if __name__ == "__main__":
     unittest.main()
