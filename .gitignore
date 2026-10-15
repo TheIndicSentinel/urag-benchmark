@@ -14,3 +14,5 @@ results/public_G2_dev_raw.json
 *.pkl
 .env*
 .DS_Store
+results/g2_parts_lead/
+results/public_G2_dev_raw_lead.json

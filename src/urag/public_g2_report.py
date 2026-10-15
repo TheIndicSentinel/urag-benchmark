@@ -8,7 +8,8 @@ import hashlib, json, os, random, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 EXPECT = {"levels": [10, 25, 50], "seeds": [11, 12, 13], "modes": ["drop", "corrupt"], "sources": ["S1", "S2"],
           "arms": ["N1", "A", "A2", "N1P", "N1P-closed"]}
-PARTS = os.path.join(ROOT, "results", "g2_parts")
+STYLE = "lead" if "--style" in sys.argv and sys.argv[sys.argv.index("--style") + 1] == "lead" else "title"
+PARTS = os.path.join(ROOT, "results", "g2_parts" if STYLE == "title" else "g2_parts_lead")
 
 
 def load_complete():
@@ -96,7 +97,7 @@ def main():
             wins[mode] = ok
         out["verdict"][gov] = {"wins_by_mode_and_level": wins, "favours_governance": all(all(v) for v in wins.values())}
     out["task_digests"] = raw["digests"]
-    json.dump(out, open(os.path.join(ROOT, "results", "public_G2_dev_summary.json"), "w"), indent=1)
+    json.dump(out, open(os.path.join(ROOT, "results", "public_G2_dev_summary.json" if STYLE == "title" else "public_G2_dev_summary_lead.json"), "w"), indent=1)
     for k, e in out["by_mode_level"].items():
         print(k)
         for arm in ARMS:

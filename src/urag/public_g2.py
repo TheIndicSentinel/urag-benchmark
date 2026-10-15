@@ -48,6 +48,7 @@ def ticket_version(case, k, mode, seed, versions):
 
 
 PART_DIR = os.path.join(ROOT, "results", "g2_parts")
+QSTYLE = "title"  # set from --query-style in main(); lead-style checkpoints use g2_parts_lead (Amendment 12)
 
 
 def task(args):
@@ -62,7 +63,7 @@ def task(args):
         tv = ticket_version(c, k, mode, seed, VERS[sid])
         r = {"id": c["id"], "family": c["family"], "cluster": f'{sid}:{c["cluster"]}', "arms": {}}
         for arm in ARMS:
-            oc, out, _ = pe.run_case(c, docs, BYID[sid], arm, [], "title", tv)
+            oc, out, _ = pe.run_case(c, docs, BYID[sid], arm, [], QSTYLE, tv)
             flagged = bool(out.get("applicability_flags")) or out.get("status") not in ("ok", None)
             r["arms"][arm] = {"o": oc, "answered": out.get("applicable_runbook") is not None, "flagged": flagged,
                               "silent": oc in ("critical", "wrong_doc") and not flagged}
@@ -79,8 +80,13 @@ def main():
     ap.add_argument("--sources", default="S1,S2")
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--query-style", choices=["title", "lead"], default="title")
     ap.add_argument("--reverse", action="store_true", help="process tasks in reverse order (second runner; deterministic, shares checkpoints)")
     a = ap.parse_args()
+    global QSTYLE, PART_DIR
+    QSTYLE = a.query_style
+    if QSTYLE == "lead":
+        PART_DIR = os.path.join(ROOT, "results", "g2_parts_lead")
     sids = a.sources.split(",")
     for sid in sids:
         docs, base = pe.build_base(sid)
@@ -94,9 +100,10 @@ def main():
         tasks = tasks[::-1]
     with mp.get_context("fork").Pool(a.workers) as pool:
         res = pool.map(task, tasks, chunksize=1)
-    raw_path = os.path.join(ROOT, "results", f"public_G2_dev_raw.{os.getpid()}.tmp")
+    suffix = "" if QSTYLE == "title" else "_lead"
+    raw_path = os.path.join(ROOT, "results", f"public_G2_dev_raw{suffix}.{os.getpid()}.tmp")
     json.dump({"arms": ARMS, "levels": LEVELS, "seeds": SEEDS, "modes": MODES, "fields": FIELDS, "results": res}, open(raw_path, "w"))
-    os.replace(raw_path, os.path.join(ROOT, "results", "public_G2_dev_raw.json"))  # atomic; report reads g2_parts, not this
+    os.replace(raw_path, os.path.join(ROOT, "results", f"public_G2_dev_raw{suffix}.json"))  # atomic; report reads g2_parts, not this
     print("tasks", len(res))
 
 
