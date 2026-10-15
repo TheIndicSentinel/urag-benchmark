@@ -148,3 +148,15 @@ Means over 3 seeds, pooled over S1+S2 dev cases (n=275). cov = answered; crit/wr
 5. **Under `corrupt`, nothing can detect the change;** A's advantage there comes from selective answering (coverage 0.28-0.35), not from detecting corruption.
 6. **A2's critical rate rises with degradation** (0.07 at corrupt/50), above A's 0.023; it remains below `N1P-open` and `N1P-closed` at drop/50 but not below the closed filter by much at low levels.
 7. **Not G1 evidence.** Dev split only; synthetic metadata degradation of fields the governance rules use by construction.
+
+## Supplementary: seed-level spread of the title-style G2 (not a gate; Amendment 12 reading)
+Script `src/urag/public_g2_spread.py`, output `results/public_G2_dev_spread.json`. For each (mode, level, governance arm, filter) and each seed, the gap = filter matched-coverage risk minus governance matched-coverage risk (positive = governance lower). Uses its own seeded random draws (20261020), so values differ slightly from the gate script's means. Descriptive only: no interval, no test, and no change to the registered strict-inequality verdict.
+- **70 of 72** seed-level gaps are positive across 24 (mode, level, arm pair) cells x 3 seeds; **1 is negative** (`drop/10`, A vs `N1P-open`, seed 13: -0.001) and **1 is exactly zero** (`drop/50`, A2 vs `N1P-closed`, seed 12).
+- Typical gaps are +0.02 to +0.16. They are largest under `corrupt/10` (A2: +0.13 to +0.16) and smallest under `drop/50` for A2 (as low as 0.00).
+- Reading: consistent direction, small size, and not uniformly strict at seed level. This supports "modestly lower risk at matched coverage", not a robust margin.
+- The lead-style spread (gate-relevant) will be produced by the same script only after all 36 lead-style tasks exist; the script refuses earlier.
+
+## Registration order for the lead-style G2 (evidence as of 2026-10-15 18:12 IST)
+- Amendment 12 commit `b631207`: author date 2026-10-15T17:15:07+05:30 (local clock). Runner change commit `2adea98`: 17:15:22.
+- Earliest lead-style checkpoint file modification time (name and mtime only; contents unread): 2026-10-15T17:16:47.
+- Both are on the **local clock**. An external timestamp can only bound the amendment's existence from above; it cannot prove it preceded the first lead output. What does hold regardless: the amendment text states the rule before any lead-style output was read, and the commit chain hashes make later edits detectable. The push is intended to anchor the amendment text externally before the lead run is read.

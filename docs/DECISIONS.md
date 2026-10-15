@@ -43,3 +43,9 @@
 | D18 | 2026-10-15 | No refactor of frozen files (`pipeline.py`, `public_eval.py`, `docs_gen.py`) before the held-out run; they are in the Amendment 11 digest | Active | architecture review; digest definition | after held-out |
 | D19 | 2026-10-15 | After held-out: build new package (e.g. `urag_core`) as one change set: pure `decide()` governance engine + interfaces + versioned policy file; frozen files kept as reference; validated by output equivalence on all regression and S1/S2 cases | Proposed | review items 2-4 | after held-out |
 | D20 | 2026-10-15 | Known limitations, not fixed pre-held-out: (a) arm A raises KeyError on an *absent* `approval_state` key (G2 uses `None`, so G2 is unaffected); (b) module-level index cache mutated from `public_g2.py`; (c) dropping `effective_to` is indistinguishable from open-ended, so metadata loss can raise confidence (Amendment 7.2), a monotonicity property must encode this | Active | verified in code 2026-10-15 | fix in D19 change set |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D21 | 2026-10-15 | Add a report-script assertion that the query style recorded in each result equals the registered primary; also record the style inside each checkpoint. Done AFTER the held-out run so gate-script behaviour stays stable during the gate | Deferred | G2 ran with the wrong style (Amendment 12) | after held-out |
+| D22 | 2026-10-15 | Seed-level spread reported as supplementary beside the strict-inequality verdict; never replaces it | Active | `public_g2_spread.py` | run on lead after 36/36 |
+| D23 | 2026-10-15 | Product implication carried forward: the surviving claim is "abstain and flag under uncertain metadata"; whether teams accept an answer rate of ~30-45% is a G4 question the benchmark cannot answer | Active | G2 title-style read | G4 after publication |
