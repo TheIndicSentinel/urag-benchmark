@@ -77,3 +77,7 @@
 |---|---|---|---|---|---|
 | D35 | 2026-10-15 | S4 confirmatory held-out run performed once on digest f071b924...; verdict per 13b: all F1-F3 conditions met (Supported on F1-F3); literal reading of 13b.4 would label Inconclusive because F4 is below the floor: both stated; S4 held-out is spent and used for nothing else | Done | `results/public_S4_heldout_lead.json` | write-up |
 | D36 | 2026-10-15 | Amendment 13b.4 wording on "any family below the floor" is ambiguous (F4); recorded as a registration flaw, not corrected retroactively | Open | RESULTS_PUBLIC.md | none |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D37 | 2026-10-15 | D21 is only partly implemented: the G2 report script now asserts a recorded `query_style` and labels non-primary styles SECONDARY, but the runner (`public_g2.py`) does not yet write the style into checkpoints, so for existing checkpoints the style rests on the directory and the assertion cannot fire. Runner change deferred (outside the pushed-diff condition); not in the digest | Open | auditor note; `public_g2_report.py` | add style to checkpoints in the next change set |

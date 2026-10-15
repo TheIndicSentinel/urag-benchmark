@@ -305,6 +305,14 @@ Run once, claimed before evaluation (`results/HELDOUT_RUNS.log`, lock `results/H
 - **Per-family conditions of the hypothesis are all met.**
 - **Overall verdict (13b.4): Supported on F1-F3 (per-family reading); Inconclusive under a literal 13b.4 reading.** Both labels stand with equal prominence, and the reading difference is as follows: 13b.4 also says "Inconclusive if any family is below the floor and none is falsified". Read literally with F4 counted as "any family", the overall label would be Inconclusive. The hypothesis and the decision rule concern F1-F3 (Amendment 13 items 3-4), and the pre-run note (item 3) fixed before the run that F4 is "reported but not used"; this reading is the one applied here. The wording of 13b.4 is ambiguous on this point and is recorded as such; a literal-reading label of **Inconclusive** is the alternative and is stated here so it is not silently dropped.
 
+## Which criterion was met in each family (explicit)
+| Family | Floor | Critical-failure reduction vs the filter | Non-inferiority (failure-rate CI upper bound < +0.05) | What this means |
+|---|---|---|---|---|
+| F1 wrong-version | met | **Not applicable and not claimed**: N1P has 0 critical failures, A2P has 0 | met (0.000) | outcomes identical on every case; no harm, no benefit possible by construction |
+| F2 stale / not-yet-effective | met | **Met**: CI upper bound -0.089 (10 of 51 for N1P, 0 for A2P) | met (-0.352) | the only family with a benefit, and its gold is defined by the policy A2P implements |
+| F3 ACL exposure | met | **Not applicable and not claimed**: both 0 | met (0.000) | identical outcomes; no harm, no benefit possible |
+| F4 constructed | **below** (13 cases / 13 clusters) | not assessed | not assessed | inconclusive by registration |
+
 ## What this does and does not mean
 1. **The entire effect is F2, and it is the policy.** In F1 and F3 A2P and N1P have identical outcomes on every case (interval [0, 0]): no harm, and no benefit possible by construction. In F2 the filter presents a listed older or newer revision as the answer in 10 of 51 cases (critical) and answers a document that is neither the gold nor a listed distractor in 20 more (`wrong_doc`; not classified further), while A2P, which implements the "latest effective revision" lineage rule, does not. Because F2's gold is *defined* by that rule, this shows the rule behaves as specified, not that it is what users want.
 2. **A and AP are not competitive here:** they leave 96-100% of F1-F3 cases unanswered because the frozen conflict rule treats several eligible distinct pages as a conflict. This replicates S1 and S2. They have no critical failures, but they answer almost nothing.

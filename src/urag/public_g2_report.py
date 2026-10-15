@@ -8,8 +8,12 @@ import hashlib, json, os, random, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 EXPECT = {"levels": [10, 25, 50], "seeds": [11, 12, 13], "modes": ["drop", "corrupt"], "sources": ["S1", "S2"],
           "arms": ["N1", "A", "A2", "N1P", "N1P-closed"]}
+REGISTERED_PRIMARY_STYLE = "lead"  # Amendment 9.1; D21 guard against the Amendment 12 deviation
 STYLE = "lead" if "--style" in sys.argv and sys.argv[sys.argv.index("--style") + 1] == "lead" else "title"
 PARTS = os.path.join(ROOT, "results", "g2_parts" if STYLE == "title" else "g2_parts_lead")
+
+
+UNRECORDED = []
 
 
 def load_complete():
@@ -30,6 +34,11 @@ def load_complete():
         raw_b = open(os.path.join(PARTS, f), "rb").read()
         digests[f] = hashlib.sha256(raw_b).hexdigest()[:16]
         r = json.loads(raw_b)
+        rec = r.get("query_style")  # newer checkpoints may record it; older ones do not
+        if rec is not None and rec != STYLE:
+            sys.exit(f"{f}: checkpoint records query_style={rec!r} but --style {STYLE!r} was requested")
+        if rec is None:
+            UNRECORDED.append(f)
         key = f"{r['source']}_{r['level']}_{r['mode']}_{r['seed']}.json"
         if key != f:
             sys.exit(f"{f}: content key {key} does not match file name")
@@ -72,6 +81,10 @@ def matched(cx, cy, rng, draws=100):
 
 
 def main():
+    if STYLE != REGISTERED_PRIMARY_STYLE:
+        print(f"*** SECONDARY RESULT: query style {STYLE!r} is not the registered primary {REGISTERED_PRIMARY_STYLE!r} (Amendments 9.1, 12). Do not use as the gate verdict. ***")
+    if UNRECORDED:
+        print(f"note: {len(UNRECORDED)}/36 checkpoints do not record their query style; it is taken from the checkpoint directory.")
     out = {"by_mode_level": {}, "verdict": {}}
     rng = random.Random(20261019)
     groups = {}
@@ -97,6 +110,9 @@ def main():
             wins[mode] = ok
         out["verdict"][gov] = {"wins_by_mode_and_level": wins, "favours_governance": all(all(v) for v in wins.values())}
     out["task_digests"] = raw["digests"]
+    out["query_style"] = STYLE
+    out["is_registered_primary_style"] = STYLE == REGISTERED_PRIMARY_STYLE
+    out["checkpoints_without_recorded_style"] = len(UNRECORDED)  # style then rests on the directory it was read from
     json.dump(out, open(os.path.join(ROOT, "results", "public_G2_dev_summary.json" if STYLE == "title" else "public_G2_dev_summary_lead.json"), "w"), indent=1)
     for k, e in out["by_mode_level"].items():
         print(k)
