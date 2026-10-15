@@ -87,3 +87,9 @@
 | D38 | 2026-10-15 | **D37 closed as an accepted limitation; no runner change.** No further G2 runs are planned, so editing `public_g2.py` could not make the existing checkpoints verifiable and would only touch code after the fact. The limitation is stated in the README's Known limitations: the query style of existing G2 checkpoints rests on the directory name | Closed (accepted) | owner decision 2026-10-15 | none |
 | D39 | 2026-10-15 | Release tag `v1.0-benchmark` created at `14501ea` (annotated, noreply tagger; message restates only text already public) and pushed alone | Done | tag object de716ece9dec30ce49fea20f0a964cb885390dd9 | none |
 | D40 | 2026-10-15 | **Stopping point for experiments.** No new arms, sources, runs or refactor. Inbound feedback is handled only if the owner forwards it, and logged by role only (Amendment 10). The G4 stop-rule clock (4 weeks) starts at the announcement date, to be given by the owner; `PUBLICATION_LOG.md` is not touched until then | Active | owner instruction | await announcement date |
+
+| ID | Date | Decision | Status | Evidence | Next |
+|---|---|---|---|---|---|
+| D41 | 2026-10-16 | Docs-only correction: lead with the critical share, show equivalence-sensitivity and gold-in-top-10 beside failure rates; extraction ledger published in SOURCES.md. D6 ("split by source") is superseded by Amendment 1.2 (split by path cluster within each source; not source-level independence) | Done | review 2026-10-16; result files | none |
+| D42 | 2026-10-16 | Short and untitled pages stay in the index; no exclusion, regeneration or re-run (digest and spent splits). Stated as a known limitation | Accepted | owner decision | none |
+| D43 | 2026-10-16 | Priority order kept in the write-up: practitioner evidence (G4) first; hybrid/passage-level work are v2 candidates that would be a new benchmark, not a fix | Active | owner decision | none |

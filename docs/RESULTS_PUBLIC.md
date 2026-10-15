@@ -319,3 +319,25 @@ Run once, claimed before evaluation (`results/HELDOUT_RUNS.log`, lock `results/H
 3. **Plain top-1 retrieval (N1) again has a high critical-failure share** (15-21 of ~50 per family: 30-41%), the cost of not filtering on version and date in an index holding five releases.
 4. **A2P still fails about 10% of F1-F3 cases** (5 of 51, 5 of 51 and 5 of 50), all `wrong_doc`: retrieval misses rather than governance decisions.
 5. **No change to the project's direction.** This is a single-source confirmatory test; it neither makes G1 evaluable nor revives the platform thesis, and it is not evidence of demand, production readiness, security or commercial value.
+
+
+---
+# Supplementary (2026-10-16): equivalence sensitivity and gold-in-top-10, held-out, all arms
+Computed from the existing held-out result files (no new run). Strict = any page other than the gold counts as a failure; equiv. = Amendment 4 sensitivity (same path, other version, change below the significance threshold counts as correct; not applied to constructed abstention). Gold in top-10 is for the unfiltered retriever shared by N1 and A (not recorded for the pre-filtered arms).
+
+| Set / family (n, clusters) | N1 strict → equiv. | N1P strict → equiv. | A strict → equiv. | A2P strict → equiv. | Gold in top-10 |
+|---|---|---|---|---|---|
+| S1+S2 wrong-version (135, 68) | .84 → .57 | .20 → .20 | .81 → .81 | – | .82 |
+| S1+S2 stale (134, 68) | .78 → .56 | .69 → .38 | .87 → .87 | – | .82 |
+| S1+S2 ACL (131, 66) | .80 → .60 | .22 → .22 | .76 → .76 | – | .81 |
+| S1+S2 constructed (23, 20; floor met) | 1.00 → 1.00 | 1.00 → 1.00 | .65 → .65 | – | 0 (gold removed) |
+| S4 wrong-version (51, 38) | .72 → .45 | .10 → .10 | .96 → .96 | .10 → .10 | .96 |
+| S4 stale (51, 38) | .78 → .51 | .59 → .29 | 1.00 → 1.00 | .10 → .10 | .96 |
+| S4 ACL (50, 38) | .78 → .40 | .10 → .10 | .98 → .98 | .10 → .10 | .96 |
+| S4 constructed (13, 13; **below floor**) | 1.00 → 1.00 | 1.00 → 1.00 | .69 → .69 | 1.00 → 1.00 | 0 (gold removed) |
+
+Reading: critical-failure counts and the critical-indicator contrasts are unchanged by the sensitivity (a critical failure requires a significant-difference distractor). The failure-rate gaps in the stale/version-unspecified family **do** move, because the filter's strict failure rate contains near-identical versions: on S4 the A2P minus N1P failure difference becomes about -0.20 (N1P .588 to .294 against A2P .098), and on S1+S2 the A minus N1P gap becomes about +0.49 (strict +0.19). No registered verdict depends on the sensitivity: the S4 criteria are critical reduction and non-inferiority, both unchanged.
+
+## Additional threats (added 2026-10-16)
+11. **Short and untitled pages stay in the index.** 22.9% of Kubernetes files normalise to under 30 words and 9.1% have no title (extraction ledger in `SOURCES.md`); they cannot be gold but compete in retrieval. Left in deliberately: removing them would change the digest and the splits are spent.
+12. **Dev and held-out are split by path cluster within each source**, not by source (Amendment 1.2); this is not source-level independence.

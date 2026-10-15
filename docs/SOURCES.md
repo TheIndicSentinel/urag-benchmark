@@ -74,3 +74,19 @@ Fetched with `scripts/fetch_sources.py --sources S4` (depth-1, blob-less, pinned
 | `.txt` pages after all exclusions (13c) | 267 (4.2), 268 (5.0), 268 (5.1), 270 (5.2), 275 (6.0); the parser titled 270/270 pages of 5.2 |
 | Third-party text in repo | none; cases are pointers only, source text stays in git-ignored `.local_sources/` |
 Not legal advice; re-verify before any publication of derived text (none is published).
+
+
+---
+## Extraction ledger (2026-10-16; read-only scan of the pinned local extracts with the generator's own parsers and read method)
+Counts only; no text published. No re-run, regeneration or exclusion was performed (the digest and the spent splits are unchanged).
+| Source | Files scanned | Decode failures (`errors="replace"` triggered) | No title | Under 30 words after normalisation |
+|---|---|---|---|---|
+| S1 Kubernetes (7 releases, `.md`) | 10,440 | 0 | 946 (9.1%) | 2,389 (22.9%) |
+| S2 PostgreSQL (5 tags, top-level `.sgml`) | 836 | 0 | 5 (0.6%) | 7 (0.8%) |
+| S4 Django (5 releases, `.txt` after exclusions) | 1,348 | 0 | 0 (0.0%) | 50 (3.7%) |
+
+Notes:
+- **S1 short pages:** 359 of the 2,389 are `_index.md`; 163 contain a shortcode; the remaining ~1,900 are short pages not further classified. They are *not* all "index stubs".
+- **Untitled pages** are indexed with their path as the title (`d["title"] or d["path"]` in the runner). They can never be gold (gold requires a title and at least 30 words).
+- **Known limitation:** short and untitled pages were **left in the index** and are a known source of retrieval noise, plausibly part of why gold-in-top-10 is 0.57-0.64 with title queries on dev. They were not excluded after the fact because that would change the pipeline digest and the held-out splits are spent.
+- **Silent decode loss:** none observed (0 files needed replacement characters). Front matter with CRLF line endings is normalised by text-mode reading.

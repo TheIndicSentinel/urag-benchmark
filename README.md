@@ -32,19 +32,21 @@ Sources: Kubernetes website docs (S1, release branches 1.30-1.36) and PostgreSQL
 ## Results
 Held-out split, run once on a pre-published pipeline digest (`8a12b347d7b8422a…`), 423 cases, clean metadata, descriptive only:
 
-| Family | N1 fail / critical | plain metadata filter (N1P) | governance (A) | A minus N1, 95% CI |
-|---|---|---|---|---|
-| wrong-version (135) | .84 / 48 | .20 / 0 | .81 / 0 | -0.02 [-0.12, +0.08] |
-| stale / not-yet-effective (134) | .78 / 45 | .69 / 24 | .87 / 0 | +0.09 [-0.01, +0.20] |
-| ACL exposure (131) | .80 / 49 | .22 / 0 | .76 / 0 | -0.04 [-0.13, +0.06] |
-| constructed abstention (23) | 1.00 / 8 | 1.00 / 0 | .65 / 0 | -0.35 [-0.57, -0.17] |
+| Family (cases) | Gold in top-10 (unfiltered retrieval) | N1: fail strict → equiv. / **critical** | filter (N1P): fail strict → equiv. / critical | governance (A): fail / critical | A minus N1 (strict), 95% CI |
+|---|---|---|---|---|---|
+| wrong-version (135) | .82 | .84 → .57 / **48** | .20 → .20 / 0 | .81 / 0 | -0.02 [-0.12, +0.08] |
+| stale / not-yet-effective (134) | .82 | .78 → .56 / **45** | .69 → .38 / 24 | .87 / 0 | +0.09 [-0.01, +0.20] |
+| ACL exposure (131) | .81 | .80 → .60 / **49** | .22 → .22 / 0 | .76 / 0 | -0.04 [-0.13, +0.06] |
+| constructed abstention (23; meets the registered floor: 23 cases, 20 clusters) | 0 by construction | 1.00 → 1.00 / **8** | 1.00 → 1.00 / 0 | .65 / 0 | -0.35 [-0.57, -0.17] |
 
-- **Governance (A) had 0 critical failures in 423 cases; plain top-1 retrieval (N1) had 150.**
+"Fail strict" counts any page other than the gold; "equiv." (registered sensitivity, Amendment 4) treats a near-identical other version of the same page as correct. **The critical count is the honest headline:** a critical failure needs a listed distractor with significantly different text, so it is not an artefact of near-identical versions tying in the ranking.
+
+- **Plain top-1 retrieval (N1) presented a critical-error page (wrong version, superseded or not yet effective) in 150 of 423 held-out cases (35%); governance (A) in 0.** About half of N1's non-critical failures (the part of the "~0.8 failure" that is not a critical error) are near-identical sibling versions returned instead of the gold (strict .78-.84 falls to .56-.60 under the equivalence sensitivity).
 - **A is not more accurate than N1** (intervals include zero in the first three families) and abstains in most cases; a known flaw in its conflict rule contributes.
 - **A metadata pre-filter beats A on clean metadata** for wrong-version and ACL cases. This is partly by construction because expectations come from the same fields.
 - **Under degraded metadata** (registered G2 sweep, dev split): governance clearly lowers risk at matched coverage when values are *corrupted*, and is not reliably different from the open metadata filter under heavy *drop*. The registered rule returns **FALSE** for the lead-style primary run (the title-style run, which ran by mistake first, returned TRUE; both are published).
 
-> **Prevalence caveat.** The ~0.8 failure rate for plain top-1 retrieval is for a version-blind retriever over an index holding every release (5-7 versions per page). Deployments that index one version or filter by version and date would see far less of this; the plain metadata filter above gives 0.20-0.22. Read the headline as the cost of *not* filtering, not as a typical production rate. Full list of threats to validity: [docs/RESULTS_PUBLIC.md](docs/RESULTS_PUBLIC.md#prevalence-caveat-and-threats-to-validity-read-with-every-headline-number).
+> **Prevalence caveat.** The strict failure rate (.78-.84) and the critical share (about 35%) for plain top-1 retrieval are for a version-blind retriever over an index holding every release (5-7 versions per page); part of the strict rate is near-identical versions tying in the ranking (equivalence sensitivity: .56-.60). Deployments that index one version or filter by version and date would see far less of this; the plain metadata filter above gives 0.20-0.22. Absolute rates also depend on retrieval quality (gold in the top-10 for .81-.82 of cases here, .57-.64 with title queries on dev). Read the headline as the cost of *not* filtering, not as a typical production rate. Full list of threats to validity: [docs/RESULTS_PUBLIC.md](docs/RESULTS_PUBLIC.md#prevalence-caveat-and-threats-to-validity-read-with-every-headline-number).
 
 ### Confirmatory test on a fresh source (Django docs, S4)
 Registered before ingestion, run once on a pre-published digest (`f071b924…`), 165 held-out cases, label: **confirmatory test of post-hoc arms on a single source** (not G1, not a platform decision). Primary contrast: governance on top of the metadata filter (A2P) versus the filter alone (N1P).
@@ -54,11 +56,14 @@ Registered before ingestion, run once on a pre-published digest (`f071b924…`),
 | wrong-version (51) | .10 / 0 | .10 / 0 | 0.00 [0.00, 0.00] | non-inferiority only; identical outcomes |
 | version-unspecified (51) | .59 / 10 | .10 / 0 | −0.49 [−0.61, −0.35] | critical reduction and non-inferiority |
 | ACL exposure (50) | .10 / 0 | .10 / 0 | 0.00 [0.00, 0.00] | non-inferiority only; identical outcomes |
-| constructed abstention (13) | – | – | – | below the registered floor: inconclusive |
+| constructed abstention (13 cases, 13 clusters) | – | – | – | **below** the registered floor (20 cases, 15 clusters): inconclusive; S1/S2's constructed family meets it |
+
+On S4, plain top-1 retrieval (N1): critical 18/51, 21/51, 15/50; failure strict → equivalence-sensitivity .72 → .45, .78 → .51, .78 → .40; gold in the top-10 for .96 of cases in every family. The filter's version-unspecified failure also contains equivalents (.59 → .29, critical count unchanged at 10).
 
 Limits, registered in advance: the wrong-version and ACL families **cannot show a critical-failure reduction** (the filter already has none, by construction); the version-unspecified family's gold is **defined by the policy A2P implements**, so the result shows the rule behaves as specified, not that users want it; one source with 50–51 cases per family. Plain top-1 retrieval (N1) again had a 30–41% critical share, over an index holding five Django releases: **the cost of not filtering by version and date, not a production rate** (same prevalence caveat as above). The overall label is "Supported on F1–F3 (per-family reading)" and "Inconclusive under a literal reading of Amendment 13b.4"; both are stated in [`docs/RESULTS_PUBLIC.md`](docs/RESULTS_PUBLIC.md).
 
 ## What this does not show
+- **Dev and held-out are not independent by source.** Splits are by path cluster *within* each source (the Amendment 1.2 interpretation, forced by the 3-source requirement), so dev and held-out share source style. This is not source-level independence.
 - **G1 (the registered value gate) is not evaluable:** it needs at least 3 sources per class; there are 2, and wrong-version is inconclusive by construction.
 - Whether incumbent products already do this is **untested**; the benchmark cannot answer it.
 - Cases are mechanically generated from public docs and queries are derived from gold pages; real tickets differ.
@@ -71,6 +76,7 @@ Limits, registered in advance: the wrong-version and ACL families **cannot show 
 - The conflict rule treats several eligible distinct pages as a conflict (over-abstains on documentation corpora).
 - Sufficiency is not demonstrated by any arm; the lexical floor does not separate an on-topic near-duplicate from the answer.
 - Documents are the unit of evidence; no passage-level citations; BM25 with k=10 only.
+- **Short and untitled pages were left in the index** and are a known source of retrieval noise: 22.9% of Kubernetes files normalise to under 30 words and 9.1% have no front-matter title (extraction ledger in `docs/SOURCES.md`). They cannot be gold; excluding them would change the digest and the splits are spent, so they were not removed.
 - **The query style of the existing G2 degradation checkpoints rests on the directory name** (`results/g2_parts` = title queries, `results/g2_parts_lead` = lead queries; both are local, git-ignored working directories, not in this repository; the tracked outputs are the `results/public_G2_dev_summary*.json` files); the checkpoints do not record it, so the report script's style assertion cannot verify them. The first sweep ran with title queries by mistake (Amendment 12). No further G2 runs are planned, so this is accepted rather than fixed.
 See `docs/DECISIONS.md` (D20) and the [lifecycle/lineage policy](docs/LIFECYCLE_POLICY.md).
 
