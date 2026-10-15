@@ -187,7 +187,18 @@ At the heaviest degradation, A and A2 are 0.015 and 0.008 *worse* than the open 
 - Under `corrupt`, gaps are large and consistent (A: +0.08 to +0.19; A2: +0.11 to +0.25). Under `drop`, gaps are small and unstable, and they turn negative at the heaviest level.
 
 ## Reading
-1. **The rule fired as pre-registered.** The result is not "governance fails everywhere": 17 of 18 cells favour A and the failing one is a narrow margin at the most severe degradation. But the rule was fixed in advance with no tolerance, and it is applied as written. The outcome does not depend on how favourable the other cells are.
+1. **The rule fired as pre-registered.** The result is not "governance fails everywhere": A is lower-risk than both filters in 5 of 6 mode/level cells (11 of 12 pairwise comparisons; the same for A2), and the one failing cell is a narrow margin at the most severe `drop` level. But the rule was fixed in advance with no tolerance, and it is applied as written. The outcome does not depend on how favourable the other cells are.
 2. **What survives:** (a) lower critical-failure rates than a plain top-ranked retriever (N1) in every cell; (b) low *silent*-error rates under `drop` (A: 0.007-0.045 versus 0.51-0.80 for the filters), i.e. missing metadata is flagged, at a coverage cost (A answers 30-44%); (c) the lineage/lifecycle rule, whose effect is policy-defined.
 3. **What does not survive:** a claim that the governance rules answer *more correctly than a metadata filter* under heavy metadata loss. At matched coverage under `drop/50` they do not.
 4. **Not evidence for or against commercial value.** Dev split, synthetic degradation of fields the rules use, two sources, title/lead queries derived from gold pages.
+
+---
+# Plain-language statement of the G2 outcome (supersedes any looser wording above)
+- **Under `corrupt` metadata, governance clearly helps:** at matched coverage the risk is lower than both filters at every level (A vs the open filter: 0.404 vs 0.536 at level 10, 0.548 vs 0.704 at level 25, 0.727 vs 0.842 at level 50; i.e. lower by 0.13, 0.16 and 0.12), and all seed-level gaps are positive.
+- **Under heavy `drop` (level 50), governance is not reliably different from the open metadata filter:** matched-coverage risk A 0.748 vs 0.733 and A2 0.744 vs 0.736 (differences of +0.015 and +0.008, in the filter's favour); per-seed gaps for A vs the open filter are +0.001, -0.057 and +0.018 (mean -0.013), so even the sign is unstable. Against the closed filter, A and A2 are lower in 2 of 3 and 3 of 3 seeds respectively.
+- **The registered rule returns FALSE** because it requires every cell to be strictly lower. This is reported as written, not as "failed" and not as "mostly passed".
+
+# Scope statement: what this benchmark can and cannot say (read first)
+- **G1 is not evaluable.** It needs at least 3 sources per failure class on held-out data and at least 20 eligible cases. This benchmark has 2 sources (S1 Kubernetes docs, S2 PostgreSQL docs), and the wrong-version class has only those 2 versioned sources, so it is **inconclusive by construction**. The planned held-out run therefore tests the benchmark's own claims on a separate split; it is **not** a G1 verdict and will not be reported as one.
+- All case expectations are scripted from the same version/date metadata that the metadata filter uses, so F1 and F3 cannot separate filtering from governance on clean metadata. F2's gold is policy-defined. Approval state and ACLs are simulated. Queries are derived from gold pages.
+- Nothing here is evidence of production readiness, security assurance, compliance, practitioner demand or commercial value. Whether incumbent systems lack these behaviours is untested and needs the Amendment 10 inbound channel.
