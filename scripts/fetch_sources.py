@@ -67,15 +67,35 @@ def s2(out, mirror):
         print(f"S2 {ver}: {n} top-level .sgml files @ {want[:10]}")
 
 
+def s4(out):
+    """S4 Django docs (Amendment 13): depth-1, blob-less fetch of each pinned release-tag commit; docs/ only."""
+    c = CFG["sources"]["S4"]
+    bare = os.path.join(out, "django.git")
+    if not os.path.isdir(bare):
+        os.makedirs(bare, exist_ok=True)
+        git(bare, "init", "--bare", "-q")
+    for ver, sha in c["pinned_shas"].items():
+        if git(bare, "cat-file", "-t", sha, check=False) != "commit":
+            subprocess.run(["git", "--git-dir", bare, "fetch", "-q", "--depth", "1", "--filter=blob:none", c["repo"], sha], check=True)
+        if git(bare, "cat-file", "-t", sha, check=False) != "commit":
+            sys.exit(f"S4 {ver}: pinned commit {sha} not present after fetch")
+        dest = os.path.join(out, "s4", ver)
+        extract(bare, sha, "docs", dest)
+        for ex in c.get("exclude_prefixes", []):
+            shutil.rmtree(os.path.join(dest, ex.rstrip("/")), ignore_errors=True)
+        n = sum(f.endswith(".txt") for _, _, fs in os.walk(os.path.join(dest, "docs")) for f in fs)
+        print(f"S4 {ver}: {n} .txt files @ {sha[:10]} (excluded: {c.get('exclude_prefixes')})")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=os.path.join(ROOT, ".local_sources"))
     ap.add_argument("--pg-mirror", action="store_true")
-    ap.add_argument("--sources", default="S1,S2")
+    ap.add_argument("--sources", default="S1,S2", help="S1,S2,S4")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     for s in a.sources.split(","):
-        {"S1": lambda: s1(a.out), "S2": lambda: s2(a.out, a.pg_mirror)}[s]()
+        {"S1": lambda: s1(a.out), "S2": lambda: s2(a.out, a.pg_mirror), "S4": lambda: s4(a.out)}[s]()
     print("done. Next: python3 -I src/urag/gen/docs_gen.py S1 ; python3 -I src/urag/gen/docs_gen.py S2 ; git diff --exit-code data/public/")
 
 

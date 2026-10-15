@@ -13,7 +13,8 @@ LOCAL = os.path.join(ROOT, ".local_sources")
 SID = S = GIT = VERSIONS = None
 NEXT = {}
 META = {"S1": {"prefix": "k8s", "service": "kubernetes-docs", "git": "k8s-website.git", "dir": "s1"},
-        "S2": {"prefix": "pg", "service": "postgresql-docs", "git": "pg.git", "dir": "s2"}}
+        "S2": {"prefix": "pg", "service": "postgresql-docs", "git": "pg.git", "dir": "s2"},
+        "S4": {"prefix": "dj", "service": "django-docs", "git": "django.git", "dir": "s4"}}
 
 
 def configure(sid):
@@ -50,6 +51,26 @@ def parse(raw):
     return title, norm(body)
 
 
+_ADORN = set("=-~^\"'`#*+<>_:.")
+
+
+def parse_rst(raw):
+    """First section heading (underline, or over+underline) as title; body text normalized. Directives/roles dropped."""
+    lines = raw.splitlines()
+    title = None
+    for i in range(len(lines) - 1):
+        a, b = lines[i].rstrip(), lines[i + 1].rstrip()
+        if a and b and len(set(b)) == 1 and b[0] in _ADORN and len(b) >= max(3, len(a.strip())) and not a.lstrip().startswith(".."):
+            if len(set(a)) == 1 and a[0] in _ADORN:  # a is an overline; title is the next line
+                if i + 2 < len(lines) and lines[i + 2].strip() and len(set(lines[i + 2].strip())) > 1:
+                    title = lines[i + 1].strip(); break
+                continue
+            title = a.strip(); break
+    body = re.sub(r"^\s*\.\.\s+[\w:-]+::.*$", " ", raw, flags=re.M)      # directive lines
+    body = re.sub(r":[\w:+-]+:", " ", body)                                # role markers
+    return title, norm(body)
+
+
 def parse_sgml(raw):
     raw = re.sub(r"<!--.*?-->", " ", raw, flags=re.S)
     m = re.search(r"<title>(.*?)</title>", raw, re.S)
@@ -60,6 +81,9 @@ def parse_sgml(raw):
 
 def eff_from(v):
     ref = S["versions"][v]
+    if SID == "S4":  # committer date of the pinned release-tag commit
+        d = subprocess.check_output(["git", "--git-dir", GIT, "log", "-1", "--format=%cI", S["pinned_shas"][v]]).decode().strip()
+        return datetime.fromisoformat(d).astimezone(timezone.utc).replace(tzinfo=None).replace(microsecond=0)
     if SID == "S2":  # tag commit date
         d = subprocess.check_output(["git", "--git-dir", GIT, "log", "-1", "--format=%cI", f"refs/tags/{ref}"]).decode().strip()
         return datetime.fromisoformat(d).astimezone(timezone.utc).replace(tzinfo=None).replace(microsecond=0)
@@ -83,6 +107,16 @@ def load_canon():
         if SID == "S1":
             base = os.path.join(LOCAL, "s1", v, "content", "en", "docs")
             files = [os.path.join(dp, f) for dp, _, fs in os.walk(base) for f in fs if f.endswith(".md")]
+        elif SID == "S4":  # docs/**/*.txt minus registered exclusions (Amendments 13, 13c)
+            base = os.path.join(LOCAL, "s4", v, "docs")
+            ex_p, ex_f = S.get("exclude_prefixes", []), set(S.get("exclude_files", []))
+            files = []
+            for dp, _, fs in os.walk(base):
+                for f in fs:
+                    full = os.path.join(dp, f)
+                    rel_full = "docs/" + os.path.relpath(full, base).replace(os.sep, "/")
+                    if f.endswith(".txt") and rel_full not in ex_f and not any(rel_full.startswith(x) for x in ex_p):
+                        files.append(full)
         else:  # S2: top-level doc/src/sgml/*.sgml only (registered path_glob)
             base = os.path.join(LOCAL, "s2", v, "doc", "src", "sgml")
             files = [os.path.join(base, f) for f in os.listdir(base) if f.endswith(".sgml")]
@@ -90,7 +124,7 @@ def load_canon():
             if True:
                 rel = os.path.relpath(p, base)
                 raw = open(p, encoding="utf-8", errors="replace").read()
-                title, text = parse(raw) if SID == "S1" else parse_sgml(raw)
+                title, text = parse(raw) if SID == "S1" else (parse_rst(raw) if SID == "S4" else parse_sgml(raw))
                 docs[f"{pre}:{rel}@{v}"] = {"id": f"{pre}:{rel}@{v}", "path": rel, "version": v, "title": title, "text": text,
                                           "hash": hashlib.sha256(text.encode()).hexdigest()[:16], "next_release": NEXT[v].isoformat(),
                                           "effective_from": windows[v][0].isoformat(), "effective_to": windows[v][1].isoformat()}
