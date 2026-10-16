@@ -1,6 +1,6 @@
 # When top-ranked retrieval over versioned documentation is the wrong page, and what rule-based governance does about it
 
-*Written for engineers building retrieval-augmented systems over versioned or lifecycle-managed documents (runbooks, product docs, policies). It summarises a pre-registered benchmark; all numbers are in [`RESULTS_PUBLIC.md`](RESULTS_PUBLIC.md), the registered design and its 13+ dated amendments in [`PREREGISTRATION.md`](PREREGISTRATION.md). This is a research artifact, not a product, and nothing here is evidence of production readiness, security assurance, compliance, practitioner demand or commercial value.*
+*Written for engineers building retrieval-augmented systems over versioned or lifecycle-managed documents (runbooks, product docs, policies). It summarises a pre-registered benchmark; all numbers are in [`RESULTS_PUBLIC.md`](RESULTS_PUBLIC.md), the registered design and its 13 numbered amendments in [`PREREGISTRATION.md`](PREREGISTRATION.md). This is a research artifact, not a product, and nothing here is evidence of production readiness, security assurance, compliance, practitioner demand or commercial value.*
 
 ## The limited result, first
 - **Governance did not make answers more accurate.** On held-out data, a rule-based "governance" arm had no better failure rate than ACL-filtered top-1 retrieval (the intervals include zero), and it left most queries unanswered.

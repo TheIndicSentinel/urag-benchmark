@@ -9,9 +9,11 @@ This is a research artifact, not a product. Nothing here is evidence of producti
 ## What is in here
 | Path | Contents |
 |---|---|
-| `docs/PREREGISTRATION.md` | The registered question, arms, gates, and 12+ dated amendments. Amendments are append-only. |
+| `docs/PREREGISTRATION.md` | The registered question, arms, gates, and 13 numbered amendments (19 dated sections including the lettered ones). Amendments are append-only. |
 | `docs/RESULTS_PUBLIC.md` | Every result, including the deviations and negative findings |
 | `docs/WRITEUP.md` | Narrative write-up for engineers building RAG over versioned documentation |
+| `docs/SUMMARY_ONE_PAGE.md` | One-page summary: question, result, limits |
+| `docs/V2_PROPOSAL.md` | Planning document for possible follow-ups (nothing started) |
 | `docs/LIFECYCLE_POLICY.md` | The lifecycle/lineage policy arm A implements |
 | `docs/DECISIONS.md` | Decision and risk log |
 | `configs/generator.json` | Registered seeds, thresholds and sources for case generation |
