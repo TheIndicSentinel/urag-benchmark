@@ -1,4 +1,4 @@
-date,interview_id,role,org_type,category,statement,incident_ref,assumption_tag,confidence,follow_up
+date,interview_id,role,org_type,category,statement,incident_ref,assumption_tag,confidence,follow_up,reply_ref,venue,reply_date,counts_for_g4
 # category = fact | estimate | opinion | open_question
 # fact: directly observed or documented in the interviewee's account of a specific incident
 # estimate: interviewee's quantified guess (state basis in statement)
@@ -6,3 +6,8 @@ date,interview_id,role,org_type,category,statement,incident_ref,assumption_tag,c
 # open_question: needs follow-up or verification
 # assumption_tag: A1-A7 from docs/PLAN.md, or "falsifier" if it contradicts one
 # interview_id: anonymous (e.g. I-01); no names, employers, or customer identifiers
+# reply_ref: R-01, R-02... one per reply (a person, interview_id, can send several replies)
+# venue: the venue name exactly as in PUBLICATION_LOG.md
+# reply_date: the date the reply was posted (the G4 window test uses this, not the date it was logged)
+# counts_for_g4: pending | yes | no | demo. Set yes only after the qualifying test (Amendment 10.3) AND reply_date in [P, P+28d]. demo = synthetic dry-run row, excluded from every count
+# NOTE: to create a local log, copy ONLY line 1 of this file (the header), and only if the local file does not already exist: [ -e evidence_log.local.csv ] || head -1 evidence_log.template.csv > evidence_log.local.csv

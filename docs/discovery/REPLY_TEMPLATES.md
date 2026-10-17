@@ -1,6 +1,6 @@
 # Reply templates (prepared 2026-10-16; for use only on feedback the owner forwards)
 
-All replies: roles only, no names; **never ask for contact details**; never ask for anything confidential; never solicit votes or stars; keep claims no stronger than the README; do not describe the work as a product or as evidence of demand. Replies in public threads are visible to everyone, so do not quote private messages without consent (Amendment 10.6).
+Drafts are stored in the git-ignored `docs/discovery/replies.local.md` and are never sent by the assistant. All replies: roles only, no names; **never ask for contact details**; never ask for anything confidential; never solicit votes or stars; keep claims no stronger than the README; do not describe the work as a product or as evidence of demand. Replies in public threads are visible to everyone, so do not quote private messages without consent (Amendment 10.6).
 
 ## A. A real incident account (the kind that can qualify under Amendment 10.3)
 > Thank you, this is useful. I only want to understand what happened, so please skip anything confidential or identifying.
@@ -35,3 +35,6 @@ All replies: roles only, no names; **never ask for contact details**; never ask 
 
 ## F. A request to appear, be quoted, or collaborate
 > Thanks, I would rather keep this simple: I am recording replies by role only and not quoting anyone. For anything beyond that I would need to think about scope; for now the artifact is complete and I am not starting new work.
+
+## G. A reply that volunteers an email address, an employer, a username or other identifying detail
+Do not copy it into any log, do not repeat it in your reply, and do not contact anyone through it unless they explicitly invited a private follow-up (then keep it out of every file). In a public thread you may add: "Thanks. For your own privacy you may want to edit out identifying details; I only record roles." Then treat the substance as type A.
